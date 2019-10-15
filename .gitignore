@@ -1,0 +1,30 @@
+# Editor temp files
+.sw[po]
+.*.sw[po]
+*~
+
+# MSVC files
+Debug/
+Release/
+ipch/
+*.suo
+*.sdf
+*.opensdf
+
+# Build files
+*.[oa]
+*.l[oa]
+*.d
+.dirstamp
+.libs/
+.deps/
+
+# Eclipse project files
+/.autotools
+/.cproject
+/.project
+/.settings
+
+# Netbeans project files
+/nbproject/
+
