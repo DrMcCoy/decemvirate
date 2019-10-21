@@ -53,6 +53,16 @@ Makefile.in
 /m4/pkg.m4
 /stamp-h1
 
+# CMake temp files
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+/CMakeUninstall.cmake
+/install_manifest.txt
+/bin/
+/doc/rules.mk.cmake
+/src/rules.mk.cmake
+
 # Unix binary
 /src/decemvirate
 
