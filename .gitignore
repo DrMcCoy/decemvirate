@@ -28,3 +28,8 @@ ipch/
 # Netbeans project files
 /nbproject/
 
+# Unix binary
+/src/decemvirate
+
+# Windows binary
+/src/decemvirate.exe
