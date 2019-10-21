@@ -256,6 +256,17 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 # Find the required libraries
 set(DECEMVIRATE_LIBRARIES "")
 
+# pthread
+if(NOT "${CMAKE_CXX_COMPILER_ID}" MATCHES "MinGW")
+  find_package(Threads)
+endif()
+
+set(HAVE_PTHREAD ${CMAKE_USE_PTHREADS_INIT})
+if(CMAKE_USE_PTHREADS_INIT)
+  set(PTHREAD_LIBS ${CMAKE_THREAD_LIBS_INIT})
+  list(APPEND DECEMVIRATE_LIBRARIES ${PTHREAD_LIBS})
+endif()
+
 
 # -------------------------------------------------------------------------
 # Decemvirate main targets, parsed from the Automake rules.mk files

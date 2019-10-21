@@ -66,3 +66,14 @@ Further data sources:
    - Pathfinder Reference Document: <http://legacy.aonprd.com/>
    - DPRD: <http://prd.5footstep.de/>
    - MyPFDB: <https://www.ulisses-ebooks.de/browse.php?keywords=MyPFDB>
+
+
+
+mingw-std-threads
+*****************
+   Decemvirate uses and includes the header-only mingw-std-threads library
+   (<https://github.com/meganz/mingw-std-threads/>) as an alternative to
+   libwinpthread for C++11 std::thread in MinGW builds. mingw-std-threads
+   is licensed under the terms of the 2-clause BSD license. For the full
+   text, see external/mingw-std-threads/LICENSE or
+   <https://github.com/meganz/mingw-std-threads/blob/master/LICENSE>.

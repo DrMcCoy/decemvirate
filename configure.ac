@@ -189,6 +189,10 @@ if test "x$with_release" != "xno"; then
 	fi
 fi
 
+dnl pthread
+AX_PTHREAD()
+AM_CONDITIONAL([HAVE_PTHREAD], [test x"$ax_pthread_ok" = xyes])
+
 dnl Extra flags
 case "$target" in
 	*darwin*)

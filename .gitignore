@@ -61,6 +61,7 @@ Makefile.in
 /install_manifest.txt
 /bin/
 /doc/rules.mk.cmake
+/external/rules.mk.cmake
 /src/rules.mk.cmake
 
 # Unix binary

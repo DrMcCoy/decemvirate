@@ -17,22 +17,17 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Top-level automake build recipe.
+# mingw-std-threads (<https://github.com/meganz/mingw-std-threads/>).
 
-# Extra files to help with the sources
-EXTRA_DIST += \
-    .uncrustifyrc \
+noinst_HEADERS += \
+    external/mingw-std-threads/mingw.condition_variable.hpp \
+    external/mingw-std-threads/mingw.future.hpp \
+    external/mingw-std-threads/mingw.mutex.hpp \
+    external/mingw-std-threads/mingw.shared_mutex.hpp \
+    external/mingw-std-threads/mingw.thread.hpp \
     $(EMPTY)
 
-# Extra autotools files
 EXTRA_DIST += \
-    autogen.sh \
+    external/mingw-std-threads/README.md \
+    external/mingw-std-threads/LICENSE \
     $(EMPTY)
-
-# Subdirectories
-
-include doc/rules.mk
-
-include external/rules.mk
-
-include src/rules.mk

@@ -74,6 +74,14 @@ FLAGS_WARN  = $(WARN) $(WERROR)
 FLAGS       = $(FLAGS_DIR) $(FLAGS_DEBUG) $(FLAGS_STD) \
               $(FLAGS_OPT) $(FLAGS_WARN)
 
+# Use pthread, if we can (not supported with MinGW)
+if HAVE_PTHREAD
+if !WIN32
+FLAGS += $(PTHREAD_CFLAGS)
+LIBSL += $(PTHREAD_LIBS)
+endif
+endif
+
 # Putting it all together...
 
 AM_CXXFLAGS = $(FLAGS) $(LIBSF)

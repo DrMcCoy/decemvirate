@@ -17,22 +17,6 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Top-level automake build recipe.
+# Third-party code.
 
-# Extra files to help with the sources
-EXTRA_DIST += \
-    .uncrustifyrc \
-    $(EMPTY)
-
-# Extra autotools files
-EXTRA_DIST += \
-    autogen.sh \
-    $(EMPTY)
-
-# Subdirectories
-
-include doc/rules.mk
-
-include external/rules.mk
-
-include src/rules.mk
+include external/mingw-std-threads/rules.mk
