@@ -1,0 +1,1191 @@
+OPEN GAME LICENSE Version 1.0a
+
+The following text is the property of Wizards of the Coast Inc. and is
+Copyright 2000 Wizards of the Coast, Inc ("Wizards"). All Rights Reserved.
+
+1. Definitions (a) "Contributors" means the copyright and/or trademark owners
+who have contributed Open Game Content; (b) "Derivative Material" means
+copyrighted material including derivative works and translations (including
+into other computer languages), potation, modification, correction, addition,
+extension, upgrade, improvement, compilation, abridgment or other form in which
+an existing work may be recast, transformed or adapted; (c) "Distribute" means to
+reproduce, license, rent, lease, sell, broadcast, publicly display, transmit or
+otherwise distribute; (d) "Open Game Content" means the game mechanic and
+includes the methods, procedures, processes and routines to the extent such
+content does not embody the Product Identity and is an enhancement over the
+prior art and any additional content clearly identified as Open Game Content by
+the Contributor, and means any work covered by this License, including
+translations and derivative works under copyright law, but specifically
+excludes Product Identity. (e) "Product Identity" means product and product
+line names, logos and identifying marks including trade dress; artifacts,
+creatures, characters, stories, storylines, plots, thematic elements, dialogue,
+incidents, language, artwork, symbols, designs, depictions, likenesses,
+formats, poses, concepts, themes and graphic, photographic and other visual or
+audio representations; names and descriptions of characters, spells,
+enchantments, personalities, teams, personas, likenesses and special abilities;
+places, locations, environments, creatures, equipment, magical or supernatural
+abilities or effects, logos, symbols, or graphic designs; and any other
+trademark or registered trademark clearly identified as Product identity by the
+owner of the Product Identity, and which specifically excludes the Open Game
+Content; (f) "Trademark" means the logos, names, mark, sign, motto, designs
+that are used by a Contributor to identify itself or its products or the
+associated products contributed to the Open Game License by the Contributor (g)
+"Use", "Used" or "Using" means to use, Distribute, copy, edit, format, modify,
+translate and otherwise create Derivative Material of Open Game Content. (h)
+"You" or "Your" means the licensee in terms of this agreement.
+
+2. The License This License applies to any Open Game Content that contains a
+notice indicating that the Open Game Content may only be Used under and in
+terms of this License. You must affix such a notice to any Open Game Content
+that you Use. No terms may be added to or subtracted from this License except
+as described by the License itself. No other terms or conditions may be applied
+to any Open Game Content distributed using this License.
+
+3. Offer and Acceptance By Using the Open Game Content You indicate Your
+acceptance of the terms of this License.
+
+4. Grant and Consideration In consideration for agreeing to use this License,
+the Contributors grant You a perpetual, worldwide, royalty-free, non-exclusive
+license with the exact terms of this License to Use, the Open Game Content.
+
+5. Representation of Authority to Contribute If You are contributing original
+material as Open Game Content, You represent that Your Contributions are Your
+original creation and/or You have sufficient rights to grant the rights
+conveyed by this License.
+
+6. Notice of License Copyright You must update the COPYRIGHT NOTICE portion of
+this License to include the exact text of the COPYRIGHT NOTICE of any Open Game
+Content You are copying, modifying or distributing, and You must add the title,
+the copyright date, and the copyright holder's name to the COPYRIGHT NOTICE of
+any original Open Game Content you Distribute.
+
+7. Use of Product Identity You agree not to Use any Product Identity, including
+as an indication as to compatibility, except as expressly licensed in another,
+independent Agreement with the owner of each element of that Product Identity.
+You agree not to indicate compatibility or co-adaptability with any Trademark
+or Registered Trademark in conjunction with a work containing Open Game Content
+except as expressly licensed in another, independent Agreement with the owner
+of such Trademark or Registered Trademark. The use of any Product Identity in
+Open Game Content does not constitute a challenge to the ownership of that
+Product Identity. The owner of any Product Identity used in Open Game Content
+shall retain all rights, title and interest in and to that Product Identity.
+
+8. Identification If you distribute Open Game Content You must clearly indicate
+which portions of the work that you are distributing are Open Game Content.
+
+9. Updating the License Wizards or its designated Agents may publish updated
+versions of this License. You may use any authorized version of this License to
+copy, modify and distribute any Open Game Content originally distributed under
+any version of this License.
+
+10. Copy of this License You MUST include a copy of this License with every
+copy of the Open Game Content You distribute.
+
+11. Use of Contributor Credits You may not market or advertise the Open Game
+Content using the name of any Contributor unless You have written permission
+from the Contributor to do so.
+
+12. Inability to Comply If it is impossible for You to comply with any of the
+terms of this License with respect to some or all of the Open Game Content due
+to statute, judicial order, or governmental regulation then You may not Use any
+Open Game Material so affected.
+
+13. Termination This License will terminate automatically if You fail to comply
+with all terms herein and fail to cure such breach within 30 days of becoming
+aware of the breach. All sublicenses shall survive the termination of this
+License.
+
+14. Reformation If any provision of this License is held to be unenforceable,
+such provision shall be reformed only to the extent necessary to make it
+enforceable.
+
+15. COPYRIGHT NOTICE
+
+Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+
+System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors
+Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax
+and Dave Arneson.
+
+Pathfinder RPG Core Rulebook. Copyright 2014, Paizo Inc.; Author: Jason
+Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+Deutsche Ausgabe Pathfinder Grundregelwerk © 2014 Ulisses Spiele GmbH unter
+Lizenz von Paizo Inc.
+
+Advanced Player’s Guide Copyright 2010, Paizo Publishing, LLC; Author: Jason
+Bulmahn. Deutsche Ausgabe: Pathfinder Expertenregeln von Ulisses Spiele GmbH,
+Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Roleplaying Game Ultimate Magic. © 2011, Paizo Publishing, LLC;
+Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason
+Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and
+Russ Taylor. Deutsche Ausgabe: Pathfinder Ausbauregeln von Ulisses Spiele GmbH,
+Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Roleplaying Game Ultimate Combat. © 2011, Paizo Publishing, LLC;
+Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason
+Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and
+Russ Taylor. Deutsche Ausgabe: Pathfinder Ausbauregeln II - Kampf von Ulisses
+Spiele GmbH, Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Roleplaying Game Advanced Race Guide © 2012, Paizo Publishing, LLC;
+Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Adam
+Daigle, Jim Groves, Tim Hitchcock, Hal MacLean, Jason Nelson, Stephen
+Radney-MacFarland, Owen K.C. Stephens, Todd Stewart, and Russ Taylor. Deutsche
+Fassung: Pathfinder Ausbauregeln III: Völker von Ulisses Spiele GmbH, Waldems
+unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Chronicles Campaign Setting, © 2008, 2009, Paizo Publishing, LLC;
+Author: Mike McArtor, et al. Deutsche Ausgabe © 2009 Ulisses Spiele GmbH,
+Waldems.
+
+Pathfinder Campaign Setting: The Inner Sea World Guide, © 2011, Paizo
+Publishing, LLC; Authors: Keith Baker, Wolfgang Baur, Clinton J. Boomer, Jason
+Bulmahn, Joshua J. Frost, Ed Greenwood, Stephen S. Greer, Jeff Grubb, James
+Jacobs, Michael Kortes, Tito Leati, Mike McArtor, Rob McCreary, Erik Mona,
+Jason Eric Nelson, Jeff Quick, Sean K Reynolds, F. Wesley Schneider, Leandra
+Christine Schneider, David Schwartz, Amber E. Scott, Stan!, Owen K.C. Stephens,
+Todd Stewart, James L. Sutter, Greg A. Vaughan, Jeremy Walker, and JD Wiker.
+Deutsche Ausgabe: Pathfinder Weltenband der Inneren Seevon Ulisses Spiele GmbH,
+Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Roleplaying Game Advanced Class Guide © 2014, Paizo Inc.; Authors:
+Dennis Baker, Ross Byers, Jesse Benner, Savannah Broadway, Jason Bulmahn, Jim
+Groves, Tim Hitchcock, Tracy Hurley, Jonathan H. Keith, Will McCardell, Dale C.
+McCoy, Jr., Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Sean K
+Reynolds, Tork Shaw, Owen K.C. Stephens, and Russ Taylor. Deutsche Ausgabe
+Ausbauregeln VI: Klassen © 2015 von Ulisses Spiele GmbH, Waldems, unter Lizenz
+von Paizo Inc., USA
+
+Pathfinder Campaign Setting: Aquatic Adventures © 2017, Paizo Inc.; Authors:
+Amber E. Scott and Mark Seifter. Deutsche Ausgabe Pathfinder Almanach der
+Ozeane Golarions © 2017 von Ulisses Spiele GmbH
+
+Pathfinder Campaign Setting: Horsemen of the Apocalypse: Book of the Damned,
+Vol. 3 © 2011, Paizo Inc.; Author: Todd Stewart. Deutsche Ausgabe Buch der
+Verdammten III: Abaddon © 2015 Ulisses Spiele GmbH, Waldems, unter Lizenz von
+Paizo Inc., USA.
+
+Pathfinder Campaign Setting: Inner Sea Intrigue © 2016, Paizo Inc.; Authors:
+David N. Ross, with Ross Byers. Deutsche Ausgabe Almanach der Intrigen © 2017
+von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Campaign Setting: Inner Sea Magic. © 2011, Paizo Publishing, LLC;
+Authors: Jesse Benner, Jason Nelson, Sean K Reynolds, Owen K.C. Stephens, Russ
+Taylor. Deutsche Ausgabe: Almanach der Magie Golarions © 2013 von Ulisses
+Spiele GmbH, Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Campaign Setting: Inner Sea Races © 2015, Paizo Inc.; Authors: Ross
+Byers, John Compton, Adam Daigle, Crystal Frasier, Matthew Goodall, Alex
+Greenshields, James Jacobs, Amanda Hamon Kunz, Ron Lundeen, Rob McCreary,
+Jessica Preis, David N. Ross, Owen K.C. Stephens, James L. Sutter, Russ Taylor,
+and Jerome Virnich. Deutsche Ausgabe Völker von Golarion © 2016 von Ulisses
+Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Campaign Setting: Numeria, Land of Fallen Stars © 2014, Paizo Inc.;
+Authors: Jim Groves and Russ Taylor. Deutsche Ausgabe Almanach der Okkulten
+Geheimnisse © 2015 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo
+Inc., USA.
+
+Pathfinder Campaign Setting: Path of the Hellknight © 2016, Paizo Inc.; Author:
+F. Wesley Schneider. Deutsche Ausgabe Pathfinder - Almanach der Höllenritter ©
+2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA
+
+Pathfinder Campaign Setting: Pathfinder Society Field Guide. © 2011, Paizo
+Publishing, LLC. Authors: Erik Mona, Mark Moreland, Russ Taylor, and Larry
+Wilhelm. Deutsche Ausgabe: Almanach der Kundscha er II von Ulisses Spiele GmbH,
+Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Campaign Setting: Planes of Power © 2016, Paizo Inc.; Authors: John
+Compton, Paris Crenshaw, Eleanor Ferron, Thurston Hillman, and Jessica Price.
+Deutsche Ausgabe Pathfinder – Almanach der Elementarebenen © 2017 von Ulisses
+Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA
+
+Pathfinder Campaign Setting: Qadira, Jewel of the East © 2016, Paizo Inc.;
+Authors: Jessica Price, with John Compton. Deutsche Ausgabe Pathfinder Almanach
+zu Qadira © 2018 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Campaign Setting: The First World, Realm of the Fey © 2016, Paizo
+Inc.; Author: James L. Sutter. Deutsche Ausgabe Almanach der Ersten Welt © 2017
+von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Chronicles: Princes of Darkness, Book of the Damned Vol. I. © 2009,
+Paizo Publishing, LLC; Author: F. Wesley Schneider. Deutsche Ausgabe: Buch der
+Verdammten: Hölle © 2012 von Ulisses Spiele GmbH, Waldems unter Lizenz von
+Paizo Publishing, LLC., USA.
+
+Pathfinder Chronicles: Seekers of Secrets. © 2009, Paizo Publishing, LLC;
+Authors: Tim Hitchcock, Erik Mona, Sean K Reynolds, James L. Sutter, and Russ
+Taylor. Deutsche Ausgabe: Almanach der Kundschafter © 2012 von Ulisses Spiele
+GmbH, Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Companion: Andoran, Spirit of Liberty. © 2010, Paizo Publishing,
+LLC; Authors: Jonathan Keith, Hal Maclean, Colin Moulder-McComb, Jason Nelson,
+and Hank Woon. Deutsche Ausgabe: Andoran, Geist der Freiheit von Ulisses Spiele
+GmbH, Waldems unter Lizenz von Paizo Publishing, LLC, USA.
+
+Pathfinder Companion: Cheliax, Empire of Devils. © 2009, Paizo Publishing, LLC;
+Authors: Jonathan H. Keith, Colin McComb, Steven E. Schend, Leandra Christine
+Schneider, and Amber E. Scott. Deutsche Ausgabe Pathfinder Handbuch: Cheliax,
+Imperium der Teufel © 2010 Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo
+Publishing, LLC.
+
+Pathfinder Companion: Dwarves of Golarion. © 2009, Paizo Publishing, LLC;
+Authors: David A. Eitelbach, Russ Taylor, JD Wiker, Keri Wiker, and Hank Woon.
+Deutsche Ausgabe Die Zwerge Golarions © 2010 Ulisses Spiele GmbH unter Lizenz
+von Paizo Publishing, LLC
+
+Pathfinder Companion: Gnomes of Golarion. © 2010, Paizo Publishing, LLC;
+Authors: Hal Maclean, Colin McComb, Mark Moreland, Jeff Quick, Sean K Reynolds,
+Steven Schend and Owen K. C. Stephens. Deutsche Ausgabe: Die Gnome Golarions
+von Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Companion: Orcs of Golarion. © 2010, Paizo Publishing, LLC; Authors:
+Steve Kenson, Rob McCreary, Richard Pett, Sean K Reynolds, and JD Wiker.
+Deutsche Ausgabe: Die Orks Golarionsvon Ulisses Spiele GmbH, Waldems unter
+Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Companion: Osirion, Land of Pharaohs, © 2008, Paizo Publishing, LLC;
+Authors: Jason Nelson and Todd Stewart. Deutsche Ausgabe Pathfinder Handbuch:
+Osirion - Land der Pharaonen © 2011 Ulisses Spiele GmbH, Waldems unter Lizenz
+von Paizo Publishing, LLC.
+
+Pathfinder Companion: Sargava, the Lost Colony. © 2010, Paizo Publishing, LLC;
+Author: JD Wiker. Deutsche Ausgabe: Sargava, die Verlorene Kolonie © 2010
+Ulisses Spiele GmbH.
+
+Pathfinder Companion: Taldor, Echoes of Glory. © 2010, Paizo Publishing, LLC;
+Author: Joshua J. Frost. Deutsche Ausgabe: Taldor, Nachhall des Ruhms von
+Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Handbuch: Gewölbeforscher & Drachentöter © 2014, Ulisses Spiele
+GmbH, Waldems unter Lizenz von Paizo Publishing, LLC., USA.
+
+Pathfinder Player Companion: Advanced Class Origins © 2014, Paizo Inc.;
+Authors: Dennis Baker, Ross Byers, Tom Phillips, Stephen Radney-MacFarland, and
+Owen K.C. Stephens. Deutsche Ausgabe Neue Helden Golarions © 2015 von Ulisses
+Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Adventurer’s Armory 2 © 2017, Paizo Inc.; Authors:
+Jenny Jarzabski, Mikko Kallio, Isabelle Lee, Luis Loza, Joe Pasini, David N.
+Ross, and Linda Zayas-Palmer. Deutsche Ausgabe Pathfinder Handbuch Abenteurers
+Rüstkammer II © 2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo
+Inc., USA.
+
+Pathfinder Player Companion: Animal Archive © 2013, Paizo Inc.; Authors: Amanda
+Hamon, Philip Minchin, Jason Nelson, Patrick Renie, Owen K.C. Stephens, and
+Christina Stiles. Deutsche Ausgabe Pathfinder Handbuch: Tiere & Tiergefährten ©
+2015 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Arcane Anthology © 2016, Paizo Inc.; Authors:
+Alexander Augunas, Steven T. Helt, and David N. Ross. Deutsche Ausgabe
+Pathfinder-Handbuch Arkanes Wissen © 2016 von Ulisses Spiele GmbH, Waldems,
+unter Lizenz von Paizo Inc., USA
+
+Pathfinder Player Companion: Armor Master’s Handbook © 2016, Paizo Inc.;
+Authors: Alexander Augunas, Robert Brookes, Anthony Li, Luis Loza, and David
+Schwartz. Deutsche Ausgabe Handbuch Rüstungsexperten © 2016 von Ulisses Spiele
+GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Black Markets © 2015, Paizo Inc.; Authors: Ron
+Lundeen, Jason Nelson, David N. Ross, and David Schwartz. Deutsche Ausgabe
+Handbuch Schwarzmärkte © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz
+von Paizo Inc., USA
+
+Pathfinder Player Companion: Blood of Shadows © 2016, Paizo Inc.; Authors:
+Alexander Augunas, Steven T. Helt, Luis Loza, and Ron Lundeen. Deutsche Ausgabe
+Pathfinder Handbuch Vermächtnis der Schatten © 2018 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Blood of the Ancients © 2018, Paizo Inc.; Authors:
+John Compton, Andrew Hoskins, James Jacobs, Mikko Kallo, Alex Riggs, Stephen
+Rowe, and Jeffrey Swank. Deutsche Ausgabe Pathfinder Handbuch Vermächtnis der
+Alten © 2018 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Player Companion: Blood of the Beast © 2016, Paizo Inc.; Authors:
+Alexander Augunas, John Compton, and Crystal Frasier.
+
+Pathfinder Player Companion: Blood of the Coven © 2017, Paizo Inc.; Authors:
+John Compton, Eleanor Ferron, Crystal Frasier, Lissa Guillet, Elisa Mader,
+Adrian Ng, Mark Seifter, and Linda Zayas-Palmer. Deutsche Ausgabe
+
+Pathfinder Handbuch Vermächtnis der Vetteln © 2018 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Blood of the Sea © 2017, Paizo Inc.; Author: Amber
+E. Scott. Deutsche Ausgabe
+
+Pathfinder Handbuch Vermächtnis der Ozeane © 2017 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc.
+
+Pathfinder Player Companion: Champions of Balance © 2014, Paizo Publishing,
+LLC; Authors: Matt Goodall, Ron Lundeen, Philip Minchin, Patrick Renie, Jason
+Ridler, and David Schwartz. Deutsche Ausgabe Pathfinder Handbuch Streiter des
+Gleichgewichts © 2018 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo
+Inc., USA.
+
+Pathfinder Player Companion: Champions of Purity © 2013, Paizo Inc.; Authors:
+Jessica Blomstrom, Adam Daigle, Shaun Hocking, Daniel Marthaler, Tork Shaw, and
+Christina Stiles. (Donner des Himmels)
+
+Pathfinder Player Companion: Champions of Purity © 2013, Paizo Publishing, LLC;
+Authors: Jessica Blomstrom, Adam Daigle, Shaun Hocking, Daniel Marthaler, Tork
+Shaw, and Christina Stiles.
+
+Pathfinder Player Companion: Cohorts and Companions © 2015, Paizo Inc.;
+Authors: Brian Duckwitz, Philip Minchin, and Jason Nelson. Deutsche Ausgabe
+Gefolgsleute und Anhänger © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz
+von Paizo Inc., USA.
+
+Pathfinder Player Companion: Demon Hunter’s Handbook © 2014, Paizo Inc. All
+Rights Reserved. Paizo, Paizo Inc., the Paizo golem logo, Pathfinder,
+Pathfinder Society, and GameMastery are registered trademarks of Paizo Inc.;
+
+Pathfinder Adventure Card Game, Pathfinder Adventure Path, Pathfinder Campaign
+Setting, Pathfinder Cards, Pathfinder Flip-Mat, Pathfinder Map Pack, Pathfinder
+Module, Pathfinder Pawns, Pathfinder Player Companion,
+
+Pathfinder Roleplaying Game, Pathfinder Tales, and Rise of the Runelords are
+trademarks of Paizo Inc. © 2014 Deutsche Ausgabe Ulisses Spiele GmbH, Waldems,
+unter Lizenz von Paizo Inc., USA. Alle Rechte vorbehalten.
+
+Pathfinder Player Companion: Disciple’s Doctrine © 2018, Paizo Inc.; Authors:
+Saif Ansari, Mara Lynn Butler, Jeffrey Hersh, Andrew Hoskins, Lyz Liddell, Luis
+Loza, and Linda Zayas-Palmer. Deutsche Ausgabe Pathfinder Handbuch Verborgene
+Kulte © 2018 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Player Companion: Divine Anthology © 2016, Paizo Inc.; Authors:
+Alexander Augunas, Russ Brown, John Compton, Alex Riggs, and David Ross.
+Deutsche Ausgabe Handbuch Göttliches Wissen © 2016 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Dragon Empires Primer © 2011, Paizo Publishing,
+LLC; Authors: Tim Hitchcock and Colin McComb.
+
+Pathfinder Player Companion: Dragonslayer’s Handbook © 2013, Paizo Publishing,
+LLC; Authors: Shaun Hocking, Marie Small, and Jerome Virnich.
+
+Pathfinder Player Companion: Dungeoneer’s Handbook © 2013, Paizo Publishing,
+LLC; Authors: Amanda Hamon, Gareth Hanrahan, David Ross, and Jerome Virnich.
+
+Pathfinder Player Companion: Elemental Master’s Handbook © 2017, Paizo Inc.;
+Authors: John Compton, Eleanor Ferron, Mikko Kallio, Jason Keeley, Isabelle
+Lee, and Christopher Wasko. Deutsche Ausgabe Pathfinder Handbuch Meister der
+Elemente © 2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Player Companion: Faiths & Philosophies © 2013, Paizo Inc.; Authors:
+Savannah Broadway, Paris Crenshaw, Neall Raemonn Preis, David Ross, Owen K. C.
+Stepehens, and James L. Sutter.
+
+Pathfinder Player Companion: Faiths & Philosophies © 2013, Paizo Inc.; Authors:
+Savannah Broadway, Paris Crenshaw, Neall Raemonn Price, David Ross, Owen K. C.
+Stephens, and James L. Sutter. (Glaubenstrotz, Glaubensverweigerer)
+
+Pathfinder Player Companion: Faiths & Philosophies © 2013, Paizo Publishing,
+LLC; Authors: Savannah Broadway, Paris Crenshaw, Neall Raemonn Price, David
+Ross, Owen K. C. Stepehens, and James L. Sutter. Deutsche Ausgabe
+
+Pathfinder Handbuch Vermächtnis der Bestien © 2018 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Familiar Folio © 2015, Paizo Inc.; Authors: Will
+McCardell, Philip Minchin, Mark Seifter, and Jerome Virnich. Deutsche Ausgabe
+Pathfinder-Handbuch Vertraute © 2016 von Ulisses Spiele GmbH, Waldems, unter
+Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Giant Hunter’s Handbook © 2014, Paizo Inc.;
+Authors: Alexander Augunas, Luis Loza, Ron Lundeen, and David Ross. Deutsche
+Ausgabe Pathfinder-Handbuch Riesenjäger © 2015 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Goblins of Golarion. © 2011, Paizo Publishing,
+LLC; Author: James Jacobs, Hal Maclean, and Richard Pett. Deutsche Ausgabe: Die
+Goblins Golarionsvon Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo
+Publishing, LLC., USA.
+
+Pathfinder Player Companion: Gossentaktiken Toolbox © 2015, Paizo Inc.;
+Authors: Alexander Augunas, Mikko Kallio, Anthony Li, Luis Loza, and Andrew
+Marlowe. Deutsche Ausgabe Handbuch Gossentaktiken © 2016 von Ulisses Spiele
+GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Haunted Heroes Handbook © 2016, Paizo Inc.;
+Authors: Alexander Augunas, Thurston Hillman, Isabelle Lee, Stephen Rowe, and
+Christopher Wasko. Deutsche Ausgabe Pathfinder-Handbuch Heimgesuchte Helden ©
+2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Healer’s Handbook © 2016, Paizo Inc.; Authors:
+Alexander Augunas, David N. Ross, and Stephen Rowe. Deutsche Ausgabe
+Pathfinder-Handbuch Heiler von Golarion © 2017 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Heroes of the Darklands © 2017, Paizo Inc.;
+Authors: Robert Brookes, Eleanor Ferron, Michelle Jones, Alex Riggs, and
+Nicholas Wasko. Deutsche Ausgabe Pathfinder Handbuch Helden der Finsterlande ©
+2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Heroes of the High Court © 2017, Paizo Inc.;
+Authors: Isabelle Lee, Luis Loza, Ron Lundeen, and Jacob W. Michaels. Deutsche
+Ausgabe Pathfinder-Handbuch Helden der Adelshöfe © 2017 von Ulisses Spiele
+GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Heroes of the Street © 2015, Paizo Inc.; Authors:
+John Compton, Mikko Kallio, Nicolas Logue, Michael McCarthy, Mike Myler, and
+David N. Ross. Deutsche Ausgabe Handbuch Helden der Straße © 2016 von Ulisses
+Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Heroes of the Wild © 2015, Paizo Inc.; Authors:
+Tyler Beck, Pedro Coelho, Justin Juan, Mikko Kallio, Jason Keeley, Nick
+Salestrom, and William Thrasher. Deutsche Ausgabe Pathfinder Handbuch Helden
+der Wildnis © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo
+Inc.
+
+Pathfinder Player Companion: Humans of Golarion. © 2011, Paizo Inc.; Authors:
+James Jacobs, Colin McComb, Sean K Reynolds, Amber Scott, and Larry Wilhelm.
+(Marktbewohner, Pferdeherr, Überall daheim, Weitgewandert)
+
+Pathfinder Player Companion: Humans of Golarion. © 2014, Paizo Inc.; Authors:
+James Jacobs, Colin McComb, Sean K Reynolds, Amber Scott, and Larry Wilhelm.
+
+Pathfinder Player Companion: Knights of the Inner Sea © 2014, Paizo Inc.;
+Authors: Gareth Hanrahan, Steve Kenson, Patrick Renie, Tork Shaw, and Jerome
+Virnich. Deutsche Ausgabe Ritter der Inneren See © 2014 von Ulisses Spiele
+GmbH, Waldems, unter Lizenz von Paizo Inc, USA.
+
+Pathfinder Player Companion: Legacy of Dragons © 2016, Paizo Inc.; Authors:
+Alexander Augunas, Robert Brookes, Thurston Hillman, Michelle Jones, Mikko
+Kallio, and Mark Seifter. Deutsche Ausgabe Pathfinder-Handbuch Vermächtnis der
+Drachen © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Player Companion: Legacy of the First World © 2017, Paizo Inc.;
+Authors: Jake Alley, Judy Bauer, John Compton, Mikko Kallio, Jason Keeley, Joe
+Pasini, Mark Seifter, Kendra Leigh Speedling, Josh Vogt, and Linda Zayas
+Palmer. Deutsche Ausgabe Pathfinder Handbuch Vermächtnis der Ersten Welt © 2017
+von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.
+
+Pathfinder Player Companion: Magic Tactics Toolbox © 2016, Paizo Inc.; Authors:
+Alexander Augunas, Steven T. Helt, Thurston Hillman, and Ron Lundeen. Deutsche
+Ausgabe Pathfinder-Handbuch der Magietaktiken © 2016 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA
+
+Pathfinder Player Companion: Magical Marketplace © 2013, Paizo Publishing, LLC;
+Authors: John Ling, Ron Lundeen, Patrick Renie, David Schwartz, and Jerome
+Virnich. Deutsche Ausgabe Marktplätze der Magie © 2015 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc.
+
+Pathfinder Player Companion: Melee Tactics Toolbox © 2015, Paizo Inc.; Authors:
+Paris Crenshaw, Ron Lundeen, and David Schwartz. Deutsche Ausgabe Handbuch:
+Nahkampftaktiken © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz von
+Paizo Inc., USA.
+
+Pathfinder Player Companion: Monster Hunter’s Handbook © 2017, Paizo Inc.;
+Authors: Eric Hindley, Mikko Kallio, Luis Loza, and Christopher Wasko. Deutsche
+Ausgabe Pathfinder-Handbuch Monsterjäger © 2017 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Monster Summoner’s Handbook © 2015, Paizo Inc.;
+Authors: Alexander Augunas, Tyler Beck, Anthony Li, Luis Loza, David N. Ross,
+Owen K.C. Stephens, and Linda Zayas-Palmer. Deutsche Ausgabe Handbuch
+Monsterbeschwörer © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz von
+Paizo Inc., USA.
+
+Pathfinder Player Companion: Occult Origins © 2015, Paizo Inc.; Authors: Robert
+Brookes, Ben McFarland, Jason Nelson, and Mark Seifter. Deutsche Ausgabe
+Okkulte Helden © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo
+Inc., USA.
+
+Pathfinder Player Companion: Pathfinder Society Primer © 2013, Paizo
+Publishing, LLC; Authors: John Compton and Mark Moreland. Deutsche Ausgabe
+Pathfinder Handbuch Gesellschaft der Kundschafter © 2018 von Ulisses Spiele
+GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: People of the North © 2014, Paizo Inc.; Authors:
+Matthew Goodall, Shaun Hocking, Rob McCreary, Philip Minchin, and William
+Thrasher. Deutsche Ausgabe: Völker des Nordens von Ulisses Spiele GmbH, Waldems
+unter Lizenz von Paizo Publishing, Inc., USA.
+
+Pathfinder Player Companion: People of the River © 2014, Paizo Inc.; Authors:
+Tim Akers, Jason Brick, Ethan Day Jones, James Jacobs, Nick Salestrom, David
+Schwartz, and William Thrasher. Deutsche Ausgabe Pathfinder Handbuch Völker des
+Flusses © 2016 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Player Companion: People of the Sands © 2014, Paizo Inc.; Authors:
+Shaun Hocking, Rob McCreary, and Jason Nelson. Deutsche Ausgabe: Völker des
+Sandes von Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: People of the Wastes © 2017, Paizo Inc.; Authors:
+Logan Bonner, John Compton, Nathan King, Luis Loza, Christopher Wasko, and
+Linda Zayas-Palmer. Deutsche Ausgabe Pathfinder Handbuch Völker der Ödlande ©
+2018 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Pirates of the Inner Sea, © 2012, Paizo
+Publishing, LLC; Author: Amber E. Scott. Deutsche Ausgabe: Piraten der Inneren
+See von Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo Publishing, LLC.,
+USA.
+
+Pathfinder Player Companion: Potions & Poisons © 2017, Paizo Inc.; Authors:
+Kate Baker, Eleanor Ferron, Nathan King, Lyz Liddell, Luis Loza, Alex Putnam,
+Alex Riggs, and David Schwartz. Deutsche Ausgabe Pathfinder Handbuch Gifte &
+Tränke © 2018 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Player Companion: Psychic Anthology © 2017, Paizo Inc.; Authors:
+Alexander Augunas, Isabelle Lee, Luis Loza, Alex Riggs, Mark Seifter, Loren
+Sieg, and Jeremy Smith Deutsche Ausgabe Pathfinder-Handbuch Mentales Wissen ©
+2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Ranged Tactics Toolbox © 2014, Paizo Inc.;
+Authors: David N. Ross, David Schwartz, and Kaitlyn Sprague. Deutsche Ausgabe
+Handbuch: Fernkampftaktiken © 2015 von Ulisses Spiele GmbH, Waldems, unter
+Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Spymaster’s Handbook © 2016, Paizo Inc.; Authors:
+Alexander Augunas, David N. Ross, and Owen K.C. Stephens. Deutsche Ausgabe
+Pathfinder-Handbuch der Meisterspione © 2017 von Ulisses Spiele GmbH, Waldems,
+unter Lizenz von Paizo Inc., USA
+
+Pathfinder Player Companion: The Harrow Handbook © 2014, Paizo Inc.; Authors:
+Crystal Frasier, Will McCardell, and David Schwartz. Deutsche Ausgabe Die
+Turmkartendeuter Golarions © 2015 von Ulisses Spiele GmbH, Waldems, unter
+Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Undead Slayer’s Handbook © 2014, Paizo Inc.;
+Authors: Dennis Baker, Jay Loomis, Alex Putnam, Adam Roy, Tork Shaw, and Larry
+Wilhelm. Deutsche Ausgabe Untotenjäger © 2015 von Ulisses Spiele GmbH, Waldems,
+unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Roleplaying Game Bestiary 5 © 2015 Paizo Inc.; Authors: Dennis
+Baker, Jesse Brenner, John Bennet, Logan Bonner, Creighton Braodhurst, Robert
+Brookers, Benjamin Bruck, Jason Bulmahn, Adam Daigle, Thurston Hillman, Eric
+Hindley, Joe Homes, James Jacobs, Amanda Hamon Kunz, Ben McFarland, Jason
+Nelson, Thom Phillips, Stephen Radney-MacFarland, Alistair Rigg, Alex Riggs,
+David N. Ross, Wes Schneider, David Schwartz; Mark Seifter, Mike Shel, James L.
+Sutter, and Linda Zayas-Palmer.
+
+Pathfinder Roleplaying Game Book of the Damned © 2017, Paizo Inc.; Authors:
+John Compton, Adam Daigle, Amanda Hamon Kunz, James Jacobs, Isabelle Lee, F.
+Wesley Schneider, Todd Stewart, and Josh Vogt. Deutsche Ausgabe Das Buch der
+Verdammten © 2018 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo
+Inc., USA.
+
+Pathfinder Roleplaying Game Core Rulebook © 2009, Paizo Inc.; Author: Jason
+Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+
+Pathfinder Roleplaying Game Horror Adventures 2016, Paizo Inc.; Authors: John
+Bennett, Clinton J. Boomer, Logan Bonner, Robert Brookes, Jason Bulmahn, Ross
+Byers, Jim Groves, Steven Helt, Thurston Hillman, Eric Hindley, Brandon Hodge,
+Mikko Kallio, Jason Nelson, Tom Phillips, Stephen Radney-MacFarland, Alistair
+Rigg, Alex Riggs, David N. Ross, F. Wesley Schneider, David Schwartz, Mark
+Seifter, and Linda Zayas-Palmer. Deutsche Ausgabe Ausbauregeln IX: Horror ©
+2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA
+
+Pathfinder Roleplaying Game Occult Adventures © 2015, Paizo Inc.; Authors: John
+Bennett, Logan Bonner, Robert Brookes, Jason Bulmahn, Ross Byers, John Compton,
+Adam Daigle, Jim Groves, Thurston Hillman, Eric Hindley, Brandon Hodge, Ben
+McFarland, Erik Mona, Jason Nelson, Tom Phillips, Stephen Radney-MacFarland,
+Thomas M. Reid, Alex Riggs, Robert Schwalb, Mark Seifter, Russ Taylor, and
+Steve Townshend. Deutsche Ausgabe Ausbauregeln VII: Okkultes © 2016 von Ulisses
+Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Roleplaying Game Ultimate Intrigue © 2016, Paizo Inc.; Authors:
+Jesse Benner, John Bennett, Logan Bonner, Robert Brookes, Jason Bulmahn, Ross
+Byers, Robert N. Emerson, Amanda Hamon Kunz, Steven Helt, Thurston Hillman, Tim
+Hitchcock, Mikko Kallio, Rob McCreary, Jason Nelson, Tom Phillips, Stephen
+Radney MacFarland, Thomas M. Reid, Alexander Riggs, David N. Ross, David
+Schwartz, Mark Seifter, Linda Zayas-Palmer. Deutsche Ausgabe Ausbauregeln VIII
+- Intrigen © 2017 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo
+Inc., USA.
+
+Pathfinder Roleplaying Game Ultimate Wilderness © 2017, Paizo Inc.; Authors:
+Alexander Augunas, John Bennett, Robert Brookes, John Compton, Dan Dillon,
+Steven T. Helt, Thurston Hillman, Eric Hindley, Mikko Kallio, Jason Keeley,
+Isabelle Lee, Jason Nelson, Stephen Radney-MacFarland, Alex Riggs, David N.
+Ross, David Schwartz, Mark Seifter, Jeffery Swank, and Linda Zayas-Palmer.
+Deutsche Ausgabe Pathfinder-Rollenspiel Ausbauregeln X: Wildnis © 2018 von
+Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Roleplaying Game Villain Codex © 2016, Paizo Inc.; Authors:
+Alexander Augunas, Logan Bonner, Paris Crenshaw, Dan Dillon, Crystal Frasier,
+Amanda Hamon Kunz, Eric Hindley, Mikko Kallio, Dale C. McCoy, Jr., Stephen
+Radney-MacFarland, Thomas M. Reid, Alistair Rigg, Alex Riggs, Mark Seifter, and
+Linda Zayas-Palmer. Deutsche Ausgabe Pathfinder Widersacherkompendium © 2017
+von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Blood of the Elements © 2014, Paizo Inc.; Authors:
+Tim Akers, Judy Bauer, Jim Groves, Chris Lites, Dale C. McCoy, Jr., and Cassidy
+Werner. Deutsche Ausgabe Pathfinder-Handbuch Vermächtnis der Elemente © 2017
+von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Blood of the Moon © 2013, Paizo Inc.; Authors: Tim
+Akers, Neal Litherland, David N. Ross, and Tork Shaw. Deutsche Ausgabe
+Pathfinder Handbuch Vermächtnis des Mondes © 2017 von Ulisses Spiele GmbH,
+Waldems, unter Lizenz von Paizo Inc.
+
+Pathfinder Player Companion: Blood of the Night © 2012, Paizo Inc.; Author:
+Tork Shaw. Deutsche Ausgabe Pathfinder-Handbuch Vermächtnis der Nacht © 2017
+von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA. The Book of
+Fiends © 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris
+Pramas, Robert J. Schwalb.
+
+Pathfider Roleplaying Game Mythic Adventures © 2013, Paizo, Inc.; Authors:
+Jason Bulmahn, Stephen Radney MacFarland, Sean K Reynolds, Dennis Baker, Jesse
+Benner, Ben Bruck, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan Keith,
+Jason Nelson, Tom Phillips, Ryan Macklin, F. Wesley Schneider, Amber Scott,
+Tork Shaw, Russ Taylor, and Ray Vallese. Deutsche Ausgabe Ausbauregeln V:
+Legenden © 2015 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc.,
+USA.
+
+Pathfinder Campaign Setting: Distant Worlds © 2014, Paizo Inc.; Author: James
+L. Sutter.
+
+Pathfinder Campaign Setting: Lords of Chaos: Book of the Damned, Vol. 2.
+Copyright 2014, Paizo Inc.; Author: James Jacobs. Deutsche Ausgabe Buch der
+Verdamment 2: Abyss © 2014 von Ulisses Spiele GmbH, Waldems, unter Lizenz von
+Paizo Inc, USA.
+
+Pathfinder Campaign Setting: Technology Guide © 2014, Paizo Inc.; Authors:
+James Jacobs and Russ Taylor. Deutsche Ausgabe: Almanach der Technologie von
+Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Chronicles: Cities of Golarion. Copyright 2014, Paizo Inc.; Authors:
+Joshua J. Frost, Tim Hitchcock, Jonathan Keith, Rob McCreary, Jason Nelson, and
+Jeff Quick. Deutsche Ausgabe: Winterkönigin Web-Erweiterung Weißthronvon
+Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Mythic Origins © 2014, Paizo Inc.; Authors: Dennis
+Baker, Philip Minchin, and Russ Taylor. Deutsche Ausgabe Legendäre Helden ©
+2014 von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Player Companion: Quests & Campaigns © 2013, Paizo Inc.; Authors:
+Amanda Hamon and David N. Ross. Deutsche Ausgabe Questen und Kampagnen © 2015
+von Ulisses Spiele GmbH, Waldems, unter Lizenz von Paizo Inc., USA.
+
+Pathfinder RPG Bestiary © 2009, Paizo Publishing, LLC; Author: Jason Bulmahn,
+based on material by Jonathan Tweet, Monte Cook, and Skip Williams. Deutsche
+Ausgabe © 2010 Ulisses Spiele GmbH unter Lizenz von Paizo Publishing, LLC
+
+Pathfinder Roleplaying Game Bestiary 2, © 2014, Paizo Inc.; Authors Wolfgang
+Baur, Jason Bulmahn, Adam Daigle, Graeme Davis, Crystal Frasier, Joshua J.
+Frost, Tim Hitchcock, Brandon Hodge, James Jacobs, Steve Kenson, Hal MacLean,
+Martin Mason, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, Sean K
+Reynolds, F. Wesley Schneider, Owen K.C. Stephens, James L. Sutter, Russ
+Taylor, and Greg A. Vaughan, based on material by Jonathan Tweet, Monte Cook,
+and Skip Williams. Deutsche Ausgabe: Pathfinder Monsterhandbuch IIvon Ulisses
+Spiele GmbH, Waldems unter Lizenz von Paizo Inc., USA.
+
+Pathfinder Roleplaying Game Bestiary 3, © 2011, Paizo Publishing, LLC; Authors
+Jesse Benner, Jason Bulmahn, Adam Daigle, James Jacobs, Michael Kenway, Rob
+McCreary, Patrick Renie, Chris Sims, F. Wesley Schneider, James L. Sutter, and
+Russ Taylor, based on material by Jonathan Tweet, Monte Cook, and Skip
+Williams.
+
+Condition Cards © 2010, Paizo Publishing, LLC. Author: Jason Bulmahn. Deutsche
+Ausgabe: Zustandskarten von Ulisses Spiele GmbH, Waldems unter Lizenz von Paizo
+Publishing, LLC, USA.
+
+Advanced Bestiary. © 2004, Green Ronin Publishing, LLC.; Author: Matthew
+Sernett Angel, Monadic Deva from the Tome of Horrors Complete © 2011,
+Necromancer Games, Inc., published and distributed by Frog God Games; Author:
+Scott Greene, based on original material by Gary Gygax.
+
+Angel, Monadic Deva from the Tome of Horrors, Revised. © 2002, Necromancer
+Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+
+Angel, Movanic Deva from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on original material by Gary Gygax.
+
+Angel, Movanic Deva from the Tome of Horrors, Revised. © 2002, Necromancer
+Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+
+Anger of Angels. © 2003, Sean K Reynolds Animal Lord, Cat Lord from the Tome of
+Horrors Complete © 2011, Necromancer Games, Inc., published and distributed by
+Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+
+Ascomoid from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Atomie from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Aurumvorax from The Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Axe Beak from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Baphomet from the Tome of Horrors Complete, © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Baphomet from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Basidirond from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Bat, Mobat from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Authors: Scott Greene and Clark
+Peterson, based on original material by Gary Gygax.
+
+Blindheim from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Roger Musson.
+
+Book of Fiends. © 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona,
+Chris Pramas, Robert J. Schwalb. Brownie from the Tome of Horrors Complete ©
+2011, Necromancer Games, Inc., published and distributed by Frog God Games;
+Author: Scott Greene, based on original material by Gary Gygax.
+
+Brownie from the Tome of Horrors, Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by E. Gary Gygax.
+
+Bunyip from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.;
+Author Scott Greene, based on original material by Dermot Jackson.
+
+Bunyip from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Dermot Jackson.
+
+Carbuncle from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Albie Fiore.
+
+Caryatid Column from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Jean Wells.
+
+Cave Fisher from the Tome of Horrors, © 2002, Necromancer Games, Inc.; Author
+Scott Greene, based on original material by Lawrence Schick.
+
+Crypt Thing from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Roger Musson.
+
+Daemon, Ceustodaemon (Guardian Daemon) from the Tome of Horrors Complete ©
+2011, Necromancer Games, Inc., published and distributed by Frog God Games;
+Author: Scott Greene, based on original material by Ian McDowall.
+
+Daemon, Ceustodaemon (Guardian Daemon) from the Tome of Horrors, Revised. ©
+2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material
+by E. Gary Gygax.
+
+Daemon, Derghodaemon from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on original material by Gary Gygax.
+
+Daemon, Derghodaemon from the Tome of Horrors, Revised. © 2002, Necromancer
+Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+
+Daemon, Guardian from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Ian McDowall.
+
+Daemon, Hydrodaemon from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on original material by Gary Gygax.
+
+Daemon, Hydrodaemon from the Tome of Horrors, Revised. © 2002, Necromancer
+Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+
+Daemon, Oinodaemon from the Tome of Horrors, Revised © 2002, Necromancer Games,
+Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+
+Daemon, Piscodaemon from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on original material by Gary Gygax.
+
+Daemon, Piscodaemon from the Tome of Horrors, Revised, © 2002, Necromancer
+Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Daemon, Piscodaemon from the Tome of Horrors, Revised. © 2002, Necromancer
+Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+
+Dark Stalker from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Simon Muth.
+
+Death Worm from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Authors: Scott Greene and Erica
+Balsley.
+
+Demodand, Shaggy from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Gary Gygax.
+
+Demodand, Slime from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Gary Gygax.
+
+Demodand, Slimy from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Gary Gygax.
+
+Demodand, Tarry from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Gary Gygax.
+
+Demon Lord, Baphomet from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on material by Gary Gygax.
+
+Demon Lord, Baphomet from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on material by Gary Gygax.
+
+Demon Lord, Jubilex from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on original material by Gary Gygax.
+
+Demon Lord, Kostchtchie from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene,
+based on original material by Gary Gygax.
+
+Demon Lord, Orcus from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene and
+Clark Peterson, based on original material by Gary Gygax.
+
+Demon Lord, Pazuzu from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc.; published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Gary Gygax.
+
+Demon, Nabasu from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Gary Gygax.
+
+Demon, Shadow from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Neville White.
+
+Dire Corby from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Jeff Wyndham.
+
+Dracolisk from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Dragon Horse from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Dragon, Faerie from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Brian Jaeger and Gary Gygax.
+
+Flumph from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Ian McDowell and Douglas Naismith.
+
+Flumph from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.;
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Ian McDowell and Douglas Naismith.
+
+Foo Creature from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Forlarren from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Ian Livingstone
+
+Froghemoth from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Froghemoth from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Author:
+Scott Greene, based on original material by E. Gary Gygax.
+
+Froghemoth from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Genie, Marid from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Genie, Marid from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Giant Slug from the Tome of Horrors, © 2002, Necromancer Games, Inc.; Author
+Scott Greene, based on original material by Gary Gygax.
+
+Giant, Wood from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Authors: Scott Greene, based on
+original material by Wizards of the Coast.
+
+Golem, Wood from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Authors: Scott Greene and Patrick
+Lawinger.
+
+Grippli from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Gryph from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.;
+Author Scott Greene, based on original material by Peter Brown.
+
+Hangman Tree from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Hippocampus from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Authors: Scott Greene and Erica
+Balsley, based on original material by Gary Gygax.
+
+Huecuva from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Underworld Oracle.
+
+Ice Golem from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene.
+
+Ice Golem from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene.
+
+Ice Golem from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Author:
+Scott Greene.
+
+Iron Cobra from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Author:
+Scott Greene, based on original material by Philip Masters.
+
+Jackalwere from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Ian McDowell and Douglas Naismith.
+
+Jubilex from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Jubilex from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.;
+Author Scott Greene, based on original material by Gary Gygax.
+
+Kech from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Kelpie from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Lawrence Schick.
+
+Kobold Quarterly Issue 14 © 2010, Open Design LLC, www.koboldquarterly.com.
+
+Kobold Quarterly Issue 7, © 2008, Open Design LLC, www.koboldquarterly.com;
+Authors John Baichtal, Wolfgang Baur, Ross Byers, Matthew Cicci, John Flemming,
+Jeremy Jones, Derek Kagemann, Phillip Larwood, Richard Pett, and Stan!
+
+Korred from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Kostchtchie from the Tome of Horrors Revised, © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by Gary Gygax.
+
+Kostchtchie from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Leprechaun from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Marid from the Tome of Horrors III. © 2005, Necromancer Games, Inc.; Author:
+Scott Greene.
+
+Mihstu from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Mihstu from the Tome of Horrors, Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by E. Gary Gygax.
+
+Mite from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Ian Livingstone and Mark Barnes.
+
+Mite from the Tome of Horrors, © 2002, Necromancer Games, Inc.; Author Scott
+Greene, based on original material by Ian Livingstone and Mark Barnes.
+
+Mongrelman from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Mongrelman from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.;
+Author Scott Greene, based on original material by Gary Gygax.
+
+Monte Cook’s Arcana Unearthed. © 2003, Monte J. Cook
+
+Muckdweller from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Nabasu Demon from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Author:
+Scott Greene, based on original material by E. Gary Gygax.
+
+Nabasu from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Necrophidius from the Tome of Horrors, Revised. © 2002, Necromancer Games,
+Inc.; Author: Scott Greene, based on original material by Simon Tillbrook.
+
+Nereid from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Ooze, Magma from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene.
+
+Orcus from the Tome of Horrors Revised, © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by Gary Gygax.
+
+Orcus from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Path of the Magi. © 2002 Citizen Games/Troll Lord Games; Authors: Mike McArtor,
+W. Jason Peck, Jeff Quick, and Sean K Reynolds.
+
+Pathfinder Player Companion: Dragon Empires Primer © 2011, Paizo Publishing,
+LLC; Authors: Tim Hitchcock and Colin McComb.
+
+Pazuzu from the Tome of Horrors Revised, © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by Gary Gygax.
+
+Pazuzu from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Pech from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Pech from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.; Author
+Scott Greene, based on original material by Gary Gygax.
+
+Poltergeist from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Lewis Pulsipher.
+
+Quickling from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Rot Grub from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Authors: Scott Greene and Clark
+Peterson, based on original material by Gary Gygax.
+
+Russet Mold from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Russet Mold from the Tome of Horrors, Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based onoriginal material by Gary Gygax.
+
+Sandman from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Roger Musson.
+
+Sandman from the Tome of Horrors, Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by Roger Musson.
+
+Scarecrow from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Roger Musson.
+
+Scarecrow from the Tome of Horrors, Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by Roger Musson.
+
+Shadow Demon from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Neville
+White.
+
+Shadow Demon from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Author:
+Scott Greene, based on original material by Neville White.
+
+Skreyn’s Register: The Bonds of Magic. © 2002, Sean K Reynolds.
+
+Skulk from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author Scott Greene, based on
+orginal material by Simon Muth.
+
+Slime Mold from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene.
+
+Slithering Tracker from the Tome of Horrors Complete © 2011, Necromancer Games,
+Inc., published and distributed by Frog God Games; Author: Scott Greene, based
+on original material by Gary Gygax.
+
+Spriggan from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Authors: Scott Greene and Erica
+Balsley, based on original material by Roger Moore and Gary Gygax.
+
+The Book of Eldritch Might. Copyright 2001, Monte J. Cook. All rights reserved.
+
+The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights
+reserved.
+
+The Book of Hallowed Might. © 2002, Monte J. Cook.
+
+Tome of Horrors Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene,
+with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance
+Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on
+original content from TSR.
+
+Troll, Ice from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Russell Cole
+
+Troll, Rock from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene.
+
+Troll, Rock from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.;
+Author Scott Greene.
+
+Vegepygmy from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Vegepygmy from the Tome of Horrors Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene and Clark Peterson, based on original material by Gary
+Gygax.
+
+Vegepygmy from the Tome of Horrors, © 2002, Necromancer Games, Inc.; Author
+Scott Greene, based on original material by Gary Gygax.
+
+Vegepygmy from the Tome of Horrors, Revised. © 2002, Necromancer Games, Inc.;
+Author: Scott Greene, based on original material by Gary Gygax.
+
+Vile Leadership from Pathfinder Player Companion: Champions of Corruption ©
+2014, Paizo Inc.; Authors: Paris Crenshaw, Jim Groves, Sean McGowen, and Philip
+Minchin.
+
+Wood Golem from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Authors:
+Scott Greene and Patrick Lawinger.
+
+Yellow Musk Creeper from the Tome of Horrors Complete © 2011, Necromancer
+Games, Inc., published and distributed by Frog God Games; Author: Scott Greene,
+based on original material by Albie Fiore.
+
+Yeti from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Zombie, Juju from the Tome of Horrors Complete © 2011, Necromancer Games, Inc.,
+published and distributed by Frog God Games; Author: Scott Greene, based on
+original material by Gary Gygax.
+
+Zombie, Juju from the Tome of Horrors, Revised, © 2002, Necromancer Games,
+Inc.; Author Scott Greene, based on original material by Gary Gygax.
