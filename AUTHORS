@@ -77,3 +77,10 @@ mingw-std-threads
    is licensed under the terms of the 2-clause BSD license. For the full
    text, see external/mingw-std-threads/LICENSE or
    <https://github.com/meganz/mingw-std-threads/blob/master/LICENSE>.
+
+fmt
+***
+   Decemvirate includes fmt (<http://fmtlib.net/latest/>), licensed under
+   the terms of the MIT license. For the full license text, see
+   external/fmt/LICENSE.rst or
+   <https://github.com/fmtlib/fmt/blob/master/LICENSE.rst>.

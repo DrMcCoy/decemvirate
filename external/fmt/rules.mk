@@ -17,19 +17,33 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Main Decemvirate entry point.
+# fmt (<http://fmtlib.net/latest/>).
 
-bin_PROGRAMS += src/decemvirate
-src_decemvirate_SOURCES =
+noinst_LTLIBRARIES += external/fmt/libfmt.la
+external_fmt_libfmt_la_SOURCES =
 
-src_decemvirate_SOURCES += \
+external_fmt_libfmt_la_SOURCES += \
+    external/fmt/chrono.hpp \
+    external/fmt/color.hpp \
+    external/fmt/compile.hpp \
+    external/fmt/core.hpp \
+    external/fmt/format-inl.hpp \
+    external/fmt/format.hpp \
+    external/fmt/locale.hpp \
+    external/fmt/ostream.hpp \
+    external/fmt/posix.hpp \
+    external/fmt/printf.hpp \
+    external/fmt/ranges.hpp \
+    external/fmt/safe-duration-cast.hpp \
     $(EMPTY)
 
-src_decemvirate_SOURCES += \
-    src/decemvirate.cpp \
+external_fmt_libfmt_la_SOURCES += \
+    external/fmt/format.cpp \
+    external/fmt/posix.cpp \
     $(EMPTY)
 
-src_decemvirate_LDADD = \
-    external/fmt/libfmt.la \
-    $(LDADD) \
+EXTRA_DIST += \
+    external/fmt/README.Decemvirate \
+    external/fmt/LICENSE.rst \
+    external/fmt/README.rst \
     $(EMPTY)

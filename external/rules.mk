@@ -20,3 +20,5 @@
 # Third-party code.
 
 include external/mingw-std-threads/rules.mk
+
+include external/fmt/rules.mk

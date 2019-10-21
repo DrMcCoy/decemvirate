@@ -273,6 +273,7 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR})
 add_definitions(-DPACKAGE_STRING="Decemvirate ${decemvirate_VERSION}")
 
+parse_automake(external/rules.mk)
 parse_automake(src/rules.mk)
 
 foreach(AM_PROGRAM ${AM_PROGRAMS})
