@@ -64,6 +64,14 @@ Makefile.in
 /external/rules.mk.cmake
 /src/rules.mk.cmake
 
+# Doxygen files
+/Doxyerror
+/doc/doxygen/html/
+/doc/doxygen/latex/
+/doc/doxygen/man/
+/doc/doxygen/*.tmp
+/doc/doxygen/*.db
+
 # git versioning stamp
 /src/version/gitstamp
 

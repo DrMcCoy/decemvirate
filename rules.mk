@@ -29,6 +29,23 @@ EXTRA_DIST += \
     autogen.sh \
     $(EMPTY)
 
+# Doxygen
+
+EXTRA_DIST += \
+    Doxyfile \
+    doc/doxygen/README \
+    $(EMPTY)
+
+doxygen:
+	doxygen
+
+doxygen-clean:
+	rm -rf doc/doxygen/html/
+	rm -rf doc/doxygen/latex/
+	rm -rf doc/doxygen/man/
+	rm -rf doc/doxygen/*.tmp
+	rm -rf doc/doxygen/*.db
+
 # Subdirectories
 
 include dist/rules.mk

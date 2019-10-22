@@ -349,3 +349,25 @@ if(GIT_FOUND)
     configure_file(${CMAKE_SOURCE_DIR}/.git/logs/HEAD .dirstamp)
   endif()
 endif()
+
+
+# -------------------------------------------------------------------------
+# Documentation
+if(DECEMVIRATE_BUILD_DOCUMENTATION)
+  find_package(Doxygen)
+  if (NOT DOXYGEN_FOUND)
+    message(FATAL_ERROR "Doxygen is needed to build the documentation. Please install it correctly")
+  endif()
+
+  add_custom_target(doxygen
+    COMMAND ${DOXYGEN_EXECUTABLE}
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+    SOURCES ${PROJECT_SOURCE_DIR}/Doxyfile
+  )
+  add_custom_target(doxygen-clean
+    COMMAND rm -rf doc/doxygen/html/
+    COMMAND rm -rf doc/doxygen/latex/
+    COMMAND rm -rf doc/doxygen/man/
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+  )
+endif()
