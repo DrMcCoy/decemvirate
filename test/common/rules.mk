@@ -17,42 +17,16 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Top-level automake build recipe.
+# Unit tests for the Common namespace.
 
-# Extra files to help with the sources
-EXTRA_DIST += \
-    .uncrustifyrc \
-    $(EMPTY)
+common_LIBS = \
+    $(test_LIBS) \
+    src/common/libcommon.la \
+    test/version/libversion.la \
+    external/fmt/libfmt.la \
+    $(LDADD)
 
-# Extra autotools files
-EXTRA_DIST += \
-    autogen.sh \
-    $(EMPTY)
-
-# Doxygen
-
-EXTRA_DIST += \
-    Doxyfile \
-    doc/doxygen/README \
-    $(EMPTY)
-
-doxygen:
-	doxygen
-
-doxygen-clean:
-	rm -rf doc/doxygen/html/
-	rm -rf doc/doxygen/latex/
-	rm -rf doc/doxygen/man/
-	rm -rf doc/doxygen/*.tmp
-	rm -rf doc/doxygen/*.db
-
-# Subdirectories
-
-include dist/rules.mk
-include doc/rules.mk
-
-include external/rules.mk
-
-include src/rules.mk
-
-include test/rules.mk
+check_PROGRAMS                  += test/common/test_string
+test_common_test_string_SOURCES  = test/common/string.cpp
+test_common_test_string_LDADD    = $(common_LIBS)
+test_common_test_string_CXXFLAGS = $(test_CXXFLAGS)

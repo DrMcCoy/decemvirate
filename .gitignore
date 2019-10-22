@@ -62,6 +62,9 @@ Makefile.in
 /bin/
 /doc/rules.mk.cmake
 /external/rules.mk.cmake
+/test/rules.mk.cmake
+/CTestTestfile.cmake
+/Testing/
 /src/rules.mk.cmake
 
 # Doxygen files
@@ -71,6 +74,11 @@ Makefile.in
 /doc/doxygen/man/
 /doc/doxygen/*.tmp
 /doc/doxygen/*.db
+
+# Unit tests
+/test-suite.log
+/test/common/testfile_*
+/test/common/test_*
 
 # git versioning stamp
 /src/version/gitstamp

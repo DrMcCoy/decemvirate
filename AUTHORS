@@ -108,3 +108,10 @@ xoreos and ScummVM code
    License. For the full license texts, see LICENSE.GPLv3 and LICENSE.GPLv2
    in the dist directory or <https://gnu.org/licenses/gpl-3.0.html> and
    <https://gnu.org/licenses/gpl-2.0.html>.
+
+Google Test
+***********
+   Decemvirate uses Google Test (<https://github.com/google/googletest>),
+   Google's C++ test framework. Google Test is licensed under the terms of the
+   3-clause BSD license. For the full license text, see tests/googletest/LICENSE
+   or <https://github.com/google/googletest/blob/master/googletest/LICENSE>.

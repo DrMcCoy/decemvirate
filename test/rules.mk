@@ -17,42 +17,21 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Top-level automake build recipe.
+# Unit tests.
 
-# Extra files to help with the sources
-EXTRA_DIST += \
-    .uncrustifyrc \
+# Our Unit test framework, Google Test
+
+include test/googletest/rules.mk
+
+test_LIBS  = \
+    test/googletest/libgtest.la \
+    test/googletest/libgtest_main.la \
+    $(GTEST_LIBS)
     $(EMPTY)
 
-# Extra autotools files
-EXTRA_DIST += \
-    autogen.sh \
-    $(EMPTY)
+test_CXXFLAGS = $(GTEST_FLAGS) $(AM_CXXFLAGS)
 
-# Doxygen
+include test/version/rules.mk
+include test/common/rules.mk
 
-EXTRA_DIST += \
-    Doxyfile \
-    doc/doxygen/README \
-    $(EMPTY)
-
-doxygen:
-	doxygen
-
-doxygen-clean:
-	rm -rf doc/doxygen/html/
-	rm -rf doc/doxygen/latex/
-	rm -rf doc/doxygen/man/
-	rm -rf doc/doxygen/*.tmp
-	rm -rf doc/doxygen/*.db
-
-# Subdirectories
-
-include dist/rules.mk
-include doc/rules.mk
-
-include external/rules.mk
-
-include src/rules.mk
-
-include test/rules.mk
+TESTS += $(check_PROGRAMS)
