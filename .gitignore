@@ -65,6 +65,7 @@ Makefile.in
 /test/rules.mk.cmake
 /CTestTestfile.cmake
 /Testing/
+/data/rules.mk.cmake
 /src/rules.mk.cmake
 
 # Doxygen files

@@ -38,6 +38,7 @@ include(SetCheckCompilerFlag)
 
 # (Re)define install directories
 set(CMAKE_INSTALL_DOCDIR ${CMAKE_INSTALL_DATAROOTDIR}/doc/${PROJECT_NAME_LOWER})
+set(CMAKE_INSTALL_PKGDATADIR ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME_LOWER})
 
 # -------------------------------------------------------------------------
 # Platform specific flags
@@ -310,6 +311,13 @@ parse_automake(doc/rules.mk)
 install(
   FILES ${AM_DOCS}
   DESTINATION ${CMAKE_INSTALL_DOCDIR}
+)
+
+# Install data
+parse_automake(data/rules.mk)
+install(
+  FILES ${AM_PKGDATA}
+  DESTINATION ${CMAKE_INSTALL_PKGDATADIR}
 )
 
 # -------------------------------------------------------------------------
