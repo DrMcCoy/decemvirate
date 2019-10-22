@@ -28,7 +28,9 @@ src_common_libcommon_la_SOURCES += \
     src/common/fallthrough.hpp \
     src/common/types.hpp \
     src/common/endianness.hpp \
+    src/common/util.hpp \
     $(EMPTY)
 
 src_common_libcommon_la_SOURCES += \
+    src/common/util.cpp \
     $(EMPTY)
