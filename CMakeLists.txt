@@ -267,6 +267,11 @@ if(CMAKE_USE_PTHREADS_INIT)
   list(APPEND DECEMVIRATE_LIBRARIES ${PTHREAD_LIBS})
 endif()
 
+# General purpose libraries
+
+find_package(SQLite3 REQUIRED)
+include_directories(${SQLite3_INCLUDE_DIRS})
+list(APPEND DECEMVIRATE_LIBRARIES ${SQLite3_LIBRARIES})
 
 # -------------------------------------------------------------------------
 # Custom unit testing target, because CMake's make test is pretty useless

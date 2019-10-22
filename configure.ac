@@ -193,6 +193,9 @@ dnl pthread
 AX_PTHREAD()
 AM_CONDITIONAL([HAVE_PTHREAD], [test x"$ax_pthread_ok" = xyes])
 
+dnl General purpose libraries
+AX_LIB_SQLITE3([3.29.0], , AC_MSG_ERROR([SQLite3 (>= 3.29.0) is required and could not be found!]))
+
 dnl Extra flags
 case "$target" in
 	*darwin*)
