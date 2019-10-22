@@ -64,6 +64,9 @@ Makefile.in
 /external/rules.mk.cmake
 /src/rules.mk.cmake
 
+# git versioning stamp
+/src/version/gitstamp
+
 # Unix binary
 /src/decemvirate
 

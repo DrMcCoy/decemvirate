@@ -300,3 +300,52 @@ if(NOT TARGET uninstall)
   configure_file("${CMAKE_SOURCE_DIR}/cmake/CMakeUninstall.cmake" "${CMAKE_BINARY_DIR}/CMakeUninstall.cmake" IMMEDIATE @ONLY)
   add_custom_target(uninstall COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/CMakeUninstall.cmake)
 endif()
+
+
+# -------------------------------------------------------------------------
+# Try to add version information from git to src/version/version.cpp.
+# This is not 100% clean, and doesn't reconfigure when there's only a local change since last
+# build (so it does not always add the .dirty suffix)
+
+# Get build timestamp, but heed SOURCE_DATE_EPOCH
+set(DATE_FMT "%Y-%m-%dT%H:%M:%SZ")
+if(DEFINED ENV{SOURCE_DATE_EPOCH})
+  execute_process(COMMAND "date" "-u" "-d" "@$ENV{SOURCE_DATE_EPOCH}" "+${DATE_FMT}" OUTPUT_VARIABLE DECEMVIRATE_BUILDDATE OUTPUT_STRIP_TRAILING_WHITESPACE RESULT_VARIABLE DATE_RETCODE ERROR_QUIET)
+  if(NOT "${DATE_RETCODE}" STREQUAL "0")
+    execute_process(COMMAND "date" "-u" "-r" "$ENV{SOURCE_DATE_EPOCH}" "+${DATE_FMT}" OUTPUT_VARIABLE DECEMVIRATE_BUILDDATE OUTPUT_STRIP_TRAILING_WHITESPACE RESULT_VARIABLE DATE_RETCODE ERROR_QUIET)
+    if(NOT "${DATE_RETCODE}" STREQUAL "0")
+      string(TIMESTAMP DECEMVIRATE_BUILDDATE "${DATE_FMT}" UTC)
+    endif()
+  endif()
+else()
+  string(TIMESTAMP DECEMVIRATE_BUILDDATE "${DATE_FMT}" UTC)
+endif()
+
+set_property(SOURCE src/version/version.cpp APPEND PROPERTY COMPILE_DEFINITIONS DECEMVIRATE_BUILDDATE="${DECEMVIRATE_BUILDDATE}")
+
+find_package(Git)
+if(GIT_FOUND)
+  execute_process(COMMAND ${GIT_EXECUTABLE} -C ${CMAKE_CURRENT_SOURCE_DIR} describe --tags --long --match desc/* OUTPUT_VARIABLE DECEMVIRATE_REVDESC OUTPUT_STRIP_TRAILING_WHITESPACE)
+  string(REGEX REPLACE "desc/(.*)-([^-]*)-([^-]*)" "\\1+\\2.\\3" DECEMVIRATE_REVDESC "${DECEMVIRATE_REVDESC}")
+
+  execute_process(
+    COMMAND ${GIT_EXECUTABLE} -C ${CMAKE_CURRENT_SOURCE_DIR} update-index --refresh --unmerged
+    COMMAND ${GIT_EXECUTABLE} -C ${CMAKE_CURRENT_SOURCE_DIR} diff-index --quiet HEAD
+    OUTPUT_QUIET ERROR_QUIET
+    RESULT_VARIABLE DECEMVIRATE_REVDIRT
+  )
+  if(NOT DECEMVIRATE_REVDIRT EQUAL 0)
+    set(DECEMVIRATE_REVDESC "${DECEMVIRATE_REVDESC}.dirty")
+  endif()
+
+  string(REGEX REPLACE "^[^+]*\\+" "" DECEMVIRATE_REV "${DECEMVIRATE_REVDESC}")
+  message(STATUS "Building version: ${DECEMVIRATE_REVDESC}")
+
+  set_property(SOURCE src/version/version.cpp APPEND PROPERTY COMPILE_DEFINITIONS DECEMVIRATE_REVDESC="${DECEMVIRATE_REVDESC}")
+  set_property(SOURCE src/version/version.cpp APPEND PROPERTY COMPILE_DEFINITIONS DECEMVIRATE_REV="${DECEMVIRATE_REV}")
+
+  # use .git/logs/HEAD to track if git state has changed and if we need to reconfigure
+  if(EXISTS ${CMAKE_SOURCE_DIR}/.git/logs/HEAD)
+    configure_file(${CMAKE_SOURCE_DIR}/.git/logs/HEAD .dirstamp)
+  endif()
+endif()

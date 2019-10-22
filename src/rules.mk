@@ -30,6 +30,11 @@ src_decemvirate_SOURCES += \
     $(EMPTY)
 
 src_decemvirate_LDADD = \
+    src/version/libversion.la \
     external/fmt/libfmt.la \
     $(LDADD) \
     $(EMPTY)
+
+# Subdirectories
+
+include src/version/rules.mk
