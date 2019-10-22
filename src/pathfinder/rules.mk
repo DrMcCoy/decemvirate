@@ -17,30 +17,15 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Main Decemvirate entry point.
+# Working with Pathfinder data.
 
-bin_PROGRAMS += src/decemvirate
-src_decemvirate_SOURCES =
+noinst_LTLIBRARIES += src/pathfinder/libpathfinder.la
+src_pathfinder_libpathfinder_la_SOURCES =
 
-src_decemvirate_SOURCES += \
+src_pathfinder_libpathfinder_la_SOURCES += \
+    src/pathfinder/germanpublication.hpp \
     $(EMPTY)
 
-src_decemvirate_SOURCES += \
-    src/decemvirate.cpp \
+src_pathfinder_libpathfinder_la_SOURCES += \
+    src/pathfinder/germanpublication.cpp \
     $(EMPTY)
-
-src_decemvirate_LDADD = \
-    src/pathfinder/libpathfinder.la \
-    src/sqlite3/libsqlite3.la \
-    src/common/libcommon.la \
-    src/version/libversion.la \
-    external/fmt/libfmt.la \
-    $(LDADD) \
-    $(EMPTY)
-
-# Subdirectories
-
-include src/version/rules.mk
-include src/common/rules.mk
-include src/sqlite3/rules.mk
-include src/pathfinder/rules.mk
