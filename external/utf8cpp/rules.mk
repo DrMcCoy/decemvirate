@@ -17,9 +17,15 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Third-party code.
+# UTF8-CPP (<http://utfcpp.sourceforge.net/>).
 
-include external/mingw-std-threads/rules.mk
+noinst_HEADERS += \
+    external/utf8cpp/utf8.hpp \
+    external/utf8cpp/utf8/checked.hpp \
+    external/utf8cpp/utf8/core.hpp \
+    external/utf8cpp/utf8/unchecked.hpp \
+    $(EMPTY)
 
-include external/fmt/rules.mk
-include external/utf8cpp/rules.mk
+EXTRA_DIST += \
+    external/utf8cpp/README.Decemvirate \
+    $(EMPTY)

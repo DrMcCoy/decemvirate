@@ -85,6 +85,13 @@ fmt
    external/fmt/LICENSE.rst or
    <https://github.com/fmtlib/fmt/blob/master/LICENSE.rst>.
 
+UTF-8 CPP
+*********
+   Decemvirate uses the lightweight header-only UTF-8 CPP library
+   (<http://utfcpp.sourceforge.net/>) for handling UTF-8 encoded strings.
+   UTF-8 CPP is licensed under the Boost Software License. See
+   external/utf8cpp/utf8.hpp for details.
+
 xoreos and ScummVM code
 ***********************
    Decemvirate uses some code from the xoreos (<https://xoreos.org/>) project, a
