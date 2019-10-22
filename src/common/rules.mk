@@ -29,8 +29,10 @@ src_common_libcommon_la_SOURCES += \
     src/common/types.hpp \
     src/common/endianness.hpp \
     src/common/util.hpp \
+    src/common/error.hpp \
     $(EMPTY)
 
 src_common_libcommon_la_SOURCES += \
     src/common/util.cpp \
+    src/common/error.cpp \
     $(EMPTY)
