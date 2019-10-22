@@ -17,26 +17,10 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Main Decemvirate entry point.
+# Our distribution files.
 
-bin_PROGRAMS += src/decemvirate
-src_decemvirate_SOURCES =
-
-src_decemvirate_SOURCES += \
+# Extra licenses
+EXTRA_DIST += \
+    dist/LICENSE.GPLv2 \
+    dist/LICENSE.GPLv3 \
     $(EMPTY)
-
-src_decemvirate_SOURCES += \
-    src/decemvirate.cpp \
-    $(EMPTY)
-
-src_decemvirate_LDADD = \
-    src/common/libcommon.la \
-    src/version/libversion.la \
-    external/fmt/libfmt.la \
-    $(LDADD) \
-    $(EMPTY)
-
-# Subdirectories
-
-include src/version/rules.mk
-include src/common/rules.mk

@@ -84,3 +84,13 @@ fmt
    the terms of the MIT license. For the full license text, see
    external/fmt/LICENSE.rst or
    <https://github.com/fmtlib/fmt/blob/master/LICENSE.rst>.
+
+xoreos and ScummVM code
+***********************
+   Decemvirate uses some code from the xoreos (<https://xoreos.org/>) project, a
+   lot of which is based on ScummVM (<http://scummvm.org/>) code. xoreos is
+   licensed under version 3 or later of the GNU General Public License and
+   ScummVM is licensed under version 2 or later of the GNU General Public
+   License. For the full license texts, see LICENSE.GPLv3 and LICENSE.GPLv2
+   in the dist directory or <https://gnu.org/licenses/gpl-3.0.html> and
+   <https://gnu.org/licenses/gpl-2.0.html>.

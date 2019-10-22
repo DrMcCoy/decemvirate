@@ -31,6 +31,7 @@ EXTRA_DIST += \
 
 # Subdirectories
 
+include dist/rules.mk
 include doc/rules.mk
 
 include external/rules.mk

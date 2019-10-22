@@ -17,26 +17,18 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Main Decemvirate entry point.
+# Common support code used all over the codebase.
 
-bin_PROGRAMS += src/decemvirate
-src_decemvirate_SOURCES =
+noinst_LTLIBRARIES += src/common/libcommon.la
+src_common_libcommon_la_SOURCES =
 
-src_decemvirate_SOURCES += \
+src_common_libcommon_la_SOURCES += \
+    src/common/system.hpp \
+    src/common/noreturn.hpp \
+    src/common/fallthrough.hpp \
+    src/common/types.hpp \
+    src/common/endianness.hpp \
     $(EMPTY)
 
-src_decemvirate_SOURCES += \
-    src/decemvirate.cpp \
+src_common_libcommon_la_SOURCES += \
     $(EMPTY)
-
-src_decemvirate_LDADD = \
-    src/common/libcommon.la \
-    src/version/libversion.la \
-    external/fmt/libfmt.la \
-    $(LDADD) \
-    $(EMPTY)
-
-# Subdirectories
-
-include src/version/rules.mk
-include src/common/rules.mk
