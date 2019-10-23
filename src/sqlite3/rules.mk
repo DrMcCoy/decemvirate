@@ -24,8 +24,10 @@ src_sqlite3_libsqlite3_la_SOURCES =
 
 src_sqlite3_libsqlite3_la_SOURCES += \
     src/sqlite3/types.hpp \
+    src/sqlite3/db.hpp \
     $(EMPTY)
 
 src_sqlite3_libsqlite3_la_SOURCES += \
     src/sqlite3/types.cpp \
+    src/sqlite3/db.cpp \
     $(EMPTY)
