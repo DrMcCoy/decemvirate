@@ -31,10 +31,12 @@ src_common_libcommon_la_SOURCES += \
     src/common/util.hpp \
     src/common/error.hpp \
     src/common/string.hpp \
+    src/common/platform.hpp \
     $(EMPTY)
 
 src_common_libcommon_la_SOURCES += \
     src/common/util.cpp \
     src/common/error.cpp \
     src/common/string.cpp \
+    src/common/platform.cpp \
     $(EMPTY)
