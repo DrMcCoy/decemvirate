@@ -92,6 +92,13 @@ UTF-8 CPP
    UTF-8 CPP is licensed under the Boost Software License. See
    external/utf8cpp/utf8.hpp for details.
 
+cxxopts
+*******
+   Decemvirate includes cxxopts (<https://github.com/jarro2783/cxxopts/>),
+   licensed under the terms of MIT license. For the full license text,
+   see external/cxxopts/LICENSE or
+   <https://github.com/jarro2783/cxxopts/blob/master/LICENSE>.
+
 xoreos and ScummVM code
 ***********************
    Decemvirate uses some code from the xoreos (<https://xoreos.org/>) project, a

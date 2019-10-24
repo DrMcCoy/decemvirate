@@ -17,10 +17,14 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# Third-party code.
+# cxxoptps (<https://github.com/jarro2783/cxxopts/>).
 
-include external/mingw-std-threads/rules.mk
+noinst_HEADERS += \
+    external/cxxopts/cxxopts.hpp \
+    $(EMPTY)
 
-include external/fmt/rules.mk
-include external/utf8cpp/rules.mk
-include external/cxxopts/rules.mk
+EXTRA_DIST += \
+    external/cxxopts/LICENSE \
+    external/cxxopts/README.md \
+    external/cxxopts/README.Decemvirate \
+    $(EMPTY)

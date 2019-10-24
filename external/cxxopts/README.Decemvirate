@@ -1,0 +1,5 @@
+This is the source of cxxopts (<https://github.com/jarro2783/cxxopts/>)
+version 2.2.0.
+
+Following changes have been applied:
+- Added an Options::parse() method that takes a vector of strings
