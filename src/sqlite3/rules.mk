@@ -26,10 +26,12 @@ src_sqlite3_libsqlite3_la_SOURCES += \
     src/sqlite3/types.hpp \
     src/sqlite3/db.hpp \
     src/sqlite3/statement.hpp \
+    src/sqlite3/countstatement.hpp \
     $(EMPTY)
 
 src_sqlite3_libsqlite3_la_SOURCES += \
     src/sqlite3/types.cpp \
     src/sqlite3/db.cpp \
     src/sqlite3/statement.cpp \
+    src/sqlite3/countstatement.cpp \
     $(EMPTY)
