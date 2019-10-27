@@ -69,4 +69,27 @@ std::optional<EnglishPublication> FindEnglishPublicationByAbbreviation::run(cons
 	return publication;
 }
 
+
+FindEnglishPublicationsByTitle::FindEnglishPublicationsByTitle(SQLite3::DB &db, size_t limit) :
+		SQLite3::FindLikeMatch(db, "EnglishPublications", "Title", limit) {
+}
+
+std::vector<EnglishPublication> FindEnglishPublicationsByTitle::run(const std::string &title, size_t &count) {
+	count = execute(title);
+
+	std::vector<EnglishPublication> publications;
+
+	publications.reserve(_rows.size());
+	for (const auto &row: _rows)
+		publications.emplace_back(row);
+
+	reset();
+	return publications;
+}
+
+std::vector<EnglishPublication> FindEnglishPublicationsByTitle::run(const std::string &title) {
+	size_t count;
+	return run(title, count);
+}
+
 } // End of namespace Pathfinder

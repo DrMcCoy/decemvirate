@@ -30,6 +30,7 @@
 #include <optional>
 
 #include "src/sqlite3/findexactmatch.hpp"
+#include "src/sqlite3/findlikematch.hpp"
 
 namespace Pathfinder {
 
@@ -106,6 +107,22 @@ public:
 	FindEnglishPublicationByAbbreviation &operator=(FindEnglishPublicationByAbbreviation &&) = default;
 
 	std::optional<EnglishPublication> run(const std::string &abbreviation);
+};
+
+
+/** Find English publications by title. */
+class FindEnglishPublicationsByTitle : public SQLite3::FindLikeMatch {
+public:
+	FindEnglishPublicationsByTitle(SQLite3::DB &db, size_t limit = SQLite3::FindLikeMatch::kNoLimit);
+	FindEnglishPublicationsByTitle(const FindEnglishPublicationsByTitle &) = delete;
+	FindEnglishPublicationsByTitle(FindEnglishPublicationsByTitle &&) = default;
+	~FindEnglishPublicationsByTitle() override = default;
+
+	FindEnglishPublicationsByTitle &operator=(const FindEnglishPublicationsByTitle &) = delete;
+	FindEnglishPublicationsByTitle &operator=(FindEnglishPublicationsByTitle &&) = default;
+
+	std::vector<EnglishPublication> run(const std::string &title);
+	std::vector<EnglishPublication> run(const std::string &title, size_t &count);
 };
 
 } // End of namespace Pathfinder
