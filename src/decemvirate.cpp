@@ -22,6 +22,51 @@
  *  The project's main entry point.
  */
 
-int main(void) {
+#include <vector>
+#include <string>
+
+#include "external/fmt/core.hpp"
+
+#include "external/cxxopts/cxxopts.hpp"
+
+#include "src/version/version.hpp"
+
+#include "src/common/util.hpp"
+#include "src/common/error.hpp"
+#include "src/common/platform.hpp"
+
+#include "src/pathfinder/db.hpp"
+
+int main(int argc, char **argv) {
+	try {
+		const std::vector<std::string> params = Common::Platform::getParameters(argc, argv);
+
+		cxxopts::Options options(params[0], std::string(Version::getProjectNameVersion()) + " - A FLOSS Pathfinder TTRPG helper");
+		options.add_options()
+				( "h,help", "Show this text and exit" )
+				( "d,database", "SQLite database to use (required)", cxxopts::value<std::string>() )
+			;
+
+		cxxopts::ParseResult result = options.parse(params);
+
+		if (result.count("help") > 0) {
+			fmt::print("{}\n", options.help());
+			return 0;
+		}
+
+		const std::string databaseFile = (result.count("database") > 0) ? result["database"].as<std::string>() : "";
+		if (databaseFile.empty()) {
+			fmt::print("{}\n", options.help());
+			return 1;
+		}
+
+		Pathfinder::DB db(databaseFile, 0, 0);
+
+		info("Openend Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
+
+	} catch (...) {
+		Common::exceptionDispatcherError();
+	}
+
 	return 0;
 }
