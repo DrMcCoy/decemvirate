@@ -29,6 +29,7 @@ src_sqlite3_libsqlite3_la_SOURCES += \
     src/sqlite3/countstatement.hpp \
     src/sqlite3/mapstatement.hpp \
     src/sqlite3/findexactmatch.hpp \
+    src/sqlite3/findlikematch.hpp \
     $(EMPTY)
 
 src_sqlite3_libsqlite3_la_SOURCES += \
@@ -38,4 +39,5 @@ src_sqlite3_libsqlite3_la_SOURCES += \
     src/sqlite3/countstatement.cpp \
     src/sqlite3/mapstatement.cpp \
     src/sqlite3/findexactmatch.cpp \
+    src/sqlite3/findlikematch.cpp \
     $(EMPTY)
