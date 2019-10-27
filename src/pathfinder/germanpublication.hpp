@@ -136,6 +136,21 @@ public:
 	std::vector<GermanPublication> run(const std::string &title, size_t &count);
 };
 
+
+/** Find German publications by which contain translations of an English publication. */
+class FindGermanPublicationsByPaizoCode : public SQLite3::FindLikeMatch {
+public:
+	FindGermanPublicationsByPaizoCode(SQLite3::DB &db);
+	FindGermanPublicationsByPaizoCode(const FindGermanPublicationsByPaizoCode &) = delete;
+	FindGermanPublicationsByPaizoCode(FindGermanPublicationsByPaizoCode &&) = default;
+	~FindGermanPublicationsByPaizoCode() override = default;
+
+	FindGermanPublicationsByPaizoCode &operator=(const FindGermanPublicationsByPaizoCode &) = delete;
+	FindGermanPublicationsByPaizoCode &operator=(FindGermanPublicationsByPaizoCode &&) = default;
+
+	std::vector<GermanPublication> run(const std::string &paizoCode);
+};
+
 } // End of namespace Pathfinder
 
 #endif // PATHFINDER_GERMANPUBLICATION_HPP

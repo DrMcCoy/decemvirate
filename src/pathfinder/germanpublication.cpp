@@ -85,4 +85,26 @@ std::vector<GermanPublication> FindGermanPublicationsByTitle::run(const std::str
 	return run(title, count);
 }
 
+
+FindGermanPublicationsByPaizoCode::FindGermanPublicationsByPaizoCode(SQLite3::DB &db) :
+		SQLite3::FindLikeMatch(db, "GermanPublications", "PaizoProductCodes") {
+}
+
+std::vector<GermanPublication> FindGermanPublicationsByPaizoCode::run(const std::string &paizoCode) {
+	execute(paizoCode);
+
+	std::vector<GermanPublication> publications;
+
+	publications.reserve(_rows.size());
+	for (const auto &row: _rows) {
+		GermanPublication publication(row);
+
+		if (publication.hasPaizoProductCode(paizoCode))
+			publications.push_back(publication);
+	}
+
+	reset();
+	return publications;
+}
+
 } // End of namespace Pathfinder
