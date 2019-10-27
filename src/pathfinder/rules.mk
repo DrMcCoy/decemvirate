@@ -24,8 +24,10 @@ src_pathfinder_libpathfinder_la_SOURCES =
 
 src_pathfinder_libpathfinder_la_SOURCES += \
     src/pathfinder/germanpublication.hpp \
+    src/pathfinder/englishpublication.hpp \
     $(EMPTY)
 
 src_pathfinder_libpathfinder_la_SOURCES += \
     src/pathfinder/germanpublication.cpp \
+    src/pathfinder/englishpublication.cpp \
     $(EMPTY)
