@@ -37,4 +37,20 @@ EnglishPublication::EnglishPublication(const SQLite3::MapStatement::Row &row) :
 
 }
 
+
+FindEnglishPublicationByProductCode::FindEnglishPublicationByProductCode(SQLite3::DB &db) :
+		SQLite3::FindExactMatch(db, "EnglishPublications", "ProductCode") {
+}
+
+std::optional<EnglishPublication> FindEnglishPublicationByProductCode::run(const std::string &productCode) {
+	execute(productCode);
+
+	std::optional<EnglishPublication> publication = std::nullopt;
+	if (!_rows.empty())
+		publication = EnglishPublication(_rows[0]);
+
+	reset();
+	return publication;
+}
+
 } // End of namespace Pathfinder

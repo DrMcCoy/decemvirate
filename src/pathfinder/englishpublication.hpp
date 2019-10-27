@@ -27,6 +27,9 @@
 
 #include <string>
 #include <vector>
+#include <optional>
+
+#include "src/sqlite3/findexactmatch.hpp"
 
 namespace Pathfinder {
 
@@ -73,6 +76,21 @@ private:
 	std::string _url;
 
 	std::vector<std::string> _isbns;
+};
+
+
+/** Find an English publication by its Paizo code. */
+class FindEnglishPublicationByProductCode : public SQLite3::FindExactMatch {
+public:
+	FindEnglishPublicationByProductCode(SQLite3::DB &db);
+	FindEnglishPublicationByProductCode(const FindEnglishPublicationByProductCode &) = delete;
+	FindEnglishPublicationByProductCode(FindEnglishPublicationByProductCode &&) = default;
+	~FindEnglishPublicationByProductCode() override = default;
+
+	FindEnglishPublicationByProductCode &operator=(const FindEnglishPublicationByProductCode &) = delete;
+	FindEnglishPublicationByProductCode &operator=(FindEnglishPublicationByProductCode &&) = default;
+
+	std::optional<EnglishPublication> run(const std::string &productCode);
 };
 
 } // End of namespace Pathfinder
