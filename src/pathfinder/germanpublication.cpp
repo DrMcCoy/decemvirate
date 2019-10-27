@@ -46,4 +46,20 @@ bool GermanPublication::hasPaizoProductCode(const std::string &paizoProductCode)
 	return std::find(_paizoProductCodes.begin(), _paizoProductCodes.end(), paizoProductCode) != _paizoProductCodes.end();
 }
 
+
+FindGermanPublicationByAbbreviation::FindGermanPublicationByAbbreviation(SQLite3::DB &db) :
+		SQLite3::FindExactMatch(db, "GermanPublications", "Abbreviation") {
+}
+
+std::optional<GermanPublication> FindGermanPublicationByAbbreviation::run(const std::string &abbreviation) {
+	execute(abbreviation);
+
+	std::optional<GermanPublication> publication = std::nullopt;
+	if (!_rows.empty())
+		publication = GermanPublication(_rows[0]);
+
+	reset();
+	return publication;
+}
+
 } // End of namespace Pathfinder

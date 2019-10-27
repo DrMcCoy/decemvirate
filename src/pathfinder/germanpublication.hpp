@@ -27,6 +27,9 @@
 
 #include <string>
 #include <vector>
+#include <optional>
+
+#include "src/sqlite3/findexactmatch.hpp"
 
 namespace Pathfinder {
 
@@ -99,6 +102,21 @@ private:
 
 	std::vector<std::string> _paizoProductCodes;
 	std::vector<std::string> _isbns;
+};
+
+
+/** Find a German publication by its abbreviation. */
+class FindGermanPublicationByAbbreviation : public SQLite3::FindExactMatch {
+public:
+	FindGermanPublicationByAbbreviation(SQLite3::DB &db);
+	FindGermanPublicationByAbbreviation(const FindGermanPublicationByAbbreviation &) = delete;
+	FindGermanPublicationByAbbreviation(FindGermanPublicationByAbbreviation &&) = default;
+	~FindGermanPublicationByAbbreviation() override = default;
+
+	FindGermanPublicationByAbbreviation &operator=(const FindGermanPublicationByAbbreviation &) = delete;
+	FindGermanPublicationByAbbreviation &operator=(FindGermanPublicationByAbbreviation &&) = default;
+
+	std::optional<GermanPublication> run(const std::string &abbreviation);
 };
 
 } // End of namespace Pathfinder
