@@ -32,10 +32,129 @@
 #include "src/version/version.hpp"
 
 #include "src/common/util.hpp"
+#include "src/common/string.hpp"
 #include "src/common/error.hpp"
 #include "src/common/platform.hpp"
 
 #include "src/pathfinder/db.hpp"
+
+void showHelp(const cxxopts::Options &options) {
+	fmt::print("{}", options.help());
+	fmt::print("\n");
+	fmt::print("Supported commands:\n");
+	fmt::print("  - finddepub <abbreviation/title>\n");
+	fmt::print("    Search German publication by abbreviation or title\n");
+	fmt::print("  - findenpub <code/abbreviation/title>\n");
+	fmt::print("    Search English publication by product code, abbreviation or title\n");
+	fmt::print("\n");
+}
+
+void printPub(const Pathfinder::GermanPublication &pub) {
+	std::string isbns;
+	for (const auto &isbn : pub.getISBNs())
+		isbns += (isbns.empty() ? "" : ", ") + isbn;
+
+	fmt::print("Title: {}\n", pub.getTitle());
+	fmt::print("Product Code: {}\n", pub.getProductCode());
+	fmt::print("Abbreviation: {}\n", pub.getAbbreviation());
+	fmt::print("StatBlock: {}\n", pub.getStatBlock());
+	fmt::print("Category: {}\n", pub.getCategory());
+	fmt::print("Date: {}\n", pub.getDate());
+	fmt::print("Commentary: {}\n", pub.getCommentary());
+	fmt::print("URL: {}\n", pub.getURL());
+	fmt::print("ISBNs: {}\n", isbns);
+	fmt::print("\n");
+}
+
+void printPub(const Pathfinder::EnglishPublication &pub) {
+	std::string isbns;
+	for (const auto &isbn : pub.getISBNs())
+		isbns += (isbns.empty() ? "" : ", ") + isbn;
+
+	fmt::print("Title: {}\n", pub.getTitle());
+	fmt::print("Product Code: {}\n", pub.getProductCode());
+	fmt::print("Abbreviation: {}\n", pub.getAbbreviation());
+	fmt::print("Category: {}\n", pub.getCategory());
+	fmt::print("Date: {}\n", pub.getDate());
+	fmt::print("URL: {}\n", pub.getURL());
+	fmt::print("ISBNs: {}\n", isbns);
+	fmt::print("\n");
+}
+
+bool findDEPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.size() != 2)
+		return false;
+
+	std::vector<Pathfinder::GermanPublication> pubs;
+
+	if (std::optional<Pathfinder::GermanPublication> pub = db.findGermanPublicationByAbbreviation(command[1]); pub)
+		pubs.push_back(*pub);
+
+	size_t count = pubs.size();
+	if (pubs.empty())
+		pubs = db.findGermanPublicationsByTitle(command[1], count);
+
+	if (pubs.empty())
+		return true;
+
+	for (const auto &pub : pubs) {
+		printPub(pub);
+	}
+
+	if (count != pubs.size())
+		fmt::print("Showing {} or {} results\n", pubs.size(), count);
+
+	if (pubs.size() == 1) {
+		const std::vector<Pathfinder::EnglishPublication> originals = db.findOriginals(pubs[0]);
+		if (!originals.empty()) {
+			fmt::print("This publication translates the following originals:\n\n");
+			for (const auto &pub : originals) {
+				printPub(pub);
+			}
+		}
+	}
+
+	return true;
+}
+
+bool findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.size() != 2)
+		return false;
+
+	std::vector<Pathfinder::EnglishPublication> pubs;
+
+	if (std::optional<Pathfinder::EnglishPublication> pub = db.findEnglishPublicationByProductCode(command[1]); pub)
+		pubs.push_back(*pub);
+	if (pubs.empty())
+		if (std::optional<Pathfinder::EnglishPublication> pub = db.findEnglishPublicationByAbbreviation(command[1]); pub)
+			pubs.push_back(*pub);
+
+	size_t count = pubs.size();
+	if (pubs.empty())
+		pubs = db.findEnglishPublicationsByTitle(command[1], count);
+
+	for (const auto &pub : pubs) {
+		printPub(pub);
+	}
+
+	if (count != pubs.size())
+		fmt::print("Showing {} or {} results\n", pubs.size(), count);
+
+	return true;
+}
+
+bool execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.empty())
+		return false;
+
+	if (Common::String::equalsIgnoreCase(command[0], "finddepub")) {
+		return findDEPub(command, db);
+	} else if (Common::String::equalsIgnoreCase(command[0], "findenpub")) {
+		return findENPub(command, db);
+	}
+
+	return false;
+}
 
 int main(int argc, char **argv) {
 	try {
@@ -45,24 +164,34 @@ int main(int argc, char **argv) {
 		options.add_options()
 				( "h,help", "Show this text and exit" )
 				( "d,database", "SQLite database to use (required)", cxxopts::value<std::string>() )
+				( "command", "", cxxopts::value<std::vector<std::string>>())
 			;
+
+		options.parse_positional("command");
+		options.positional_help("<command> [<parameters>]");
 
 		cxxopts::ParseResult result = options.parse(params);
 
 		if (result.count("help") > 0) {
-			fmt::print("{}\n", options.help());
+			showHelp(options);
 			return 0;
 		}
 
 		const std::string databaseFile = (result.count("database") > 0) ? result["database"].as<std::string>() : "";
-		if (databaseFile.empty()) {
-			fmt::print("{}\n", options.help());
+		if (databaseFile.empty() || result.count("command") == 0) {
+			showHelp(options);
 			return 1;
 		}
 
 		Pathfinder::DB db(databaseFile, 0, 0);
 
 		info("Openend Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
+
+		const std::vector<std::string> command = result["command"].as<std::vector<std::string>>();
+		if (!execute(command, db)) {
+			showHelp(options);
+			return 1;
+		}
 
 	} catch (...) {
 		Common::exceptionDispatcherError();
