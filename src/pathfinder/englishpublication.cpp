@@ -53,4 +53,20 @@ std::optional<EnglishPublication> FindEnglishPublicationByProductCode::run(const
 	return publication;
 }
 
+
+FindEnglishPublicationByAbbreviation::FindEnglishPublicationByAbbreviation(SQLite3::DB &db) :
+		SQLite3::FindExactMatch(db, "EnglishPublications", "Abbreviation") {
+}
+
+std::optional<EnglishPublication> FindEnglishPublicationByAbbreviation::run(const std::string &abbreviation) {
+	execute(abbreviation);
+
+	std::optional<EnglishPublication> publication = std::nullopt;
+	if (!_rows.empty())
+		publication = EnglishPublication(_rows[0]);
+
+	reset();
+	return publication;
+}
+
 } // End of namespace Pathfinder

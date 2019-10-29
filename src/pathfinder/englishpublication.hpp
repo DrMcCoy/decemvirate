@@ -93,6 +93,21 @@ public:
 	std::optional<EnglishPublication> run(const std::string &productCode);
 };
 
+
+/** Find an English publication by its Paizo code. */
+class FindEnglishPublicationByAbbreviation : public SQLite3::FindExactMatch {
+public:
+	FindEnglishPublicationByAbbreviation(SQLite3::DB &db);
+	FindEnglishPublicationByAbbreviation(const FindEnglishPublicationByAbbreviation &) = delete;
+	FindEnglishPublicationByAbbreviation(FindEnglishPublicationByAbbreviation &&) = default;
+	~FindEnglishPublicationByAbbreviation() override = default;
+
+	FindEnglishPublicationByAbbreviation &operator=(const FindEnglishPublicationByAbbreviation &) = delete;
+	FindEnglishPublicationByAbbreviation &operator=(FindEnglishPublicationByAbbreviation &&) = default;
+
+	std::optional<EnglishPublication> run(const std::string &abbreviation);
+};
+
 } // End of namespace Pathfinder
 
 #endif // PATHFINDER_ENGLISHPUBLICATION_HPP
