@@ -140,6 +140,16 @@ bool findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (count != pubs.size())
 		fmt::print("Showing {} or {} results\n", pubs.size(), count);
 
+	if (pubs.size() == 1) {
+		const std::vector<Pathfinder::GermanPublication> translations = db.findTranslations(pubs[0]);
+		if (!translations.empty()) {
+			fmt::print("This publication is translated in the following publications:\n\n");
+			for (const auto &pub : translations) {
+				printPub(pub);
+			}
+		}
+	}
+
 	return true;
 }
 
