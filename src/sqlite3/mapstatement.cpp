@@ -94,7 +94,10 @@ bool MapStatement::callback() {
 				break;
 
 			case StorageClass::Text:
-				cell.emplace<std::string>(reinterpret_cast<const char *>(sqlite3_column_text(_statement, i)));
+				{
+					const char *text = reinterpret_cast<const char *>(sqlite3_column_text(_statement, i));
+					cell.emplace<std::string>(text ? text : "");
+				}
 				break;
 
 			case StorageClass::Blob:
