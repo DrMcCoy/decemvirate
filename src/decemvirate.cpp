@@ -46,6 +46,10 @@ void showHelp(const cxxopts::Options &options) {
 	fmt::print("    Search German publication by abbreviation or title\n");
 	fmt::print("  - findenpub <code/abbreviation/title>\n");
 	fmt::print("    Search English publication by product code, abbreviation or title\n");
+	fmt::print("  - finddespell <name>\n");
+	fmt::print("    Search German spells by name\n");
+	fmt::print("  - findenspell <name>\n");
+	fmt::print("    Search English spells by name\n");
 	fmt::print("\n");
 }
 
@@ -78,6 +82,12 @@ void printPub(const Pathfinder::EnglishPublication &pub) {
 	fmt::print("Date: {}\n", pub.getDate());
 	fmt::print("URL: {}\n", pub.getURL());
 	fmt::print("ISBNs: {}\n", isbns);
+	fmt::print("\n");
+}
+
+void printGermanSpell(const Pathfinder::GermanSpell &spell) {
+	fmt::print("German Name: {}\n", spell.getGermanName());
+	fmt::print("English Name: {}\n", spell.getEnglishName());
 	fmt::print("\n");
 }
 
@@ -153,6 +163,30 @@ bool findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	return true;
 }
 
+bool findDESpell(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.size() != 2)
+		return false;
+
+	std::vector<Pathfinder::GermanSpell> spells = db.findGermanSpellsByGermanName(command[1]);
+	for (const auto &spell : spells) {
+		printGermanSpell(spell);
+	}
+
+	return true;
+}
+
+bool findENSpell(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.size() != 2)
+		return false;
+
+	std::vector<Pathfinder::GermanSpell> spells = db.findGermanSpellsByEnglishName(command[1]);
+	for (const auto &spell : spells) {
+		printGermanSpell(spell);
+	}
+
+	return true;
+}
+
 bool execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.empty())
 		return false;
@@ -161,6 +195,10 @@ bool execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
 		return findDEPub(command, db);
 	} else if (Common::String::equalsIgnoreCase(command[0], "findenpub")) {
 		return findENPub(command, db);
+	} else if (Common::String::equalsIgnoreCase(command[0], "finddespell")) {
+		return findDESpell(command, db);
+	} else if (Common::String::equalsIgnoreCase(command[0], "findenspell")) {
+		return findENSpell(command, db);
 	}
 
 	return false;
