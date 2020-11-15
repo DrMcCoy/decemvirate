@@ -77,11 +77,18 @@ bool MapStatement::callback() {
 	_rows.resize(n + 1);
 
 	for (int i = 0; i < columnCount; i++) {
-		const Column &column = _columns[i];
+		Column &column = _columns[i];
+
+		const StorageClass type = getStorageClassFromSQLite3Type(sqlite3_column_type(_statement, i));
+		if ((column.type != StorageClass::Null) && (type != StorageClass::Null) && (column.type != type))
+			throw Common::Exception("Column type mismatch while accumulating Statement results");
+
+		if (type != StorageClass::Null)
+			column.type = type;
 
 		cell_t cell;
 
-		switch (column.type) {
+		switch (type) {
 			case StorageClass::Null:
 				break;
 
