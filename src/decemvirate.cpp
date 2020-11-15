@@ -112,7 +112,7 @@ bool findDEPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	}
 
 	if (count != pubs.size())
-		fmt::print("Showing {} or {} results\n", pubs.size(), count);
+		fmt::print("Showing {} of {} results\n", pubs.size(), count);
 
 	if (pubs.size() == 1) {
 		const std::vector<Pathfinder::EnglishPublication> originals = db.findOriginals(pubs[0]);
@@ -148,7 +148,7 @@ bool findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	}
 
 	if (count != pubs.size())
-		fmt::print("Showing {} or {} results\n", pubs.size(), count);
+		fmt::print("Showing {} of {} results\n", pubs.size(), count);
 
 	if (pubs.size() == 1) {
 		const std::vector<Pathfinder::GermanPublication> translations = db.findTranslations(pubs[0]);
