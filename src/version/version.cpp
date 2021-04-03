@@ -73,7 +73,7 @@ static const char *kProjectNameVersion     = PACKAGE_NAME " " PACKAGE_VERSION DE
 static const char *kProjectNameVersionFull = PACKAGE_NAME " " PACKAGE_VERSION DECEMVIRATE_REVSEP DECEMVIRATE_REV " [" DECEMVIRATE_REVDESC "] (" DECEMVIRATE_BUILDDATE ")";
 
 static const char *kProjectAuthors =
-	"Copyright (c) 2019-2020 by Sven Hesse.\n"
+	"Copyright (c) 2019-2021 by Sven Hesse.\n"
 	"Please see the AUTHORS file for details.\n"
 	"\n"
 	"This is free software; see the source for copying conditions.  There is NO\n"
