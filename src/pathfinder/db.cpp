@@ -83,7 +83,9 @@ DB::DB(const std::string &file, int64_t minVersionMajor, int64_t minVersionMinor
 		_findEnglishPublicationsByTitle(_db, 12),
 		_findGermanPublicationsByPaizoCode(_db),
 		_findGermanSpellsByGermanName(_db),
-		_findGermanSpellsByEnglishName(_db) {
+		_findGermanSpellsByEnglishName(_db),
+		_findGermanFeatsByGermanName(_db),
+		_findGermanFeatsByEnglishName(_db) {
 
 }
 
@@ -135,6 +137,14 @@ std::vector<GermanSpell> DB::findGermanSpellsByGermanName(const std::string &nam
 
 std::vector<GermanSpell> DB::findGermanSpellsByEnglishName(const std::string &name) {
 	return _findGermanSpellsByEnglishName.run(name);
+}
+
+std::vector<GermanFeat> DB::findGermanFeatsByGermanName(const std::string &name) {
+	return _findGermanFeatsByGermanName.run(name);
+}
+
+std::vector<GermanFeat> DB::findGermanFeatsByEnglishName(const std::string &name) {
+	return _findGermanFeatsByEnglishName.run(name);
 }
 
 } // End of namespace Pathfinder

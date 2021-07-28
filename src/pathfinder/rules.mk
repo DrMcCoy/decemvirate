@@ -26,6 +26,7 @@ src_pathfinder_libpathfinder_la_SOURCES += \
     src/pathfinder/germanpublication.hpp \
     src/pathfinder/englishpublication.hpp \
     src/pathfinder/germanspell.hpp \
+    src/pathfinder/germanfeat.hpp \
     src/pathfinder/db.hpp \
     $(EMPTY)
 
@@ -33,5 +34,6 @@ src_pathfinder_libpathfinder_la_SOURCES += \
     src/pathfinder/germanpublication.cpp \
     src/pathfinder/englishpublication.cpp \
     src/pathfinder/germanspell.cpp \
+    src/pathfinder/germanfeat.cpp \
     src/pathfinder/db.cpp \
     $(EMPTY)

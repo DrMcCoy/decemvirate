@@ -32,6 +32,7 @@
 #include "src/pathfinder/germanpublication.hpp"
 #include "src/pathfinder/englishpublication.hpp"
 #include "src/pathfinder/germanspell.hpp"
+#include "src/pathfinder/germanfeat.hpp"
 
 namespace Pathfinder {
 
@@ -89,6 +90,9 @@ public:
 	std::vector<GermanSpell> findGermanSpellsByGermanName(const std::string &name);
 	std::vector<GermanSpell> findGermanSpellsByEnglishName(const std::string &name);
 
+	std::vector<GermanFeat> findGermanFeatsByGermanName(const std::string &name);
+	std::vector<GermanFeat> findGermanFeatsByEnglishName(const std::string &name);
+
 
 private:
 	FindGermanPublicationByAbbreviation _findGermanPublicationByAbbreviation;
@@ -103,6 +107,9 @@ private:
 
 	FindGermanSpellsByGermanName _findGermanSpellsByGermanName;
 	FindGermanSpellsByEnglishName _findGermanSpellsByEnglishName;
+
+	FindGermanFeatsByGermanName _findGermanFeatsByGermanName;
+	FindGermanFeatsByEnglishName _findGermanFeatsByEnglishName;
 };
 
 } // End of namespace Pathfinder
