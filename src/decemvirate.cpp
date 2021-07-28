@@ -50,6 +50,10 @@ void showHelp(const cxxopts::Options &options) {
 	fmt::print("    Search German spells by name\n");
 	fmt::print("  - findenspell <name>\n");
 	fmt::print("    Search English spells by name\n");
+	fmt::print("  - finddefeat <name>\n");
+	fmt::print("    Search German feats by name\n");
+	fmt::print("  - findenfeat <name>\n");
+	fmt::print("    Search English feats by name\n");
 	fmt::print("\n");
 }
 
@@ -88,6 +92,20 @@ void printPub(const Pathfinder::EnglishPublication &pub) {
 void printGermanSpell(const Pathfinder::GermanSpell &spell) {
 	fmt::print("German Name: {}\n", spell.getGermanName());
 	fmt::print("English Name: {}\n", spell.getEnglishName());
+	fmt::print("\n");
+}
+
+void printGermanFeat(const Pathfinder::GermanFeat &feat) {
+	std::string types;
+	for (const auto &type : feat.getTypes())
+		types += (types.empty() ? "" : ", ") + type;
+
+	fmt::print("German Name: {}\n", feat.getGermanName());
+	fmt::print("English Name: {}\n", feat.getEnglishName());
+	fmt::print("Book: {}\n", feat.getBook());
+	fmt::print("Page: {}\n", feat.getPage());
+	fmt::print("Description: {}\n", feat.getDescription());
+	fmt::print("Types: {}\n", types);
 	fmt::print("\n");
 }
 
@@ -187,6 +205,30 @@ bool findENSpell(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	return true;
 }
 
+bool findDEFeat(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.size() != 2)
+		return false;
+
+	std::vector<Pathfinder::GermanFeat> feats = db.findGermanFeatsByGermanName(command[1]);
+	for (const auto &feat : feats) {
+		printGermanFeat(feat);
+	}
+
+	return true;
+}
+
+bool findENFeat(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.size() != 2)
+		return false;
+
+	std::vector<Pathfinder::GermanFeat> feats = db.findGermanFeatsByEnglishName(command[1]);
+	for (const auto &feat : feats) {
+		printGermanFeat(feat);
+	}
+
+	return true;
+}
+
 bool execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.empty())
 		return false;
@@ -199,6 +241,10 @@ bool execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
 		return findDESpell(command, db);
 	} else if (Common::String::equalsIgnoreCase(command[0], "findenspell")) {
 		return findENSpell(command, db);
+	} else if (Common::String::equalsIgnoreCase(command[0], "finddefeat")) {
+		return findDEFeat(command, db);
+	} else if (Common::String::equalsIgnoreCase(command[0], "findenfeat")) {
+		return findENFeat(command, db);
 	}
 
 	return false;
