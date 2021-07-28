@@ -231,7 +231,7 @@ int main(int argc, char **argv) {
 			return 1;
 		}
 
-		Pathfinder::DB db(databaseFile, 0, 1);
+		Pathfinder::DB db(databaseFile, 0, 2);
 
 		info("Openend Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
 
