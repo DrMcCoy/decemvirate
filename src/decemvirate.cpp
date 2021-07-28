@@ -38,7 +38,16 @@
 
 #include "src/pathfinder/db.hpp"
 
-void showHelp(const cxxopts::Options &options) {
+enum Result : int {
+	kResultSuccess           = 0,
+	kResultNotFound          = 1,
+	kResultError             = 2,
+	kResultMissingParameter  = 3,
+	kResultInvalidCommand    = 4,
+	kResultInvalidParameters = 5
+};
+
+static void showHelp(const cxxopts::Options &options) {
 	fmt::print("{}", options.help());
 	fmt::print("\n");
 	fmt::print("Supported commands:\n");
@@ -57,7 +66,7 @@ void showHelp(const cxxopts::Options &options) {
 	fmt::print("\n");
 }
 
-void printPub(const Pathfinder::GermanPublication &pub) {
+static void printPub(const Pathfinder::GermanPublication &pub) {
 	std::string isbns;
 	for (const auto &isbn : pub.getISBNs())
 		isbns += (isbns.empty() ? "" : ", ") + isbn;
@@ -74,7 +83,7 @@ void printPub(const Pathfinder::GermanPublication &pub) {
 	fmt::print("\n");
 }
 
-void printPub(const Pathfinder::EnglishPublication &pub) {
+static void printPub(const Pathfinder::EnglishPublication &pub) {
 	std::string isbns;
 	for (const auto &isbn : pub.getISBNs())
 		isbns += (isbns.empty() ? "" : ", ") + isbn;
@@ -89,13 +98,13 @@ void printPub(const Pathfinder::EnglishPublication &pub) {
 	fmt::print("\n");
 }
 
-void printGermanSpell(const Pathfinder::GermanSpell &spell) {
+static void printGermanSpell(const Pathfinder::GermanSpell &spell) {
 	fmt::print("German Name: {}\n", spell.getGermanName());
 	fmt::print("English Name: {}\n", spell.getEnglishName());
 	fmt::print("\n");
 }
 
-void printGermanFeat(const Pathfinder::GermanFeat &feat) {
+static void printGermanFeat(const Pathfinder::GermanFeat &feat) {
 	std::string types;
 	for (const auto &type : feat.getTypes())
 		types += (types.empty() ? "" : ", ") + type;
@@ -109,9 +118,9 @@ void printGermanFeat(const Pathfinder::GermanFeat &feat) {
 	fmt::print("\n");
 }
 
-bool findDEPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
+static Result findDEPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.size() != 2)
-		return false;
+		return kResultInvalidParameters;
 
 	std::vector<Pathfinder::GermanPublication> pubs;
 
@@ -123,7 +132,7 @@ bool findDEPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 		pubs = db.findGermanPublicationsByTitle(command[1], count);
 
 	if (pubs.empty())
-		return true;
+		return kResultNotFound;
 
 	for (const auto &pub : pubs) {
 		printPub(pub);
@@ -142,12 +151,12 @@ bool findDEPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 		}
 	}
 
-	return true;
+	return kResultSuccess;
 }
 
-bool findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
+static Result findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.size() != 2)
-		return false;
+		return kResultInvalidParameters;
 
 	std::vector<Pathfinder::EnglishPublication> pubs;
 
@@ -160,6 +169,9 @@ bool findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	size_t count = pubs.size();
 	if (pubs.empty())
 		pubs = db.findEnglishPublicationsByTitle(command[1], count);
+
+	if (pubs.empty())
+		return kResultNotFound;
 
 	for (const auto &pub : pubs) {
 		printPub(pub);
@@ -178,60 +190,72 @@ bool findENPub(const std::vector<std::string> &command, Pathfinder::DB &db) {
 		}
 	}
 
-	return true;
+	return kResultSuccess;
 }
 
-bool findDESpell(const std::vector<std::string> &command, Pathfinder::DB &db) {
+static Result findDESpell(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.size() != 2)
-		return false;
+		return kResultInvalidParameters;
 
 	std::vector<Pathfinder::GermanSpell> spells = db.findGermanSpellsByGermanName(command[1]);
+	if (spells.empty())
+		return kResultNotFound;
+
 	for (const auto &spell : spells) {
 		printGermanSpell(spell);
 	}
 
-	return true;
+	return kResultSuccess;
 }
 
-bool findENSpell(const std::vector<std::string> &command, Pathfinder::DB &db) {
+static Result findENSpell(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.size() != 2)
-		return false;
+		return kResultInvalidParameters;
 
 	std::vector<Pathfinder::GermanSpell> spells = db.findGermanSpellsByEnglishName(command[1]);
+	if (spells.empty())
+		return kResultNotFound;
+
 	for (const auto &spell : spells) {
 		printGermanSpell(spell);
 	}
 
-	return true;
+	return kResultSuccess;
 }
 
-bool findDEFeat(const std::vector<std::string> &command, Pathfinder::DB &db) {
+static Result findDEFeat(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.size() != 2)
-		return false;
+		return kResultInvalidParameters;
 
 	std::vector<Pathfinder::GermanFeat> feats = db.findGermanFeatsByGermanName(command[1]);
+	if (feats.empty())
+		return kResultNotFound;
+
 	for (const auto &feat : feats) {
 		printGermanFeat(feat);
 	}
 
-	return true;
+	return kResultSuccess;
 }
 
-bool findENFeat(const std::vector<std::string> &command, Pathfinder::DB &db) {
+static Result findENFeat(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.size() != 2)
-		return false;
+		return kResultInvalidParameters;
 
 	std::vector<Pathfinder::GermanFeat> feats = db.findGermanFeatsByEnglishName(command[1]);
+	if (feats.empty())
+		return kResultNotFound;
+
 	for (const auto &feat : feats) {
 		printGermanFeat(feat);
 	}
 
-	return true;
+	return kResultSuccess;
 }
 
-bool execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
+static Result execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.empty())
-		return false;
+		return kResultInvalidCommand;
 
 	if (Common::String::equalsIgnoreCase(command[0], "finddepub")) {
 		return findDEPub(command, db);
@@ -247,10 +271,12 @@ bool execute(const std::vector<std::string> &command, Pathfinder::DB &db) {
 		return findENFeat(command, db);
 	}
 
-	return false;
+	return kResultInvalidCommand;
 }
 
 int main(int argc, char **argv) {
+	Result result = kResultError;
+
 	try {
 		const std::vector<std::string> params = Common::Platform::getParameters(argc, argv);
 
@@ -264,32 +290,33 @@ int main(int argc, char **argv) {
 		options.parse_positional("command");
 		options.positional_help("<command> [<parameters>]");
 
-		cxxopts::ParseResult result = options.parse(params);
+		cxxopts::ParseResult parseResult = options.parse(params);
 
-		if (result.count("help") > 0) {
+		if (parseResult.count("help") > 0) {
 			showHelp(options);
-			return 0;
+			return static_cast<int>(kResultSuccess);
 		}
 
-		const std::string databaseFile = (result.count("database") > 0) ? result["database"].as<std::string>() : "";
-		if (databaseFile.empty() || result.count("command") == 0) {
+		const std::string databaseFile = (parseResult.count("database") > 0) ? parseResult["database"].as<std::string>() : "";
+		if (databaseFile.empty() || parseResult.count("command") == 0) {
 			showHelp(options);
-			return 1;
+			return static_cast<int>(kResultMissingParameter);
 		}
 
 		Pathfinder::DB db(databaseFile, 0, 2);
 
 		info("Openend Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
 
-		const std::vector<std::string> command = result["command"].as<std::vector<std::string>>();
-		if (!execute(command, db)) {
+		const std::vector<std::string> command = parseResult["command"].as<std::vector<std::string>>();
+		result = execute(command, db);
+		if (result != kResultSuccess && result != kResultNotFound) {
 			showHelp(options);
-			return 1;
 		}
 
 	} catch (...) {
 		Common::exceptionDispatcherError();
+		return static_cast<int>(kResultError);
 	}
 
-	return 0;
+	return static_cast<int>(result);
 }
