@@ -101,6 +101,13 @@ static void printPub(const Pathfinder::EnglishPublication &pub) {
 static void printGermanSpell(const Pathfinder::GermanSpell &spell) {
 	fmt::print("German Name: {}\n", spell.getGermanName());
 	fmt::print("English Name: {}\n", spell.getEnglishName());
+	fmt::print("Book: {}, Page: {}\n", spell.getBook(), spell.getPage());
+	if (!spell.getRace().empty())
+		fmt::print("School: {}, Race: {}\n", spell.getSchool(), spell.getRace());
+	else
+		fmt::print("School: {}\n", spell.getSchool(), spell.getRace());
+	fmt::print("Meta: {}\n", spell.getMeta());
+	fmt::print("Description: {}\n", spell.getDescription());
 	fmt::print("\n");
 }
 
