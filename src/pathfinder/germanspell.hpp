@@ -45,10 +45,34 @@ public:
 	/** Return the English name of the spell. */
 	std::string getEnglishName() const { return _englishName; }
 
+	/** Return the German book abbreviation the spell is found in. */
+	std::string getBook() const { return _book; }
+
+	/** Return the page of the book the spell is found in. */
+	std::string getPage() const { return _page; }
+
+	/** Return the German name of the arcane school this spell belings to. */
+	std::string getSchool() const { return _school; }
+
+	/** Return the German name of the race this spell is limited to. */
+	std::string getRace() const { return _race; }
+
+	/** Return the German short description of the spell. */
+	std::string getDescription() const { return _description; }
+
+	/** Return the German short meta string of the spell's properties. */
+	std::string getMeta() const { return _meta; }
+
 
 private:
 	std::string _germanName;
 	std::string _englishName;
+	std::string _book;
+	std::string _page;
+	std::string _school;
+	std::string _race;
+	std::string _description;
+	std::string _meta;
 };
 
 

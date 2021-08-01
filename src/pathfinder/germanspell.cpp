@@ -28,7 +28,13 @@ namespace Pathfinder {
 
 GermanSpell::GermanSpell(const SQLite3::MapStatement::Row &row) :
 		_germanName(SQLite3::MapStatement::getCell<std::string>(row, "GermanName")),
-		_englishName(SQLite3::MapStatement::getCell<std::string>(row, "EnglishName")) {
+		_englishName(SQLite3::MapStatement::getCell<std::string>(row, "EnglishName")),
+		_book(SQLite3::MapStatement::getCell<std::string>(row,"Book")),
+		_page(SQLite3::MapStatement::getCell<std::string>(row, "Page")),
+		_school(SQLite3::MapStatement::getCell<std::string>(row, "School")),
+		_race(SQLite3::MapStatement::getCell<std::string>(row, "Race")),
+		_description(SQLite3::MapStatement::getCell<std::string>(row, "Description")),
+		_meta(SQLite3::MapStatement::getCell<std::string>(row, "Meta")) {
 
 }
 
