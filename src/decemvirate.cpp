@@ -111,8 +111,7 @@ static void printGermanFeat(const Pathfinder::GermanFeat &feat) {
 
 	fmt::print("German Name: {}\n", feat.getGermanName());
 	fmt::print("English Name: {}\n", feat.getEnglishName());
-	fmt::print("Book: {}\n", feat.getBook());
-	fmt::print("Page: {}\n", feat.getPage());
+	fmt::print("Book: {}, Page: {}\n", feat.getBook(), feat.getPage());
 	fmt::print("Description: {}\n", feat.getDescription());
 	fmt::print("Types: {}\n", types);
 	fmt::print("\n");
