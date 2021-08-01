@@ -303,7 +303,7 @@ int main(int argc, char **argv) {
 			return static_cast<int>(kResultMissingParameter);
 		}
 
-		Pathfinder::DB db(databaseFile, 0, 2);
+		Pathfinder::DB db(databaseFile, 0, 3);
 
 		info("Openend Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
 
