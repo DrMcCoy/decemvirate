@@ -66,6 +66,23 @@ static void showHelp(const cxxopts::Options &options) {
 	fmt::print("\n");
 }
 
+static void showVersion(const std::string &databaseFile) {
+	fmt::print("{}\n", Version::getProjectNameVersionFull());
+	fmt::print("{}\n", Version::getProjectURL());
+	fmt::print("\n");
+	fmt::print("{}\n", Version::getProjectAuthors());
+
+	if (!databaseFile.empty()) {
+		try {
+			Pathfinder::DB db(databaseFile, 0, 0);
+
+			fmt::print("\n");
+			fmt::print("Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
+		} catch (...) {
+		}
+	}
+}
+
 static void printPub(const Pathfinder::GermanPublication &pub) {
 	std::string isbns;
 	for (const auto &isbn : pub.getISBNs())
@@ -289,6 +306,7 @@ int main(int argc, char **argv) {
 		cxxopts::Options options(params[0], std::string(Version::getProjectNameVersion()) + " - A FLOSS Pathfinder TTRPG helper");
 		options.add_options()
 				( "h,help", "Show this text and exit" )
+				( "version", "Display version and exit" )
 				( "d,database", "SQLite database to use (required)", cxxopts::value<std::string>() )
 				( "command", "", cxxopts::value<std::vector<std::string>>())
 			;
@@ -304,6 +322,12 @@ int main(int argc, char **argv) {
 		}
 
 		const std::string databaseFile = (parseResult.count("database") > 0) ? parseResult["database"].as<std::string>() : "";
+
+		if (parseResult.count("version") > 0) {
+			showVersion(databaseFile);
+			return static_cast<int>(kResultSuccess);
+		}
+
 		if (databaseFile.empty() || parseResult.count("command") == 0) {
 			showHelp(options);
 			return static_cast<int>(kResultMissingParameter);
