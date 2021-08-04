@@ -39,6 +39,9 @@ const char *getProjectNameVersion();
 // "Decemvirate 0.0.1+2197.g19f9c1b [0.0.1+2197.g19f9c1b] (2013-07-28T13:32:04)"
 const char *getProjectNameVersionFull();
 
+// "https://..."
+const char *getProjectURL();
+
 // Very shortened authors/copyright message
 const char *getProjectAuthors();
 

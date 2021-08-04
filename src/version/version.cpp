@@ -72,6 +72,8 @@ static const char *kProjectVersion         = PACKAGE_VERSION;
 static const char *kProjectNameVersion     = PACKAGE_NAME " " PACKAGE_VERSION DECEMVIRATE_REVSEP DECEMVIRATE_REV;
 static const char *kProjectNameVersionFull = PACKAGE_NAME " " PACKAGE_VERSION DECEMVIRATE_REVSEP DECEMVIRATE_REV " [" DECEMVIRATE_REVDESC "] (" DECEMVIRATE_BUILDDATE ")";
 
+static const char *kProjectURL = "https://github.com/DrMcCoy/decemvirate";
+
 static const char *kProjectAuthors =
 	"Copyright (c) 2019-2021 by Sven Hesse.\n"
 	"Please see the AUTHORS file for details.\n"
@@ -96,6 +98,10 @@ const char *getProjectNameVersion() {
 
 const char *getProjectNameVersionFull() {
 	return kProjectNameVersionFull;
+}
+
+const char *getProjectURL() {
+	return kProjectURL;
 }
 
 const char *getProjectAuthors() {
