@@ -79,8 +79,8 @@ static const char *kProjectAuthors =
 	"This is free software; see the source for copying conditions.  There is NO\n"
 	"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 	"\n"
-	"This program displays data under the terms of the Open Game License and"
-	"Paiza's Community Use Policy.  Please see the AUTHORS file for details.";
+	"This program displays data under the terms of the Open Game License and\n"
+	"Paizo's Community Use Policy.  Please see the AUTHORS file for details.";
 
 const char *getProjectName() {
 	return kProjectName;
