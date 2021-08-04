@@ -29,6 +29,7 @@ dist_doc_DATA += \
 # User documentation
 dist_doc_DATA += \
     ChangeLog \
+    NEWS.md \
     README.md \
     $(EMPTY)
 
