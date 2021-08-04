@@ -1,5 +1,11 @@
 Someday, ????-??-?? (Version 0.0.1)
-	- ???
+	- Implemented finddefeat and findenfeat commands
+	- Added German feat table to the database
+	- Implemented finddespell and findenspell commands
+	- Added tables for races, classes and arcane schools to the database
+	- Added a German spells table to the database
+	- Implemented finddepub and findenpub commands
+	- Added German and English publication tables to the database
 
 Tuesday, 2019-10-15 (Version 0.0.0)
 	- Started the Decemvirate project
