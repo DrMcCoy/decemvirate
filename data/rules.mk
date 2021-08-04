@@ -20,6 +20,7 @@
 # Our data files.
 
 dist_pkgdata_DATA += \
-    data/pathfinder.sqlite \
+    data/ChangeLog.data \
     data/README.data \
+    data/pathfinder.sqlite \
     $(EMPTY)
