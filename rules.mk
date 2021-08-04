@@ -21,12 +21,23 @@
 
 # Extra files to help with the sources
 EXTRA_DIST += \
+    BUILDDEP.md \
     .uncrustifyrc \
     $(EMPTY)
 
 # Extra autotools files
 EXTRA_DIST += \
     autogen.sh \
+    $(EMPTY)
+
+# Files for CMake, our alternative build system
+EXTRA_DIST += \
+    CMakeLists.txt \
+    cmake/CMakeAM.cmake \
+    cmake/CMakeUninstall.cmake \
+    cmake/SetCheckCompilerFlag.cmake \
+    cmake/toolchain/i686-windows-mingw.cmake \
+    cmake/toolchain/x86_64-windows-mingw.cmake \
     $(EMPTY)
 
 # Doxygen
