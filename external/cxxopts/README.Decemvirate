@@ -3,3 +3,4 @@ version 2.2.0.
 
 Following changes have been applied:
 - Added an Options::parse() method that takes a vector of strings
+- Explicitly mark the standard_value copy constructor as default

@@ -904,6 +904,7 @@ namespace cxxopts
     {
       public:
       ~standard_value() = default;
+      standard_value(const standard_value<bool> &) = default;
 
       standard_value()
       {
