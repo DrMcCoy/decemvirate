@@ -75,7 +75,7 @@ static const char *kProjectNameVersionFull = PACKAGE_NAME " " PACKAGE_VERSION DE
 static const char *kProjectURL = "https://github.com/DrMcCoy/decemvirate";
 
 static const char *kProjectAuthors =
-	"Copyright (c) 2019-2021 by Sven Hesse.\n"
+	"Copyright (c) 2019-2022 by Sven Hesse.\n"
 	"Please see the AUTHORS file for details.\n"
 	"\n"
 	"This is free software; see the source for copying conditions.  There is NO\n"
