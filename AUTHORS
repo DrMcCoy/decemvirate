@@ -85,6 +85,15 @@ fmt
    external/fmt/LICENSE.rst or
    <https://github.com/fmtlib/fmt/blob/master/LICENSE.rst>.
 
+scnlib
+******
+   Decemvirate includes scnlib (<https://github.com/eliaskosunen/scnlib>),
+   licensed under the terms of the Apache 2.0 license. For the full license
+   text, see external/scn/LICENSE or
+   <https://github.com/eliaskosunen/scnlib/blob/master/LICENSE>. For
+   third-party licensing information, see external/scn/licenses/ or
+   <https://github.com/eliaskosunen/scnlib/tree/master/licenses>.
+
 UTF-8 CPP
 *********
    Decemvirate uses the lightweight header-only UTF-8 CPP library

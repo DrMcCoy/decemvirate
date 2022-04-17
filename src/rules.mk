@@ -35,6 +35,7 @@ src_decemvirate_LDADD = \
     src/common/libcommon.la \
     src/version/libversion.la \
     external/fmt/libfmt.la \
+    external/scn/libscn.la \
     $(LDADD) \
     $(EMPTY)
 

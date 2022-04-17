@@ -22,5 +22,6 @@
 include external/mingw-std-threads/rules.mk
 
 include external/fmt/rules.mk
+include external/scn/rules.mk
 include external/utf8cpp/rules.mk
 include external/cxxopts/rules.mk
