@@ -25,6 +25,8 @@
 #ifndef PATHFINDER_COLLECTION_HPP
 #define PATHFINDER_COLLECTION_HPP
 
+#include "src/common/string.hpp"
+
 #include <algorithm>
 #include <tuple>
 #include <vector>
@@ -36,7 +38,7 @@ public:
 	template<typename T>
 	static void sortByTitle(std::vector<T> &collection) {
 		std::stable_sort(collection.begin(), collection.end(), [](const T &a, const T &b) -> bool {
-			return a.getTitle() < b.getTitle();
+			return Common::String::foldSortGerman(a.getTitle()) < Common::String::foldSortGerman(b.getTitle());
 		});
 	}
 
@@ -50,7 +52,7 @@ public:
 	template<typename T>
 	static void sortByAbbreviation(std::vector<T> &collection) {
 		std::stable_sort(collection.begin(), collection.end(), [](const T &a, const T &b) -> bool {
-			return a.getAbbreviation() < b.getAbbreviation();
+			return Common::String::foldSortGerman(a.getAbbreviation()) < Common::String::foldSortGerman(b.getAbbreviation());
 		});
 	}
 
@@ -71,7 +73,7 @@ public:
 	template<typename T>
 	static void sortByGermanName(std::vector<T> &collection) {
 		std::stable_sort(collection.begin(), collection.end(), [](const T &a, const T &b) -> bool {
-			return a.getGermanName() < b.getGermanName();
+			return Common::String::foldSortGerman(a.getGermanName()) < Common::String::foldSortGerman(b.getGermanName());
 		});
 	}
 
@@ -92,7 +94,7 @@ public:
 	template<typename T>
 	static void sortByBook(std::vector<T> &collection) {
 		std::stable_sort(collection.begin(), collection.end(), [](const T &a, const T &b) -> bool {
-			return a.getBook() < b.getBook();
+			return Common::String::foldSortGerman(a.getBook()) < Common::String::foldSortGerman(b.getBook());
 		});
 	}
 
