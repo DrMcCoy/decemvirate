@@ -28,6 +28,7 @@ src_pathfinder_libpathfinder_la_SOURCES += \
     src/pathfinder/germanspell.hpp \
     src/pathfinder/germanfeat.hpp \
     src/pathfinder/db.hpp \
+    src/pathfinder/collection.hpp \
     $(EMPTY)
 
 src_pathfinder_libpathfinder_la_SOURCES += \
