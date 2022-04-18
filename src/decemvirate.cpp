@@ -39,6 +39,7 @@
 #include "src/common/platform.hpp"
 
 #include "src/pathfinder/db.hpp"
+#include "src/pathfinder/collection.hpp"
 
 enum Result : int {
 	kResultSuccess           = 0,
@@ -233,6 +234,8 @@ static Result findDESpell(const std::vector<std::string> &command, Pathfinder::D
 	if (spells.empty())
 		return kResultNotFound;
 
+	Pathfinder::Collection::sortByGermanName(spells);
+
 	for (const auto &spell : spells) {
 		printGermanSpell(spell);
 	}
@@ -247,6 +250,8 @@ static Result findENSpell(const std::vector<std::string> &command, Pathfinder::D
 	std::vector<Pathfinder::GermanSpell> spells = db.findGermanSpellsByEnglishName(command[1]);
 	if (spells.empty())
 		return kResultNotFound;
+
+	Pathfinder::Collection::sortByEnglishName(spells);
 
 	for (const auto &spell : spells) {
 		printGermanSpell(spell);
@@ -268,6 +273,9 @@ static Result findSpellByClass(const std::vector<std::string> &command, Pathfind
 	if (spells.empty())
 		return kResultNotFound;
 
+	Pathfinder::Collection::sortByGermanName(spells);
+	Pathfinder::Collection::sortByClassLevel(spells, command[1]);
+
 	for (const auto &spell : spells) {
 		printGermanSpell(spell);
 	}
@@ -283,6 +291,8 @@ static Result findDEFeat(const std::vector<std::string> &command, Pathfinder::DB
 	if (feats.empty())
 		return kResultNotFound;
 
+	Pathfinder::Collection::sortByGermanName(feats);
+
 	for (const auto &feat : feats) {
 		printGermanFeat(feat);
 	}
@@ -297,6 +307,8 @@ static Result findENFeat(const std::vector<std::string> &command, Pathfinder::DB
 	std::vector<Pathfinder::GermanFeat> feats = db.findGermanFeatsByEnglishName(command[1]);
 	if (feats.empty())
 		return kResultNotFound;
+
+	Pathfinder::Collection::sortByEnglishName(feats);
 
 	for (const auto &feat : feats) {
 		printGermanFeat(feat);
