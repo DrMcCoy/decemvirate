@@ -116,9 +116,14 @@ static void printPub(const Pathfinder::EnglishPublication &pub) {
 }
 
 static void printGermanSpell(const Pathfinder::GermanSpell &spell) {
+	std::string classes;
+	for (const auto &c : spell.getClasses())
+		classes += (classes.empty() ? "" : ", ") + fmt::format("{} {}", c.name, c.level);
+
 	fmt::print("German Name: {}\n", spell.getGermanName());
 	fmt::print("English Name: {}\n", spell.getEnglishName());
 	fmt::print("Book: {}, Page: {}\n", spell.getBook(), spell.getPage());
+	fmt::print("Class: {}\n", classes);
 	if (!spell.getRace().empty())
 		fmt::print("School: {}, Race: {}\n", spell.getSchool(), spell.getRace());
 	else
@@ -333,7 +338,7 @@ int main(int argc, char **argv) {
 			return static_cast<int>(kResultMissingParameter);
 		}
 
-		Pathfinder::DB db(databaseFile, 0, 4);
+		Pathfinder::DB db(databaseFile, 0, 5);
 
 		info("Openend Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
 
