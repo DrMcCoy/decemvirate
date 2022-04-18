@@ -115,4 +115,34 @@ std::vector<GermanSpell> FindGermanSpellsByEnglishName::run(const std::string &n
 	return run(name, count);
 }
 
+
+FindGermanSpellsByClass::FindGermanSpellsByClass(SQLite3::DB &db, size_t limit) :
+		SQLite3::FindRegexpMatch(db, "GermanSpells", "Classes", limit) {
+}
+
+std::string FindGermanSpellsByClass::formatArgument(const std::string &name, int level) {
+	if (level >= 0)
+		return fmt::format(".*\\b{}\\b {}.*", name, level);
+
+	return fmt::format(".*\\b{}\\b.*", name);
+}
+
+std::vector<GermanSpell> FindGermanSpellsByClass::run(const std::string &name, int level, size_t &count) {
+	count = execute(formatArgument(name, level));
+
+	std::vector<GermanSpell> spells;
+
+	spells.reserve(_rows.size());
+	for (const auto &row: _rows)
+		spells.emplace_back(row);
+
+	reset();
+	return spells;
+}
+
+std::vector<GermanSpell> FindGermanSpellsByClass::run(const std::string &name, int level) {
+	size_t count;
+	return run(name, level, count);
+}
+
 } // End of namespace Pathfinder

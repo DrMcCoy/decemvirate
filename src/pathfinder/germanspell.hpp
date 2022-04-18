@@ -30,6 +30,7 @@
 #include <optional>
 
 #include "src/sqlite3/findlikematch.hpp"
+#include "src/sqlite3/findregexpmatch.hpp"
 
 namespace Pathfinder {
 
@@ -124,6 +125,25 @@ public:
 
 	std::vector<GermanSpell> run(const std::string &name);
 	std::vector<GermanSpell> run(const std::string &name, size_t &count);
+};
+
+
+/** Find German spell by class. */
+class FindGermanSpellsByClass : public SQLite3::FindRegexpMatch {
+public:
+	FindGermanSpellsByClass(SQLite3::DB &db, size_t limit = SQLite3::FindRegexpMatch::kNoLimit);
+	FindGermanSpellsByClass(const FindGermanSpellsByClass &) = delete;
+	FindGermanSpellsByClass(FindGermanSpellsByClass &&) = default;
+	~FindGermanSpellsByClass() override = default;
+
+	FindGermanSpellsByClass &operator=(const FindGermanSpellsByClass &) = delete;
+	FindGermanSpellsByClass &operator=(FindGermanSpellsByClass &&) = default;
+
+	std::vector<GermanSpell> run(const std::string &name, int level);
+	std::vector<GermanSpell> run(const std::string &name, int level, size_t &count);
+
+private:
+	std::string formatArgument(const std::string &name, int level);
 };
 
 } // End of namespace Pathfinder

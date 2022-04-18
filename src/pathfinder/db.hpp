@@ -90,6 +90,8 @@ public:
 	std::vector<GermanSpell> findGermanSpellsByGermanName(const std::string &name);
 	std::vector<GermanSpell> findGermanSpellsByEnglishName(const std::string &name);
 
+	std::vector<GermanSpell> findGermanSpellsByClass(const std::string &name, int level);
+
 	std::vector<GermanFeat> findGermanFeatsByGermanName(const std::string &name);
 	std::vector<GermanFeat> findGermanFeatsByEnglishName(const std::string &name);
 
@@ -107,6 +109,8 @@ private:
 
 	FindGermanSpellsByGermanName _findGermanSpellsByGermanName;
 	FindGermanSpellsByEnglishName _findGermanSpellsByEnglishName;
+
+	FindGermanSpellsByClass _findGermanSpellsByClass;
 
 	FindGermanFeatsByGermanName _findGermanFeatsByGermanName;
 	FindGermanFeatsByEnglishName _findGermanFeatsByEnglishName;
