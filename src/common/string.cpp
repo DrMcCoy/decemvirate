@@ -71,6 +71,40 @@ std::string String::trimmed(std::string str) {
 	return str;
 }
 
+std::string String::foldSortGerman(const std::string &str) {
+	static const char * const kGermanSortFold[] = {
+		"\x00", "\x01", "\x02", "\x03", "\x04", "\x05", "\x06", "\x07", "\x08", "\x09", "\x0A", "\x0B", "\x0C", "\x0D", "\x0E", "\x0F",
+		"\x10", "\x11", "\x12", "\x13", "\x14", "\x15", "\x16", "\x17", "\x18", "\x19", "\x1A", "\x1B", "\x1C", "\x1D", "\x1E", "\x1F",
+		" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/",
+		"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?",
+		"@", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
+		"P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "[", "\\", "]", "^", "_",
+		"`", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
+		"p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "{", "|", "}", "~", "\x7F",
+		"\xC2""\x80", "\xC2""\x81", "\xC2""\x82", "\xC2""\x83", "\xC2""\x84", "\xC2""\x85", "\xC2""\x86", "\xC2""\x87", "\xC2""\x88", "\xC2""\x89", "\xC2""\x8A", "\xC2""\x8B", "\xC2""\x8C", "\xC2""\x8D", "\xC2""\x8E", "\xC2""\x8F",
+		"\xC2""\x90", "\xC2""\x91", "\xC2""\x92", "\xC2""\x93", "\xC2""\x94", "\xC2""\x95", "\xC2""\x96", "\xC2""\x97", "\xC2""\x98", "\xC2""\x99", "\xC2""\x9A", "\xC2""\x9B", "\xC2""\x9C", "\xC2""\x9D", "\xC2""\x9E", "\xC2""\x9F",
+		" ", "!", "\xC2""\xA2", "\xC2""\xA3", "\xC2""\xA4", "\xC2""\xA5", "|", "\xC2""\xA7", "\"", "(C)", "\xC2""\xAA", "<<", "\xC2""\xAC", "-", "(R)", "-",
+		"\xC2""\xB0", "+-", "^2", "^3", "\'", "\xC2""\xB5", "\xC2""\xB6", ".", ",", "^1", "\xC2""\xBA", ">>", "1/4", "1/2", "3/4", "?",
+		"A", "A", "A", "A", "A", "A", "AE", "C", "E", "E", "E", "E", "I", "I", "I", "I",
+		"TH", "N", "O", "O", "O", "O", "O", "x", "O", "U", "U", "U", "U", "Y", "TH", "ss",
+		"a", "a", "a", "a", "a", "a", "ae", "c", "e", "e", "e", "e", "i", "i", "i", "i",
+		"th", "n", "o", "o", "o", "o", "o", "%", "o", "u", "u", "u", "u", "y", "th", "y",
+	};
+
+	std::string folded;
+
+	for (std::string::const_iterator it = str.begin(); it != str.end(); ) {
+		uint32_t c = ::utf8::next(it, str.end());
+
+		if (c > 0xFF)
+			utf8::append(c, std::back_inserter(folded));
+		else
+			folded += kGermanSortFold[c];
+	}
+
+	return folded;
+}
+
 void String::makeLower(std::string &str) {
 	for_each(str.begin(), str.end(), [&](char &c) { c = std::tolower(c); } );
 }

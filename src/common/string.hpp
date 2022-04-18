@@ -56,6 +56,9 @@ public:
 	/** Trim whitespace and control characters from the left and right of the string, return a copy. */
 	static std::string trimmed(std::string str);
 
+	/** Get an equivalent string for sorting German (and English) text. */
+	static std::string foldSortGerman(const std::string &str);
+
 	/** Convert the string to lowercase, in place.
 	 *  NOTE: Currently, it does *not* work with non-English characters! */
 	static void makeLower(std::string &str);
