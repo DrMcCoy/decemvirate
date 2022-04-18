@@ -22,6 +22,12 @@
  *  German Pathfinder spells.
  */
 
+#include <algorithm>
+
+#include "external/scn/scn.hpp"
+
+#include "src/common/error.hpp"
+
 #include "src/pathfinder/germanspell.hpp"
 
 namespace Pathfinder {
@@ -34,8 +40,33 @@ GermanSpell::GermanSpell(const SQLite3::MapStatement::Row &row) :
 		_school(SQLite3::MapStatement::getCell<std::string>(row, "School")),
 		_race(SQLite3::MapStatement::getCell<std::string>(row, "Race")),
 		_description(SQLite3::MapStatement::getCell<std::string>(row, "Description")),
-		_meta(SQLite3::MapStatement::getCell<std::string>(row, "Meta")) {
+		_meta(SQLite3::MapStatement::getCell<std::string>(row, "Meta")),
+		_classStrings(SQLite3::MapStatement::getCellArray(row, "Classes")) {
 
+	parseClasses();
+}
+
+void GermanSpell::parseClasses() {
+	_classes.reserve(_classStrings.size());
+
+	for (const auto &str : _classStrings) {
+		std::string name;
+		uint8_t level;
+
+		auto result = scn::scan(str, "{} {}", name, level);
+		if (!result)
+			throw Common::Exception("Can't parse class information \"{}\": {}", str, result.error().msg());
+
+		_classes.emplace_back(name, level);
+	}
+}
+
+uint8_t GermanSpell::getClassLevel(const std::string &className) const {
+	auto it = std::find_if(_classes.begin(), _classes.end(), [&className](const Class &c) { return c.name == className; });
+	if (it == _classes.end())
+		return 255;
+
+	return it->level;
 }
 
 

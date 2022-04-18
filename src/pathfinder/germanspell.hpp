@@ -36,6 +36,14 @@ namespace Pathfinder {
 /** A German Pathfinder spell. */
 class GermanSpell {
 public:
+	struct Class {
+		std::string name;
+		uint8_t level;
+
+		Class(const std::string n, uint8_t l) : name(n), level(l) { }
+	};
+
+
 	/** Read a German English Pathfinder spell from a database query result. */
 	GermanSpell(const SQLite3::MapStatement::Row &row);
 
@@ -63,6 +71,12 @@ public:
 	/** Return the German short meta string of the spell's properties. */
 	std::string getMeta() const { return _meta; }
 
+	/** Return information about which classes have access to the spell. */
+	std::vector<Class> getClasses() const { return _classes; }
+
+	/** Return the spell level for a certain class, or 255 if the class has no access to the spell. */
+	uint8_t getClassLevel(const std::string &className) const;
+
 
 private:
 	std::string _germanName;
@@ -73,6 +87,11 @@ private:
 	std::string _race;
 	std::string _description;
 	std::string _meta;
+
+	std::vector<std::string> _classStrings;
+	std::vector<Class> _classes;
+
+	void parseClasses();
 };
 
 
