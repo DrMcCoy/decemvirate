@@ -27,6 +27,8 @@
 
 #include "external/fmt/core.hpp"
 
+#include "external/scn/scan/scan.hpp"
+
 #include "external/cxxopts/cxxopts.hpp"
 
 #include "src/version/version.hpp"
@@ -59,6 +61,8 @@ static void showHelp(const cxxopts::Options &options) {
 	fmt::print("    Search German spells by name\n");
 	fmt::print("  - findenspell <name>\n");
 	fmt::print("    Search English spells by name\n");
+	fmt::print("  - findspellbyclass <class> [<level>]\n");
+	fmt::print("    Search spells by class (and level)\n");
 	fmt::print("  - finddefeat <name>\n");
 	fmt::print("    Search German feats by name\n");
 	fmt::print("  - findenfeat <name>\n");
@@ -251,6 +255,26 @@ static Result findENSpell(const std::vector<std::string> &command, Pathfinder::D
 	return kResultSuccess;
 }
 
+static Result findSpellByClass(const std::vector<std::string> &command, Pathfinder::DB &db) {
+	if (command.size() != 2 && command.size() != 3)
+		return kResultInvalidParameters;
+
+	int level = -1;
+	if (command.size() > 2)
+		if (!scn::scan(command[2], "{}", level))
+			return kResultInvalidParameters;
+
+	std::vector<Pathfinder::GermanSpell> spells = db.findGermanSpellsByClass(command[1], level);
+	if (spells.empty())
+		return kResultNotFound;
+
+	for (const auto &spell : spells) {
+		printGermanSpell(spell);
+	}
+
+	return kResultSuccess;
+}
+
 static Result findDEFeat(const std::vector<std::string> &command, Pathfinder::DB &db) {
 	if (command.size() != 2)
 		return kResultInvalidParameters;
@@ -293,6 +317,8 @@ static Result execute(const std::vector<std::string> &command, Pathfinder::DB &d
 		return findDESpell(command, db);
 	} else if (Common::String::equalsIgnoreCase(command[0], "findenspell")) {
 		return findENSpell(command, db);
+	} else if (Common::String::equalsIgnoreCase(command[0], "findspellbyclass")) {
+		return findSpellByClass(command, db);
 	} else if (Common::String::equalsIgnoreCase(command[0], "finddefeat")) {
 		return findDEFeat(command, db);
 	} else if (Common::String::equalsIgnoreCase(command[0], "findenfeat")) {

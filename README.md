@@ -35,6 +35,8 @@ Supported commands:
     Search German spells by name
   - findenspell <name>
     Search English spells by name
+  - findspellbyclass <class> [<level>]
+    Show all spells accessible to a class (optionally with a specific spell level)
   - finddefeat <name>
     Search German feats by name
   - findenfeat <name>
@@ -54,3 +56,5 @@ Examples:
 - `decemvirate -d data/pathfinder.sqlite findenspell "feather fall"`
 - `decemvirate -d data/pathfinder.sqlite finddefeat mehrfachschuss`
 - `decemvirate -d data/pathfinder.sqlite finddefeat manyshot`
+- `decemvirate -d data/pathfinder.sqlite findspellbyclass Hexenmeister`
+- `decemvirate -d data/pathfinder.sqlite findspellbyclass Jäger 2`
