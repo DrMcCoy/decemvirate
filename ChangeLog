@@ -1,3 +1,9 @@
+Wednesday, 2022-04-20 (Version 0.2.0)
+	- Fixed sorting of German strings
+	- Implemented command findspellbyclass
+	- Added showing class information for each spell
+	- Bumped required database version to >= 0.5.0
+
 Wednesday, 2021-08-04 (Version 0.1.0)
 	- Implemented finddefeat and findenfeat commands
 	- Added German feat table to the database
