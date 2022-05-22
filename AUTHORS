@@ -94,6 +94,23 @@ scnlib
    third-party licensing information, see external/scn/licenses/ or
    <https://github.com/eliaskosunen/scnlib/tree/master/licenses>.
 
+taoJSON
+*******
+   Decemvirate uses the header-only JSON library taoJSON
+   (<https://github.com/taocpp/json/>) to generate JSON output. taoJSON
+   is licensed under the MIT license. For the full license text, see
+   external/tao/LICENSE or <https://github.com/taocpp/json/blob/main/LICENSE>.
+   Additionally, taoJSON contains modified portions of the double-conversion
+   library (<https://github.com/google/double-conversion>), James Edward Anhalt
+   III's itoa library (<https://github.com/jeaiii/itoa>) and Ulf Adams' Ryu
+   implementation (<https://github.com/ulfjack/ryu>). See the files
+   external/tao/LICENSE.double-conversion, external/tao/LICENSE.itoa and
+   external/tao/LICENSE.ryu for details.
+   taoJSON also uses PEGTL (<https://github.com/taocpp/PEGTL>) 3.2.5, licensed
+   under the terms of the MIT License. Full the full license text, see
+   external/tao/LICENCE.pegtl or
+   <https://github.com/taocpp/PEGTL/blob/3.2.5/LICENSE>.
+
 UTF-8 CPP
 *********
    Decemvirate uses the lightweight header-only UTF-8 CPP library

@@ -25,3 +25,4 @@ include external/fmt/rules.mk
 include external/scn/rules.mk
 include external/utf8cpp/rules.mk
 include external/cxxopts/rules.mk
+include external/tao/rules.mk

@@ -1,0 +1,8 @@
+This is taoJSON (<https://github.com/taocpp/json/>), based on git commit b4d9948bcfa51450628cab335a2088e24ba00fe2,
+and PEGTL (<https://github.com/taocpp/PEGTL/)>, based on version 3.2.5.
+
+Following changes have been applied:
+- Adapted the include paths to PEGTL
+- Added a pragma to ignore a compiler warning
+- Added a missing trait specialization for std::vector
+- Added basic_value::merge()
