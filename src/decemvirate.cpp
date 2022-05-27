@@ -350,6 +350,7 @@ int main(int argc, char **argv) {
 		options.add_options()
 				( "h,help", "Show this text and exit" )
 				( "version", "Display version and exit" )
+				( "j,json", "Output information in JSON format instead of plain text" )
 				( "d,database", "SQLite database to use (required)", cxxopts::value<std::string>() )
 				( "command", "", cxxopts::value<std::vector<std::string>>())
 			;
