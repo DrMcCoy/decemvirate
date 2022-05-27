@@ -67,14 +67,22 @@
 
 namespace Version {
 
-static const char *kProjectName            = PACKAGE_NAME;
-static const char *kProjectVersion         = PACKAGE_VERSION;
-static const char *kProjectNameVersion     = PACKAGE_NAME " " PACKAGE_VERSION DECEMVIRATE_REVSEP DECEMVIRATE_REV;
-static const char *kProjectNameVersionFull = PACKAGE_NAME " " PACKAGE_VERSION DECEMVIRATE_REVSEP DECEMVIRATE_REV " [" DECEMVIRATE_REVDESC "] (" DECEMVIRATE_BUILDDATE ")";
+static const char *kName            = PACKAGE_NAME;
+static const char *kVersion         = PACKAGE_VERSION;
+static const char *kRevision        = DECEMVIRATE_REV;
+static const char *kRevisionDesc    = DECEMVIRATE_REVDESC;
+static const char *kBuildDate       = DECEMVIRATE_BUILDDATE;
+static const char *kNameVersion     = PACKAGE_NAME " " PACKAGE_VERSION DECEMVIRATE_REVSEP DECEMVIRATE_REV;
+static const char *kNameVersionFull = PACKAGE_NAME " " PACKAGE_VERSION DECEMVIRATE_REVSEP DECEMVIRATE_REV " [" DECEMVIRATE_REVDESC "] (" DECEMVIRATE_BUILDDATE ")";
 
-static const char *kProjectURL = "https://github.com/DrMcCoy/decemvirate";
+static const char *kDescription = "A FLOSS Pathfinder TTRPG helper";
 
-static const char *kProjectAuthors =
+static const char *kURL = "https://github.com/DrMcCoy/decemvirate";
+
+static const char *kCopyrightDate   = "2019-2022";
+static const char *kCopyrightHolder = "Sven Hesse";
+
+static const char *kAuthors =
 	"Copyright (c) 2019-2022 by Sven Hesse.\n"
 	"Please see the AUTHORS file for details.\n"
 	"\n"
@@ -84,28 +92,52 @@ static const char *kProjectAuthors =
 	"This program displays data under the terms of the Open Game License and\n"
 	"Paizo's Community Use Policy.  Please see the AUTHORS file for details.";
 
-const char *getProjectName() {
-	return kProjectName;
+const char *getName() {
+	return kName;
 }
 
-const char *getProjectVersion() {
-	return kProjectVersion;
+const char *getDescription() {
+	return kDescription;
 }
 
-const char *getProjectNameVersion() {
-	return kProjectNameVersion;
+const char *getVersion() {
+	return kVersion;
 }
 
-const char *getProjectNameVersionFull() {
-	return kProjectNameVersionFull;
+const char *getRevision() {
+	return kRevision;
 }
 
-const char *getProjectURL() {
-	return kProjectURL;
+const char *getRevisionDescription() {
+	return kRevisionDesc;
 }
 
-const char *getProjectAuthors() {
-	return kProjectAuthors;
+const char *getBuildDate() {
+	return kBuildDate;
+}
+
+const char *getNameVersion() {
+	return kNameVersion;
+}
+
+const char *getNameVersionFull() {
+	return kNameVersionFull;
+}
+
+const char *getURL() {
+	return kURL;
+}
+
+const char *getCopyrightDate() {
+	return kCopyrightDate;
+}
+
+const char *getCopyrightHolder() {
+	return kCopyrightHolder;
+}
+
+const char *getAuthors() {
+	return kAuthors;
 }
 
 } // End of namespace Version

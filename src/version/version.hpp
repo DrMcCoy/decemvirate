@@ -28,22 +28,40 @@
 namespace Version {
 
 // "Decemvirate"
-const char *getProjectName();
+const char *getName();
+
+// "A FLOSS Pathfinder TTRPG helper"
+const char *getDescription();
 
 // "0.0.1+2197.g19f9c1b"
-const char *getProjectVersion();
+const char *getVersion();
+
+// "2197.g19f9c1b"
+const char *getRevision();
+
+// "0.0.1+2197.g19f9c1b"
+const char *getRevisionDescription();
+
+// "2013-07-28T13:32:04"
+const char *getBuildDate();
 
 // "Decemvirate 0.0.1+2197.g19f9c1b"
-const char *getProjectNameVersion();
+const char *getNameVersion();
 
 // "Decemvirate 0.0.1+2197.g19f9c1b [0.0.1+2197.g19f9c1b] (2013-07-28T13:32:04)"
-const char *getProjectNameVersionFull();
+const char *getNameVersionFull();
 
 // "https://..."
-const char *getProjectURL();
+const char *getURL();
+
+// "2019-2022"
+const char *getCopyrightDate();
+
+// "Sven Hesse"
+const char *getCopyrightHolder();
 
 // Very shortened authors/copyright message
-const char *getProjectAuthors();
+const char *getAuthors();
 
 } // End of namespace Version
 

@@ -72,10 +72,10 @@ static void showHelp(const cxxopts::Options &options) {
 }
 
 static void showVersion(const std::string &databaseFile) {
-	fmt::print("{}\n", Version::getProjectNameVersionFull());
-	fmt::print("{}\n", Version::getProjectURL());
+	fmt::print("{}\n", Version::getNameVersionFull());
+	fmt::print("{}\n", Version::getURL());
 	fmt::print("\n");
-	fmt::print("{}\n", Version::getProjectAuthors());
+	fmt::print("{}\n", Version::getAuthors());
 
 	if (!databaseFile.empty()) {
 		try {
@@ -346,7 +346,7 @@ int main(int argc, char **argv) {
 	try {
 		const std::vector<std::string> params = Common::Platform::getParameters(argc, argv);
 
-		cxxopts::Options options(params[0], std::string(Version::getProjectNameVersion()) + " - A FLOSS Pathfinder TTRPG helper");
+		cxxopts::Options options(params[0], std::string(Version::getNameVersion()) + " - " + Version::getDescription());
 		options.add_options()
 				( "h,help", "Show this text and exit" )
 				( "version", "Display version and exit" )
