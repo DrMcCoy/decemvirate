@@ -29,6 +29,8 @@
 
 #include "external/scn/scan/scan.hpp"
 
+#include "external/tao/json.hpp"
+
 #include "external/cxxopts/cxxopts.hpp"
 
 #include "src/version/version.hpp"
@@ -71,20 +73,50 @@ static void showHelp(const cxxopts::Options &options) {
 	fmt::print("\n");
 }
 
-static void showVersion(const std::string &databaseFile) {
-	fmt::print("{}\n", Version::getNameVersionFull());
-	fmt::print("{}\n", Version::getURL());
-	fmt::print("\n");
-	fmt::print("{}\n", Version::getAuthors());
+static void showVersion(const std::string &databaseFile, bool isJSON) {
+	tao::json::value version = {
+		{ "name", Version::getName() },
+		{ "description", Version::getDescription() },
+		{ "version", Version::getVersion() },
+		{ "revision", Version::getRevision() },
+		{ "revision_description", Version::getRevisionDescription() },
+		{ "build_date", Version::getBuildDate() },
+		{ "name_version", Version::getNameVersion() },
+		{ "name_version_full", Version::getNameVersionFull() },
+		{ "url", Version::getURL() },
+		{ "authors", Version::getAuthors() },
+		{ "copyright_date", Version::getCopyrightDate() },
+		{ "copyright_holder", Version::getCopyrightHolder() }
+	};
 
 	if (!databaseFile.empty()) {
 		try {
 			Pathfinder::DB db(databaseFile, 0, 0);
 
-			fmt::print("\n");
-			fmt::print("Pathfinder database \"{}\": Version {}\n", db.getFile(), db.getVersionString());
+			const tao::json::value dbVersion = {
+				{ "version", db.getVersionString() },
+				{ "path", db.getFile() }
+			};
+
+			version.try_emplace("database", dbVersion);
+
 		} catch (...) {
 		}
+	}
+
+	if (isJSON) {
+		fmt::print("{}\n", tao::json::to_string(version));
+		return;
+	}
+
+	fmt::print("{}\n", version["name_version_full"].as<std::string>());
+	fmt::print("{}\n", version["url"].as<std::string>());
+	fmt::print("\n");
+	fmt::print("{}\n", version["authors"].as<std::string>());
+
+	if (version["database"]) {
+		fmt::print("\n");
+		fmt::print("Pathfinder database \"{}\": Version {}\n", version["database"]["path"].as<std::string>(), version["database"]["version"].as<std::string>());
 	}
 }
 
@@ -365,10 +397,11 @@ int main(int argc, char **argv) {
 			return static_cast<int>(kResultSuccess);
 		}
 
+		const bool isJSON = parseResult.count("json") > 0;
 		const std::string databaseFile = (parseResult.count("database") > 0) ? parseResult["database"].as<std::string>() : "";
 
 		if (parseResult.count("version") > 0) {
-			showVersion(databaseFile);
+			showVersion(databaseFile, isJSON);
 			return static_cast<int>(kResultSuccess);
 		}
 
