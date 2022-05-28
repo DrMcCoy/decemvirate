@@ -29,6 +29,10 @@
 #include <vector>
 #include <optional>
 
+#include "external/tao/json/traits.hpp"
+#include "external/tao/json/binding.hpp"
+#include "external/tao/json/basic_value.hpp"
+
 #include "src/sqlite3/findexactmatch.hpp"
 #include "src/sqlite3/findlikematch.hpp"
 
@@ -69,6 +73,8 @@ public:
 
 
 private:
+	EnglishPublication() = default;
+
 	std::string _productCode;
 	std::string _date;
 	std::string _title;
@@ -77,6 +83,11 @@ private:
 	std::string _url;
 
 	std::vector<std::string> _isbns;
+
+
+	friend ::tao::json::traits<EnglishPublication>;
+	template<typename T>
+	friend class ::tao::json::basic_value;
 };
 
 
@@ -126,5 +137,17 @@ public:
 };
 
 } // End of namespace Pathfinder
+
+namespace tao::json {
+	template<>
+	struct traits<::Pathfinder::EnglishPublication> :
+		public binding::object<TAO_JSON_BIND_REQUIRED("product_code", &::Pathfinder::EnglishPublication::_productCode),
+		                       TAO_JSON_BIND_REQUIRED("title", &::Pathfinder::EnglishPublication::_title),
+		                       TAO_JSON_BIND_REQUIRED("abbreviation", &::Pathfinder::EnglishPublication::_abbreviation),
+		                       TAO_JSON_BIND_REQUIRED("category", &::Pathfinder::EnglishPublication::_category),
+		                       TAO_JSON_BIND_REQUIRED("date", &::Pathfinder::EnglishPublication::_date),
+		                       TAO_JSON_BIND_REQUIRED("url", &::Pathfinder::EnglishPublication::_url),
+		                       TAO_JSON_BIND_REQUIRED("isbns", &::Pathfinder::EnglishPublication::_isbns)> {};
+}
 
 #endif // PATHFINDER_ENGLISHPUBLICATION_HPP

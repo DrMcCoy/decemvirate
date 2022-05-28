@@ -29,6 +29,10 @@
 #include <vector>
 #include <optional>
 
+#include "external/tao/json/traits.hpp"
+#include "external/tao/json/binding.hpp"
+#include "external/tao/json/basic_value.hpp"
+
 #include "src/sqlite3/findlikematch.hpp"
 
 namespace Pathfinder {
@@ -59,6 +63,8 @@ public:
 
 
 private:
+	GermanFeat() = default;
+
 	std::string _germanName;
 	std::string _englishName;
 	std::string _book;
@@ -66,8 +72,12 @@ private:
 	std::string _description;
 
 	std::vector<std::string> _types;
-};
 
+
+	friend ::tao::json::traits<GermanFeat>;
+	template<typename T>
+	friend class ::tao::json::basic_value;
+};
 
 /** Find German feat by German name. */
 class FindGermanFeatsByGermanName : public SQLite3::FindLikeMatch {
@@ -101,5 +111,16 @@ public:
 };
 
 } // End of namespace Pathfinder
+
+namespace tao::json {
+	template<>
+	struct traits<::Pathfinder::GermanFeat> :
+		public binding::object<TAO_JSON_BIND_REQUIRED("german_name", &::Pathfinder::GermanFeat::_germanName),
+		                       TAO_JSON_BIND_REQUIRED("english_name", &::Pathfinder::GermanFeat::_englishName),
+		                       TAO_JSON_BIND_REQUIRED("book", &::Pathfinder::GermanFeat::_book),
+		                       TAO_JSON_BIND_REQUIRED("page", &::Pathfinder::GermanFeat::_page),
+		                       TAO_JSON_BIND_REQUIRED("description", &::Pathfinder::GermanFeat::_description),
+		                       TAO_JSON_BIND_REQUIRED("types", &::Pathfinder::GermanFeat::_types)> {};
+}
 
 #endif // PATHFINDER_GERMANFEAT_HPP

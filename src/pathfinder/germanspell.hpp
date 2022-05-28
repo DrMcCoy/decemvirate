@@ -29,6 +29,10 @@
 #include <vector>
 #include <optional>
 
+#include "external/tao/json/traits.hpp"
+#include "external/tao/json/binding.hpp"
+#include "external/tao/json/basic_value.hpp"
+
 #include "src/sqlite3/findlikematch.hpp"
 #include "src/sqlite3/findregexpmatch.hpp"
 
@@ -80,6 +84,8 @@ public:
 
 
 private:
+	GermanSpell() = default;
+
 	std::string _germanName;
 	std::string _englishName;
 	std::string _book;
@@ -93,6 +99,11 @@ private:
 	std::vector<Class> _classes;
 
 	void parseClasses();
+
+
+	friend ::tao::json::traits<GermanSpell>;
+	template<typename T>
+	friend class ::tao::json::basic_value;
 };
 
 
@@ -147,5 +158,24 @@ private:
 };
 
 } // End of namespace Pathfinder
+
+namespace tao::json {
+	template<>
+	struct traits<::Pathfinder::GermanSpell::Class> :
+		public binding::object<TAO_JSON_BIND_REQUIRED("name", &::Pathfinder::GermanSpell::Class::name),
+		                       TAO_JSON_BIND_REQUIRED("level", &::Pathfinder::GermanSpell::Class::level)> { };
+
+	template<>
+	struct traits<::Pathfinder::GermanSpell> :
+		public binding::object<TAO_JSON_BIND_REQUIRED("german_name", &::Pathfinder::GermanSpell::_germanName),
+		                       TAO_JSON_BIND_REQUIRED("english_name", &::Pathfinder::GermanSpell::_englishName),
+		                       TAO_JSON_BIND_REQUIRED("book", &::Pathfinder::GermanSpell::_book),
+		                       TAO_JSON_BIND_REQUIRED("page", &::Pathfinder::GermanSpell::_page),
+		                       TAO_JSON_BIND_REQUIRED("school", &::Pathfinder::GermanSpell::_school),
+		                       TAO_JSON_BIND_REQUIRED("race", &::Pathfinder::GermanSpell::_race),
+		                       TAO_JSON_BIND_REQUIRED("description", &::Pathfinder::GermanSpell::_description),
+		                       TAO_JSON_BIND_REQUIRED("meta", &::Pathfinder::GermanSpell::_meta),
+		                       TAO_JSON_BIND_REQUIRED("classes", &::Pathfinder::GermanSpell::_classes)> {};
+}
 
 #endif // PATHFINDER_GERMANSPELL_HPP
