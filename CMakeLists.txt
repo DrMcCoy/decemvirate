@@ -20,7 +20,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 
 project(Decemvirate CXX)
-set(decemvirate_VERSION 0.2.0)
+set(decemvirate_VERSION 0.3.0)
 
 string(TOLOWER ${CMAKE_PROJECT_NAME} PROJECT_NAME_LOWER)
 

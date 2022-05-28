@@ -1,3 +1,11 @@
+Changes in Decemvirate version 0.3.0
+====================================
+
+This version of Decemvirate comes with a new option to output all information
+as JSON instead of plain text. No other changes have been done and the plain
+text output *should* be identical as before.
+
+
 Changes in Decemvirate version 0.2.0
 ====================================
 

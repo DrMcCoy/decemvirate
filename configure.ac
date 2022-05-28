@@ -19,7 +19,7 @@ dnl License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
 AC_PREREQ([2.65])
 
-AC_INIT([Decemvirate],[0.2.0],[drmccoy@drmccoy.de],[decemvirate])
+AC_INIT([Decemvirate],[0.3.0],[drmccoy@drmccoy.de],[decemvirate])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([config.h.in])
