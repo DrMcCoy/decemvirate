@@ -31,6 +31,8 @@
 
 #include "external/fmt/core.hpp"
 
+#include "external/tao/json/basic_value.hpp"
+
 namespace Common {
 
 /** Exception that provides a stack of explanations. */
@@ -103,6 +105,8 @@ template<typename... Args>
 void exceptionWarning(const std::string &format, const Args & ... args) {
 	vexceptionWarning(format, fmt::make_format_args(args...));
 }
+
+tao::json::value exceptionDispatcherJSON(const std::string &reason = "");
 
 } // End of namespace Common
 

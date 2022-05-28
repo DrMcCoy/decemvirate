@@ -24,6 +24,8 @@
 
 #include <cstdlib>
 
+#include "external/tao/json/traits.hpp"
+
 #include "src/common/error.hpp"
 #include "src/common/util.hpp"
 
@@ -100,6 +102,19 @@ void printExceptionWarning(const Exception &e) {
 	printException(e, "WARNING: ");
 }
 
+static void jsonifyException(Exception e, tao::json::value &json) {
+	try {
+		Exception::Stack &stack = e.getStack();
+
+		while (!stack.empty()) {
+			json.push_back(stack.top());
+			stack.pop();
+		}
+
+	} catch (...) {
+	}
+}
+
 static void exceptionDispatcher(const std::string &prefix, const std::string &reason = "") {
 	try {
 		try {
@@ -139,6 +154,35 @@ void vexceptionWarning(const std::string &format, fmt::format_args args) {
 
 void exceptionDispatcherWarning() {
 	exceptionDispatcher("WARNING: ");
+}
+
+tao::json::value exceptionDispatcherJSON(const std::string &reason) {
+	tao::json::value json = tao::json::empty_array;
+
+	try {
+		try {
+			throw;
+		} catch (Exception &e) {
+			if (reason[0] != 0)
+				e.add("{}", reason);
+
+			jsonifyException(e, json);
+		} catch (std::exception &e) {
+			Exception se(e);
+			if (reason[0] != 0)
+				se.add("{}", reason);
+
+			jsonifyException(se, json);
+		} catch (...) {
+			if (reason[0] != 0) {
+				Exception se("{}", reason);
+				jsonifyException(se, json);
+			}
+		}
+	} catch (...) {
+	}
+
+	return json;
 }
 
 } // End of namespace Common
