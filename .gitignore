@@ -3,6 +3,13 @@
 .*.sw[po]
 *~
 
+# Build files
+/env/
+/build/
+/.mypy_cache
+*.egg-info/
+__pycache__/
+
 # Doxygen files
 /Doxyerror
 /doc/doxygen/html/
