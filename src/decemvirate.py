@@ -68,6 +68,9 @@ def decemvirate() -> str:
     return render_template('decemvirate.html')
 
 
+import static_files  # pylint: disable=cyclic-import,wrong-import-position,unused-import # noqa: F401,E402
+
+
 def main() -> None:
     """! Decemvirate main function, running the Flask app.
      """

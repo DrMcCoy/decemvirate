@@ -1,2 +1,3 @@
 graft src/templates
+graft src/css
 global-exclude *.swp
