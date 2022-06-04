@@ -13,10 +13,14 @@ license = { file = "COPYING" }
 classifiers = [
 	"Private :: Do No Upload",
 	"License :: OSI Approved :: GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later)",
-	"Topic :: Games/Entertainment :: Role-Playing"
+	"Topic :: Games/Entertainment :: Role-Playing",
+	"Framework :: Flask"
 ]
 keywords = [ "rpg", "ttrpg", "roleplaying", "pathfinder", "pathfinder1e", "paizo", "translation" ]
 requires-python = ">=3.10"
+dependencies = [
+	"Flask"
+]
 dynamic = ["version"]
 
 [project.optional-dependencies]

@@ -22,10 +22,24 @@ Decemvirate.
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def hello_world():
+    """
+    Hello world example route.
+    """
+    return "<p>Hello, World!</p>"
+
+
 def main():
     """
-    Decemvirate main function.
+    Decemvirate main function, running the Flask app.
     """
+    app.run()
 
 
 if __name__ == '__main__':
