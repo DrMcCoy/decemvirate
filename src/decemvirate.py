@@ -1,5 +1,4 @@
-"""
-Decemvirate.
+"""! Main entry point for Decemvirate.
 """
 
 # Decemvirate - A FLOSS Pathfinder TTRPG helper
@@ -21,25 +20,58 @@ Decemvirate.
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from importlib import metadata
+from typing import Any
 
-from flask import Flask
+from flask import Flask, render_template
+
+PACKAGE_NAME = "decemvirate"
+
 
 app = Flask(__name__)
 
 
+def _get_project_info() -> dict[str, Any]:
+    """! Get project metadata information.
+
+    @return A dict containing project metadata information.
+    """
+    project_metadata = metadata.metadata(PACKAGE_NAME)
+
+    info = {}  # type: dict[str, Any]
+    info["Name"] = project_metadata["Name"]
+    info["Version"] = project_metadata["Version"]
+    info["Summary"] = project_metadata["Summary"]
+
+    info["Project-URL"] = {}
+    for i in project_metadata.get_all("Project-URL"):
+        parsed = i.split(", ", 1)
+        info["Project-URL"][parsed[0]] = parsed[1]
+
+    return info
+
+
+@app.context_processor
+def inject_project_information() -> dict[str, Any]:
+    """! Inject Decemvirate version information into templates.
+
+    @return A dict with keys to inject into templates.
+    """
+    project_info = _get_project_info()
+    return {"decemvirate": project_info}
+
+
 @app.route("/")
-def hello_world():
+def decemvirate() -> str:
+    """! Decemvirate main page.
     """
-    Hello world example route.
-    """
-    return "<p>Hello, World!</p>"
+    return render_template('decemvirate.html')
 
 
-def main():
-    """
-    Decemvirate main function, running the Flask app.
-    """
-    app.run()
+def main() -> None:
+    """! Decemvirate main function, running the Flask app.
+     """
+     app.run()
 
 
 if __name__ == '__main__':
