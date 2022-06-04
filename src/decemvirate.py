@@ -25,44 +25,57 @@ from typing import Any
 
 from flask import Flask, render_template
 
+from pathfinder import Pathfinder
+
 PACKAGE_NAME = "decemvirate"
 
 
-app = Flask(__name__)
-
-
-def _get_project_info() -> dict[str, Any]:
-    """! Get project metadata information.
-
-    @return A dict containing project metadata information.
+class Decemvirate(Flask):
+    """! Main Decemvirate Flask application.
     """
-    project_metadata = metadata.metadata(PACKAGE_NAME)
 
-    info = {}  # type: dict[str, Any]
-    info["Name"] = project_metadata["Name"]
-    info["Version"] = project_metadata["Version"]
-    info["Summary"] = project_metadata["Summary"]
+    def _get_project_info(self) -> dict[str, Any]:
+        """! Get project metadata information.
 
-    info["Project-URL"] = {}
-    for i in project_metadata.get_all("Project-URL"):
-        parsed = i.split(", ", 1)
-        info["Project-URL"][parsed[0]] = parsed[1]
+        @return A dict containing project metadata information.
+        """
+        project_metadata = metadata.metadata(PACKAGE_NAME)
 
-    return info
+        info = {}  # type: dict[str, Any]
+        info["name"] = project_metadata["Name"]
+        info["version"] = project_metadata["Version"]
+        info["summary"] = project_metadata["Summary"]
+
+        info["url"] = {}
+        for i in project_metadata.get_all("Project-URL"):
+            parsed = i.split(", ", 1)
+            info["url"][parsed[0]] = parsed[1]
+
+        info["db"] = str(self._pathfinder.version)
+
+        return info
+
+    def _inject_project_information(self) -> dict[str, Any]:
+        """! Inject Decemvirate version information into templates.
+
+        @return A dict with keys to inject into templates.
+        """
+        project_info = self._get_project_info()
+        return {"decemvirate": project_info}
+
+    def __init__(self, import_name):
+        super().__init__(import_name)
+
+        self._pathfinder = Pathfinder("data/pathfinder.sqlite", 0, 5)
+
+        self.context_processor(self._inject_project_information)
 
 
-@app.context_processor
-def inject_project_information() -> dict[str, Any]:
-    """! Inject Decemvirate version information into templates.
-
-    @return A dict with keys to inject into templates.
-    """
-    project_info = _get_project_info()
-    return {"decemvirate": project_info}
+decemvirate = Decemvirate(__name__)
 
 
-@app.route("/")
-def decemvirate() -> str:
+@decemvirate.route("/")
+def main_page() -> str:
     """! Decemvirate main page.
     """
     return render_template('decemvirate.html')
@@ -74,7 +87,7 @@ import static_files  # pylint: disable=cyclic-import,wrong-import-position,unuse
 def main() -> None:
     """! Decemvirate main function, running the Flask app.
      """
-     app.run()
+    decemvirate.run()
 
 
 if __name__ == '__main__':
