@@ -28,7 +28,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <functional>
 
 #include "external/utf8cpp/utf8.hpp"
 
@@ -110,13 +109,13 @@ public:
 	static bool lessIgnoreCase(const std::string &str1, const std::string &str2);
 
 	/** Case sensitive comparator. */
-	struct sless : std::binary_function<std::string, std::string, bool> {
+	struct sless {
 		bool operator() (const std::string &str1, const std::string &str2) const {
 			return str1 < str2;
 		}
 	};
 	/** Case insensitive comparator. */
-	struct iless : std::binary_function<std::string, std::string, bool> {
+	struct iless {
 		bool operator() (const std::string &str1, const std::string &str2) const {
 			return lessIgnoreCase(str1, str2);
 		}
