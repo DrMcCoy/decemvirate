@@ -35,7 +35,7 @@
 #endif
 
 #ifndef PACKAGE_VERSION
-	#define PACKAGE_VERSION "0.3.0"
+	#define PACKAGE_VERSION "0.3.1"
 #endif
 
 #ifndef DECEMVIRATE_REVDESC

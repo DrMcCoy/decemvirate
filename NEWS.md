@@ -1,3 +1,13 @@
+Changes in Decemvirate version 0.3.1
+====================================
+
+This version of Decemvirate is a maintenance release, updating dependencies and
+code to make Decemvirate compile cleanly with gcc 12, which is more strict
+when it comes to usages of deprecated and removed C++ features.
+
+Otherwise, Decemvirate is unchanged. No new features have been added.
+
+
 Changes in Decemvirate version 0.3.0
 ====================================
 
