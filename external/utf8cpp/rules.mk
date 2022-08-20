@@ -17,15 +17,18 @@
 # You should have received a copy of the GNU Affero General Public
 # License along with Decemvirate. If not, see <http://www.gnu.org/licenses/>.
 
-# UTF8-CPP (<http://utfcpp.sourceforge.net/>).
+# UTF8-CPP (<https://github.com/nemtrif/utfcpp>).
 
 noinst_HEADERS += \
     external/utf8cpp/utf8.hpp \
     external/utf8cpp/utf8/checked.hpp \
     external/utf8cpp/utf8/core.hpp \
+    external/utf8cpp/utf8/cpp11.hpp \
+    external/utf8cpp/utf8/cpp17.hpp \
     external/utf8cpp/utf8/unchecked.hpp \
     $(EMPTY)
 
 EXTRA_DIST += \
+    external/utf8cpp/LICENSE \
     external/utf8cpp/README.Decemvirate \
     $(EMPTY)
