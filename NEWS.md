@@ -1,3 +1,12 @@
+Changes in Decemvirate version 0.3.2
+====================================
+
+This version of Decemvirate is a maintenance release, making Decemvirate
+build again with GNU Make 4.4.
+
+Otherwise, Decemvirate is unchanged. No new features have been added.
+
+
 Changes in Decemvirate version 0.3.1
 ====================================
 
