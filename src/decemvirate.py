@@ -24,6 +24,7 @@ import argparse
 from typing import Any
 
 from decemvirate_flask import decemvirate_flask
+from pathfinder import Pathfinder
 from util import Util
 
 
@@ -77,6 +78,16 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
 
         subparsers.add_parser("web", help="Run the Decemvirate web application (default)")
 
+        parser_finddefeat: argparse.ArgumentParser = subparsers.add_parser(
+            "finddefeat", help="Search German feats by name")
+        parser_finddefeat.add_argument("query",
+                                       help="feat to search for")
+
+        parser_findenfeat: argparse.ArgumentParser = subparsers.add_parser(
+            "findenfeat", help="Search English feats by name")
+        parser_findenfeat.add_argument("query",
+                                       help="feat to search for")
+
         args: argparse.Namespace = parser.parse_args()
 
         if args.version:
@@ -91,6 +102,17 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
 
         return args
 
+    @staticmethod
+    def _print_result(result_type: str, result: list[dict[str, Any]]):
+        if result_type == "feat":
+            for feat in result:
+                print(f"German Name: {feat['GermanName']}")
+                print(f"English Name: {feat['EnglishName']}")
+                print(f"Book: {feat['Book']}, Page: {feat['Page']}")
+                print(f"Description: {feat['Description']}")
+                print(f"Type: {', '.join(feat['Type'].split(','))}")
+                print()
+
     def run(self) -> None:
         """! Run the main Decemvirate application.
         """
@@ -102,6 +124,12 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         if args.command == "web":
             decemvirate_flask.run()
             return
+
+        pathfinder: Pathfinder = Util.get_pathfinder()
+        print(f"Openend Pathfinder database '{args.database}': Version {pathfinder.version}")
+        print()
+
+        Decemvirate._print_result(*pathfinder.run_query(args.command, args.query))
 
 
 def main() -> None:
