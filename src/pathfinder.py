@@ -128,13 +128,17 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         if operation == "" or query == "":
             return "none", []
         if operation == "finddefeat":
-            return "feat", [dict(row) for row in self.find_german_feat(query)]
+            return "feat", sorted([dict(row) for row in self.find_german_feat(query)],
+                                  key=lambda d: d['GermanName'])
         if operation == "findenfeat":
-            return "feat", [dict(row) for row in self.find_english_feat(query)]
+            return "feat", sorted([dict(row) for row in self.find_english_feat(query)],
+                                  key=lambda d: d['EnglishName'])
         if operation == "finddespell":
-            return "spell", [dict(row) for row in self.find_german_spell(query)]
+            return "spell", sorted([dict(row) for row in self.find_german_spell(query)],
+                                   key=lambda d: d['GermanName'])
         if operation == "findenspell":
-            return "spell", [dict(row) for row in self.find_english_spell(query)]
+            return "spell", sorted([dict(row) for row in self.find_english_spell(query)],
+                                   key=lambda d: d['EnglishName'])
 
         raise ValueError(f"Invalid query operation '{operation}'")
 
