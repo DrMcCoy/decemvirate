@@ -22,6 +22,7 @@ This module handles all interactions with the Pathfinder SQLite3 database.
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import re
 import sqlite3
 from os import path
 from pathlib import Path
@@ -82,6 +83,11 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
             return self._patch
 
     @staticmethod
+    def _regexp(expr, item):
+        reg = re.compile(expr)
+        return reg.search(item) is not None
+
+    @staticmethod
     def _get_version(database: sqlite3.Connection) -> Version:
         """! Read version information out of the db.
 
@@ -90,6 +96,17 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         """
         result: sqlite3.Row = database.execute("SELECT * from Version LIMIT 1").fetchone()
         return Pathfinder.Version(result["Major"], result["Minor"], result["Patch"])
+
+    @staticmethod
+    def _get_level(classes: str, class_name: str):
+        """! Return the level of a class from a class-levels list.
+        """
+        for class_item in classes.split(","):
+            name, level = class_item.split(" ", 2)
+            if name.lower() == class_name.lower():
+                return level
+
+        return 9999
 
     def __init__(self, filename: Path, req_major_version: int, min_minor_version: int) -> None:
         """! Initialize the Pathfinder database instance.
@@ -118,7 +135,7 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         """
         return self._version
 
-    def run_query(self, operation: str, query: str) -> tuple[str, list[dict[str, Any]]]:
+    def run_query(self, operation: str, query: str, param: str | None = None) -> tuple[str, list[dict[str, Any]]]:
         """! Run a database query and return the result
 
         @param operation  The name of the operation to run.
@@ -161,6 +178,13 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
 
             return "enpub", result
 
+        if operation == "findspellbyclass":
+            result = sorted([dict(row) for row in self.find_spell_by_class(query, param)],
+                            key=lambda d: d['GermanName'])
+            result = sorted(result, key=lambda d: Pathfinder._get_level(d['Classes'], query))
+
+            return "spell", result
+
         raise ValueError(f"Invalid query operation '{operation}'")
 
     def find_german_feat(self, name: str) -> list[sqlite3.Row]:
@@ -198,6 +222,20 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         """
         return self._db.execute("SELECT * from GermanSpells WHERE EnglishName LIKE :name",
                                 {"name": f"%{name}%"}).fetchall()
+
+    def find_spell_by_class(self, name: str, level: str | None = None) -> list[sqlite3.Row]:
+        """! Return a list of spells matching an class name.
+
+        @param name  The class name to search for.
+        @param level  The level of the class to look for.
+        @return A list of matching spells.
+        """
+        if level is None:
+            return self._db.execute("SELECT * from GermanSpells WHERE lower(Classes) REGEXP lower(:name)",
+                                    {"name": f".*\\b{name}\\b.*"}).fetchall()
+
+        return self._db.execute("SELECT * from GermanSpells WHERE lower(Classes) REGEXP lower(:name)",
+                                {"name": f".*\\b{name} {level}\\b.*"}).fetchall()
 
     def find_german_publication(self, name: str) -> list[sqlite3.Row]:
         """! Return a list of German publications matching a German name.
