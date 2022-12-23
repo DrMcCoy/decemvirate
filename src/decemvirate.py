@@ -98,6 +98,13 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         parser_findenspell.add_argument("query",
                                         help="spell to search for")
 
+        parser_findspellbyclass: argparse.ArgumentParser = subparsers.add_parser(
+            "findspellbyclass", help="Search spells by class (and level)")
+        parser_findspellbyclass.add_argument("query", metavar="class",
+                                             help="class name to search for")
+        parser_findspellbyclass.add_argument("param", metavar="level", nargs='?',
+                                             help="class level search for")
+
         parser_finddefeat: argparse.ArgumentParser = subparsers.add_parser(
             "finddefeat", help="Search German feats by name")
         parser_finddefeat.add_argument("query",
@@ -200,7 +207,7 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         print(f"Openend Pathfinder database '{args.database}': Version {pathfinder.version}")
         print()
 
-        Decemvirate._print_result(*pathfinder.run_query(args.command, args.query))
+        Decemvirate._print_result(*pathfinder.run_query(args.command, args.query, args.param))
 
 
 def main() -> None:
