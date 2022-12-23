@@ -25,6 +25,7 @@ This module handles all interactions with the Pathfinder SQLite3 database.
 import sqlite3
 from os import path
 from pathlib import Path
+from typing import Any
 
 
 class Pathfinder:  # pylint: disable=too-few-public-methods
@@ -116,3 +117,35 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @return The version of the openend Pathfinder database.
         """
         return self._version
+
+    def run_query(self, operation: str, query: str) -> tuple[str, list[dict[str, Any]]]:
+        """! Run a database query and return the result
+
+        @param operation  The name of the operation to run.
+        @param query      The query parameter to run the operation with.
+        @return The type of the result and the result itself.
+        """
+        if operation == "finddefeat":
+            return "feat", [dict(row) for row in self.find_german_feat(query)]
+        if operation == "findenfeat":
+            return "feat", [dict(row) for row in self.find_english_feat(query)]
+
+        raise ValueError(f"Invalid query operation '{operation}'")
+
+    def find_german_feat(self, name: str) -> list[sqlite3.Row]:
+        """! Return a list of feats matching a German name.
+
+        @param name  The German name to search for.
+        @return A list of matching feats.
+        """
+        return self._db.execute("SELECT * from GermanFeats WHERE GermanName LIKE :name",
+                                {"name": f"%{name}%"}).fetchall()
+
+    def find_english_feat(self, name: str) -> list[sqlite3.Row]:
+        """! Return a list of feats matching an English name.
+
+        @param name  The English name to search for.
+        @return A list of matching feats.
+        """
+        return self._db.execute("SELECT * from GermanFeats WHERE EnglishName LIKE :name",
+                                {"name": f"%{name}%"}).fetchall()
