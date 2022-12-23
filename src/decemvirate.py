@@ -78,6 +78,16 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
 
         subparsers.add_parser("web", help="Run the Decemvirate web application (default)")
 
+        parser_finddespell: argparse.ArgumentParser = subparsers.add_parser(
+            "finddespell", help="Search German spells by name")
+        parser_finddespell.add_argument("query",
+                                        help="spell to search for")
+
+        parser_findenspell: argparse.ArgumentParser = subparsers.add_parser(
+            "findenspell", help="Search English spells by name")
+        parser_findenspell.add_argument("query",
+                                        help="spell to search for")
+
         parser_finddefeat: argparse.ArgumentParser = subparsers.add_parser(
             "finddefeat", help="Search German feats by name")
         parser_finddefeat.add_argument("query",
@@ -112,6 +122,18 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
                 print(f"Description: {feat['Description']}")
                 print(f"Type: {', '.join(feat['Type'].split(','))}")
                 print()
+            return
+
+        if result_type == "spell":
+            for spell in result:
+                print(f"German Name: {spell['GermanName']}")
+                print(f"English Name: {spell['EnglishName']}")
+                print(f"Book: {spell['Book']}, Page: {spell['Page']}")
+                print(f"Class: {', '.join(spell['Classes'].split(','))}")
+                print(f"Meta: {spell['Meta']}")
+                print(f"Description: {spell['Description']}")
+                print()
+            return
 
     def run(self) -> None:
         """! Run the main Decemvirate application.
