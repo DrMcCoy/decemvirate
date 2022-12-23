@@ -80,22 +80,22 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
 
         parser_finddepub: argparse.ArgumentParser = subparsers.add_parser(
             "finddepub", help="Search German publication by abbreviation or title")
-        parser_finddepub.add_argument("query",
+        parser_finddepub.add_argument("query", metavar="abbreviation/title",
                                       help="abbreviation or title to search for")
 
         parser_findenpub: argparse.ArgumentParser = subparsers.add_parser(
             "findenpub", help="Search English publication by product code, abbreviation or title")
-        parser_findenpub.add_argument("query",
+        parser_findenpub.add_argument("query", metavar="code/abbreviation/title",
                                       help="product code, abbreviation or title to search for")
 
         parser_finddespell: argparse.ArgumentParser = subparsers.add_parser(
             "finddespell", help="Search German spells by name")
-        parser_finddespell.add_argument("query",
+        parser_finddespell.add_argument("query", metavar="name",
                                         help="spell to search for")
 
         parser_findenspell: argparse.ArgumentParser = subparsers.add_parser(
             "findenspell", help="Search English spells by name")
-        parser_findenspell.add_argument("query",
+        parser_findenspell.add_argument("query", metavar="name",
                                         help="spell to search for")
 
         parser_findspellbyclass: argparse.ArgumentParser = subparsers.add_parser(
@@ -107,12 +107,12 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
 
         parser_finddefeat: argparse.ArgumentParser = subparsers.add_parser(
             "finddefeat", help="Search German feats by name")
-        parser_finddefeat.add_argument("query",
+        parser_finddefeat.add_argument("query", metavar="name",
                                        help="feat to search for")
 
         parser_findenfeat: argparse.ArgumentParser = subparsers.add_parser(
             "findenfeat", help="Search English feats by name")
-        parser_findenfeat.add_argument("query",
+        parser_findenfeat.add_argument("query", metavar="name",
                                        help="feat to search for")
 
         args: argparse.Namespace = parser.parse_args()
