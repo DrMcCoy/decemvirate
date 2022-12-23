@@ -20,6 +20,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import argparse
+from typing import Any
+
 from decemvirate_flask import decemvirate_flask
 from util import Util
 
@@ -28,10 +31,66 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
     """! Main Decemvirate application.
     """
 
+    @staticmethod
+    def _print_version(database: str | None) -> None:
+        """! Print version information.
+        """
+        Util.set_pathfinder_path(database)
+
+        info: dict[str, Any] = Util.get_project_info()
+
+        # Print program version information
+        print(f"{info['name']} {info['version']}")
+        print(f"{info['url']['homepage']}")
+        print()
+        print(f"Copyright (c) {info['years']} {', '.join(info['authors'])}")
+        print()
+        print("This is free software; see the source for copying conditions.  There is NO")
+        print("warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.")
+
+        # Try to open the database and print its version information as well
+        if info["db"] is not None:
+            print()
+            print(f"Pathfinder database '{database}': Version {info['db']}")
+
+    @staticmethod
+    def _parse_args() -> argparse.Namespace:
+        """! Parse command line arguments.
+
+        @return An object containing the parsed command line arguments.
+        """
+        info: dict[str, Any] = Util.get_project_info()
+        nameversion: str = f"{info['name']} {info['version']}"
+        description: str = f"{nameversion} -- {info['summary']}"
+
+        parser: argparse.ArgumentParser = argparse.ArgumentParser(description=description)
+
+        # Note: we're setting required to False even on required arguments and do the checks
+        # ourselves below. We're doing that because we want more dynamic --version behaviour
+
+        parser.add_argument("-v", "--version", required=False, action="store_true",
+                            help="print the version and exit")
+        parser.add_argument("-d", "--database", required=False,
+                            help="SQLite database to use (required)")
+
+        args: argparse.Namespace = parser.parse_args()
+
+        if args.version:
+            Decemvirate._print_version(args.database)
+            parser.exit()
+
+        if args.database is None:
+            parser.error("the following arguments are required: -d/--database")
+
+        return args
+
     def run(self) -> None:
         """! Run the main Decemvirate application.
         """
-        Util.set_pathfinder_path("data/pathfinder.sqlite")
+        args: argparse.Namespace = Decemvirate._parse_args()
+
+        Util.set_pathfinder_path(args.database)
+        Util.try_pathfinder()
 
         decemvirate_flask.run()
 
