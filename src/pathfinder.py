@@ -131,6 +131,10 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
             return "feat", [dict(row) for row in self.find_german_feat(query)]
         if operation == "findenfeat":
             return "feat", [dict(row) for row in self.find_english_feat(query)]
+        if operation == "finddespell":
+            return "spell", [dict(row) for row in self.find_german_spell(query)]
+        if operation == "findenspell":
+            return "spell", [dict(row) for row in self.find_english_spell(query)]
 
         raise ValueError(f"Invalid query operation '{operation}'")
 
@@ -150,4 +154,22 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @return A list of matching feats.
         """
         return self._db.execute("SELECT * from GermanFeats WHERE EnglishName LIKE :name",
+                                {"name": f"%{name}%"}).fetchall()
+
+    def find_german_spell(self, name: str) -> list[sqlite3.Row]:
+        """! Return a list of spells matching a German name.
+
+        @param name  The German name to search for.
+        @return A list of matching spells.
+        """
+        return self._db.execute("SELECT * from GermanSpells WHERE GermanName LIKE :name",
+                                {"name": f"%{name}%"}).fetchall()
+
+    def find_english_spell(self, name: str) -> list[sqlite3.Row]:
+        """! Return a list of spells matching an English name.
+
+        @param name  The English name to search for.
+        @return A list of matching spells.
+        """
+        return self._db.execute("SELECT * from GermanSpells WHERE EnglishName LIKE :name",
                                 {"name": f"%{name}%"}).fetchall()
