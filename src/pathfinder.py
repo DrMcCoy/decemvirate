@@ -139,6 +139,27 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         if operation == "findenspell":
             return "spell", sorted([dict(row) for row in self.find_english_spell(query)],
                                    key=lambda d: d['EnglishName'])
+        if operation == "finddepub":
+            result = sorted([dict(row) for row in self.find_german_publication(query)],
+                            key=lambda d: d['Title'])
+
+            for pub in result:
+                pub["Originals"] = []
+                for paizo in pub['PaizoProductCodes'].split(","):
+                    pub["Originals"].extend([dict(row) for row in self.find_english_publication(paizo)])
+
+            return "depub", result
+
+        if operation == "findenpub":
+            result = sorted([dict(row) for row in self.find_english_publication(query)],
+                            key=lambda d: d['Title'])
+
+            for pub in result:
+                pub["Translations"] = [
+                    dict(row) for row in self.find_german_publication_by_paizo_code(
+                        pub["ProductCode"])]
+
+            return "enpub", result
 
         raise ValueError(f"Invalid query operation '{operation}'")
 
@@ -176,4 +197,49 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @return A list of matching spells.
         """
         return self._db.execute("SELECT * from GermanSpells WHERE EnglishName LIKE :name",
+                                {"name": f"%{name}%"}).fetchall()
+
+    def find_german_publication(self, name: str) -> list[sqlite3.Row]:
+        """! Return a list of German publications matching a German name.
+
+        @param name  The German name to search for.
+        @return A list of matching publications.
+        """
+        result = self._db.execute("SELECT * from GermanPublications WHERE Abbreviation = :name COLLATE NOCASE",
+                                  {"name": name}).fetchall()
+        if result:
+            return result
+
+        return self._db.execute("SELECT * from GermanPublications WHERE Title LIKE :name",
+                                {"name": f"%{name}%"}).fetchall()
+
+    def find_german_publication_by_paizo_code(self, paizo: str) -> list[sqlite3.Row]:
+        """! Return a list of German publications matching a Paizo product code.
+
+        @param paizo  Paizo product code to search for.
+        @return A list of matching publications.
+        """
+        if paizo == "":
+            return []
+
+        return self._db.execute("SELECT * from GermanPublications WHERE PaizoProductCodes LIKE :paizo",
+                                {"paizo": f"%{paizo}%"}).fetchall()
+
+    def find_english_publication(self, name: str) -> list[sqlite3.Row]:
+        """! Return a list of English publications matching an English name.
+
+        @param name  The English name to search for.
+        @return A list of matching publications.
+        """
+        result = self._db.execute("SELECT * from EnglishPublications WHERE ProductCode = :name COLLATE NOCASE",
+                                  {"name": name}).fetchall()
+        if result:
+            return result
+
+        result = self._db.execute("SELECT * from EnglishPublications WHERE Abbreviation = :name COLLATE NOCASE",
+                                  {"name": name}).fetchall()
+        if result:
+            return result
+
+        return self._db.execute("SELECT * from EnglishPublications WHERE Title LIKE :name",
                                 {"name": f"%{name}%"}).fetchall()
