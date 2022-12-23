@@ -125,6 +125,8 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @param query      The query parameter to run the operation with.
         @return The type of the result and the result itself.
         """
+        if operation == "" or query == "":
+            return "none", []
         if operation == "finddefeat":
             return "feat", [dict(row) for row in self.find_german_feat(query)]
         if operation == "findenfeat":

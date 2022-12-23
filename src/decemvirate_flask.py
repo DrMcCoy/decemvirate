@@ -24,8 +24,10 @@ This module contains the main Flask app for Decemvirate.
 
 from typing import Any
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from markupsafe import Markup
 
+from pathfinder import Pathfinder
 from util import Util
 
 
@@ -57,11 +59,38 @@ def close_pathfinder(*_):
     Util.close_pathfinder()
 
 
-@decemvirate_flask.route("/")
+@decemvirate_flask.template_global()
+def format_list(db_list: str) -> str:
+    """! Format a database list.
+    """
+    return ", ".join(db_list.split(","))
+
+
+@decemvirate_flask.template_global()
+def linkify_op(operation: str, query: str) -> Markup:
+    """! Format a link to another database operation.
+    """
+    return Markup("<a href=\"/?op={operation}&query={query}\">{query}</a>").format(operation=operation, query=query)
+
+
+@decemvirate_flask.route("/", methods=['GET'])
 def main_page() -> str:
     """! Decemvirate main page.
     """
-    return render_template('decemvirate.html')
+    params = {"op": "", "query": ""}
+    params.update(request.args.to_dict())
+
+    pathfinder: Pathfinder = Util.get_pathfinder()
+
+    result_type: str = "none"
+    result: list[dict[str, Any]] = []
+
+    try:
+        result_type, result = pathfinder.run_query(params["op"], params["query"])
+    except ValueError as err:
+        print(err)
+
+    return render_template('decemvirate.html', params=params, result_type=result_type, result=result)
 
 
 import static_files  # pylint: disable=cyclic-import,wrong-import-position,unused-import # noqa: F401,E402

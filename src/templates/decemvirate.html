@@ -6,10 +6,52 @@
 		<title>Decemvirate</title>
 	</head>
 	<body>
-	<hr>
-	<div class="versionfooter">
-		<a href="{{ decemvirate["url"]["homepage"] }}">{{ decemvirate["name"] }} {{ decemvirate["version"] }}</a><br>
-		Database version {{ decemvirate["db"] }}
-	</div>
-</body>
+		<form action="/">
+			<div class="opcontainer">
+			<p>
+				<span class="opgroup">
+					<label for="defeat">Deutsches Talent</label><input id="defeat" name="op" type="radio" value="finddefeat" {{ "checked" if params["op"] == "finddefeat" else "" }}>
+					<label for="enfeat">Englisches Talent</label><input id="enfeat" name="op" type="radio" value="findenfeat" {{ "checked" if params["op"] == "findenfeat" else "" }}>
+				</span>
+				<span class="opgroup">
+					<label for="despell">Deutscher Zauber</label><input id="despell" name="op" type="radio" value="finddespell" {{ "checked" if params["op"] == "finddespell" else "" }}>
+					<label for="enspell">Englischer Zauber</label> <input id="enspell" name="op" type="radio" value="findenspell" {{ "checked" if params["op"] == "findenspell" else "" }}>
+				</span>
+				<span class="opgroup">
+					<label for="depub">Deutsche Publikation</label><input id="depub" name="op" type="radio" value="finddepub" {{ "checked" if params["op"] == "finddepub" else "" }}>
+					<label for="enpub">Englische Publikation</label> <input id="enpub" name="op" type="radio" value="findenpub" {{ "checked" if params["op"] == "findenpub" else "" }}>
+				</span>
+			</p>
+			<p>
+				<label for="query">Suchbegriff: </label><input id="query" name="query" type="text" value="{{ params["query"] }}" autofocus>
+			</p>
+			<p>
+				<input type="submit" value="Abschicken">
+			</p>
+			</div>
+		</form>
+		<hr>
+		<div class="results">
+			<div class="result">
+{% if result_type == "feat" %}
+	{% for feat in result %}
+				<p>
+					<b>Deutscher Name:</b> {{ feat["GermanName"] }}<br>
+					<b>Englischer Name:</b> {{ feat["EnglishName"] }}<br>
+					<b>Buch:</b> {{ linkify_op("finddepub", feat["Book"]) }} <b>Seite:</b> {{ feat["Page"] }}<br>
+					<b>Beschreibung:</b> {{ feat["Description"] }}<br>
+					{% if feat["Type"] != "" %}
+					<b>Kategorien:</b> {{ format_list(feat["Type"]) }}<br>
+					{% endif %}
+				</p>
+	{% endfor %}
+{% endif %}
+			</div>
+		</div>
+		<hr>
+		<div class="versionfooter">
+			<a href="{{ decemvirate["url"]["homepage"] }}">{{ decemvirate["name"] }} {{ decemvirate["version"] }}</a><br>
+			Database version {{ decemvirate["db"] }}
+		</div>
+	</body>
 </html>

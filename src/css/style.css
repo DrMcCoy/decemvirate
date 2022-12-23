@@ -1,3 +1,26 @@
+.opcontainer {
+	text-align: center;
+}
+
+.opgroup {
+	display: inline-grid;
+	grid-auto-flow: dense;
+	align-items: center;
+}
+
+.opgroup label {
+	grid-column: 2;
+}
+
+.results {
+	text-align: center;
+}
+
+.result {
+	display: inline-block;
+	text-align: left;
+}
+
 .versionfooter {
 	text-align: center;
 }
