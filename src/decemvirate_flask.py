@@ -67,10 +67,34 @@ def format_list(db_list: str) -> str:
 
 
 @decemvirate_flask.template_global()
-def linkify_op(operation: str, query: str) -> Markup:
-    """! Format a link to another database operation.
+def linkify(url: str) -> Markup:
+    """! Format a link.
     """
-    return Markup("<a href=\"/?op={operation}&query={query}\">{query}</a>").format(operation=operation, query=query)
+    return Markup("<a href=\"{url}\" rel=\"nofollow\">{url}</a>").format(url=url)
+
+
+@decemvirate_flask.template_global()
+def linkify_op(operation: str, query: str) -> Markup:
+    """! Format links to another database operation.
+    """
+    links = []
+    for item in query.split(","):
+        links.append(
+            Markup("<a href=\"/?op={operation}&query={item}\">{item}</a>").format(operation=operation, item=item))
+
+    return Markup(", ".join(links))
+
+
+@decemvirate_flask.template_global()
+def linkify_op_list(operation: str, items: list[dict[str, Any]], key: str) -> Markup:
+    """! Format links to another database operation from a list of items.
+    """
+    links = []
+    for item in items:
+        links.append(
+            Markup("<a href=\"/?op={operation}&query={key}\">{key}</a>").format(operation=operation, key=item[key]))
+
+    return Markup(", ".join(links))
 
 
 @decemvirate_flask.route("/", methods=['GET'])

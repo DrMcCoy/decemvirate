@@ -57,6 +57,46 @@
 					<b>Beschreibung:</b> {{ spell["Description"] }}<br>
 				</p>
 	{% endfor %}
+{% elif result_type == "depub" %}
+	{% for pub in result %}
+				<p>
+					<b>Titel:</b> {{ pub["Title"] }}<br>
+					<b>Produktcode:</b> {{ pub["ProductCode"] }}<br>
+					<b>Abkürzung:</b> {{ pub["Abbreviation"] }}<br>
+					<b>Abkürzung Statblock:</b> {{ pub["StatBlock"] }}<br>
+					<b>Kategorie:</b> {{ pub["Category"] }}<br>
+					<b>Datum:</b> {{ pub["Date"] }}<br>
+					{% if pub["Commentary"] != "" %}
+						<b>Kommentar:</b> {{ pub["Commentary"] }}<br>
+					{% endif %}
+					{% if pub["URL"] %}
+						<b>URL:</b> {{ linkify(pub["URL"]) }}<br>
+					{% endif %}
+					{% if pub["ISBN"] %}
+						<b>ISBNs:</b> {{ format_list(pub["ISBN"]) }}<br>
+					{% endif %}
+					{% if pub["PaizoProductCodes"] %}
+						<b>Originale:</b> {{ linkify_op("findenpub", pub["PaizoProductCodes"]) }}<br>
+					{% endif %}
+	{% endfor %}
+{% elif result_type == "enpub" %}
+	{% for pub in result %}
+				<p>
+					<b>Titel:</b> {{ pub["Title"] }}<br>
+					<b>Produktcode:</b> {{ pub["ProductCode"] }}<br>
+					<b>Abkürzung:</b> {{ pub["Abbreviation"] }}<br>
+					<b>Kategorie:</b> {{ pub["Category"] }}<br>
+					<b>Datum:</b> {{ pub["Date"] }}<br>
+					{% if pub["URL"] %}
+						<b>URL:</b> {{ linkify(pub["URL"]) }}<br>
+					{% endif %}
+					{% if pub["ISBN"] %}
+						<b>ISBNs:</b> {{ format_list(pub["ISBN"]) }}<br>
+					{% endif %}
+					{% if pub["Translations"] %}
+						<b>Übersetzungen:</b> {{ linkify_op_list("finddepub", pub["Translations"], "Abbreviation") }} <br>
+					{% endif %}
+	{% endfor %}
 {% endif %}
 			</div>
 		</div>
