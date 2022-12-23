@@ -70,14 +70,21 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
 
         parser.add_argument("-v", "--version", required=False, action="store_true",
                             help="print the version and exit")
-        parser.add_argument("-d", "--database", required=False,
+        parser.add_argument("-d", "--database", required=True,
                             help="SQLite database to use (required)")
+
+        subparsers = parser.add_subparsers(title="Supported commands", dest="command")
+
+        subparsers.add_parser("web", help="Run the Decemvirate web application (default)")
 
         args: argparse.Namespace = parser.parse_args()
 
         if args.version:
             Decemvirate._print_version(args.database)
             parser.exit()
+
+        if args.command is None:
+            args.command = "web"
 
         if args.database is None:
             parser.error("the following arguments are required: -d/--database")
@@ -92,7 +99,9 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         Util.set_pathfinder_path(args.database)
         Util.try_pathfinder()
 
-        decemvirate_flask.run()
+        if args.command == "web":
+            decemvirate_flask.run()
+            return
 
 
 def main() -> None:
