@@ -24,6 +24,7 @@ This module handles all interactions with the Pathfinder SQLite3 database.
 
 import sqlite3
 from os import path
+from pathlib import Path
 
 
 class Pathfinder:  # pylint: disable=too-few-public-methods
@@ -39,9 +40,9 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         def __init__(self, major: int, minor: int, patch: int) -> None:
             """! Create a Pathfinder database version object.
             """
-            self._major = major
-            self._minor = minor
-            self._patch = patch
+            self._major: int = major
+            self._minor: int = minor
+            self._patch: int = patch
 
         def __str__(self) -> str:
             """! Return a human-readable string describing this version object.
@@ -86,10 +87,10 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @param database  SQLite3 database to use.
         @return A dict containing the version information
         """
-        result = database.execute("SELECT * from Version LIMIT 1").fetchone()
+        result: sqlite3.Row = database.execute("SELECT * from Version LIMIT 1").fetchone()
         return Pathfinder.Version(result["Major"], result["Minor"], result["Patch"])
 
-    def __init__(self, filename: str, req_major_version: int, min_minor_version: int) -> None:
+    def __init__(self, filename: Path, req_major_version: int, min_minor_version: int) -> None:
         """! Initialize the Pathfinder database instance.
 
         @param filename           Path to the pathfinder.sqlite database file.
@@ -99,12 +100,12 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         if not path.exists(filename):
             raise FileNotFoundError
 
-        self._db = sqlite3.connect(filename)
+        self._db: sqlite3.Connection = sqlite3.connect(filename)
         self._db.row_factory = sqlite3.Row
 
-        self._version = Pathfinder._get_version(self._db)
+        self._version: Pathfinder.Version = Pathfinder._get_version(self._db)
 
-        want_version = Pathfinder.Version(req_major_version, min_minor_version, 0)
+        want_version: Pathfinder.Version = Pathfinder.Version(req_major_version, min_minor_version, 0)
         if not self._version.is_compatible(want_version):
             raise ValueError(f"Incompatible database version (want ~= {want_version}, got {self._version})")
 

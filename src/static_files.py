@@ -24,10 +24,10 @@ This module contains routes to serve static files from several different directo
 
 from flask import Response, send_from_directory
 
-from decemvirate import decemvirate
+from decemvirate_flask import decemvirate_flask
 
 
-@decemvirate.route('/css/<path:filename>')
+@decemvirate_flask.route('/css/<path:filename>')
 def css(filename: str) -> Response:
     """! Serve a css style sheet.
 
