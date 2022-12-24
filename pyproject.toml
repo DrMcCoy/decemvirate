@@ -19,13 +19,15 @@ classifiers = [
 keywords = [ "rpg", "ttrpg", "roleplaying", "pathfinder", "pathfinder1e", "paizo", "translation" ]
 requires-python = ">=3.10"
 dependencies = [
-	"Flask"
+	"Flask",
+	"waitress"
 ]
 dynamic = ["version"]
 
 [project.optional-dependencies]
 dev = [
 	"types-setuptools",
+	"types-waitress",
 	"isort",
 	"autopep8",
 	"flake8",

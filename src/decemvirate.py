@@ -76,7 +76,15 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
 
         subparsers = parser.add_subparsers(title="Supported commands", dest="command")
 
-        subparsers.add_parser("web", help="Run the Decemvirate web application (default)")
+        parser_web: argparse.ArgumentParser = subparsers.add_parser(
+            "web", help="Run the Decemvirate web application (default)",
+            formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        parser_web.add_argument("-l", "--host", default="127.0.0.0",
+                                help="hostname or IP address on which to listen")
+        parser_web.add_argument("-p", "--port", type=int, default=8080,
+                                help="TCP port on which to listen")
+        parser_web.add_argument("-t", "--threads", type=int, default=4,
+                                help="the number of threads used to process application logic")
 
         parser_finddepub: argparse.ArgumentParser = subparsers.add_parser(
             "finddepub", help="Search German publication by abbreviation or title")
@@ -200,7 +208,7 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         Util.try_pathfinder()
 
         if args.command == "web":
-            decemvirate_flask.run()
+            decemvirate_flask.run_waitress(host=args.host, port=args.port, threads=args.threads)
             return
 
         pathfinder: Pathfinder = Util.get_pathfinder()

@@ -26,6 +26,7 @@ from typing import Any
 
 from flask import Flask, render_template, request
 from markupsafe import Markup
+from waitress import serve
 
 from pathfinder import Pathfinder
 from util import Util
@@ -47,6 +48,18 @@ class DecemvirateFlask(Flask):
         super().__init__(import_name)
 
         self.context_processor(self._inject_project_information)
+
+    def run_waitress(self, host: str = "127.0.01", port: int = 8080, threads: int = 4):
+        """! Run the Decemvirate web service.
+
+        @param host     Host to bind to.
+        @param port     Port to bind to.
+        @param threads  Threads to use to handle requests.
+        """
+        info: dict[str, Any] = Util.get_project_info()
+        ident: str = f"{info['name']} {info['version']}"
+
+        serve(self, host=host, port=port, threads=threads, ident=ident)
 
 
 decemvirate_flask: DecemvirateFlask = DecemvirateFlask(__name__)
