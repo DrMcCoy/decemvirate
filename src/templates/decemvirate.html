@@ -37,8 +37,8 @@
 {% if result_type == "feat" %}
 	{% for feat in result %}
 				<p>
-					<b>Deutscher Name:</b> {{ feat["GermanName"] }}<br>
-					<b>Englischer Name:</b> {{ feat["EnglishName"] }}<br>
+					<b>Deutscher Name:</b> {{ linkify(feat["GermanURL"], feat["GermanName"]) }}<br>
+					<b>Englischer Name:</b> {{ linkify(feat["EnglishURL"], feat["EnglishName"]) }}<br>
 					<b>Buch:</b> {{ linkify_op("finddepub", feat["Book"]) }} <b>Seite:</b> {{ feat["Page"] }}<br>
 					<b>Beschreibung:</b> {{ feat["Description"] }}<br>
 					{% if feat["Type"] != "" %}

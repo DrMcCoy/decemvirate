@@ -81,10 +81,19 @@ def format_list(db_list: str) -> str:
 
 
 @decemvirate_flask.template_global()
-def linkify(url: str) -> Markup:
+def linkify(url: str, text: str | None = None) -> Markup:
     """! Format a link.
     """
-    return Markup("<a href=\"{url}\" rel=\"nofollow\">{url}</a>").format(url=url)
+    if text is None and url is None:
+        return ""
+
+    if text is None:
+        text = url
+
+    if url is None:
+        return Markup("{text}").format(text=text)
+
+    return Markup("<a href=\"{url}\" rel=\"nofollow\">{text}</a>").format(url=url, text=text)
 
 
 @decemvirate_flask.template_global()
