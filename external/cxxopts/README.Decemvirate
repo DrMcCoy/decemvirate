@@ -1,6 +1,0 @@
-This is the source of cxxopts (<https://github.com/jarro2783/cxxopts/>)
-version 3.0.0.
-
-Following changes have been applied:
-- Added an Options::parse() method that takes a vector of strings
-- Explicitly mark the standard_value copy constructor as default

@@ -3,71 +3,6 @@
 .*.sw[po]
 *~
 
-# MSVC files
-Debug/
-Release/
-ipch/
-*.suo
-*.sdf
-*.opensdf
-
-# Build files
-*.[oa]
-*.l[oa]
-*.d
-.dirstamp
-.libs/
-.deps/
-
-# Eclipse project files
-/.autotools
-/.cproject
-/.project
-/.settings
-
-# Netbeans project files
-/nbproject/
-
-# autotools temp files
-Makefile
-Makefile.in
-/configure.tmp
-/confdefs.h
-/conftest
-/conftest.*
-/a.out
-/aclocal.m4
-/autom4te.cache/
-/build-aux/
-/config.h
-/config.h.in
-/config.log
-/config.status
-/configure
-/libtool
-/m4/libtool.m4
-/m4/ltoptions.m4
-/m4/ltsugar.m4
-/m4/ltversion.m4
-/m4/lt~obsolete.m4
-/m4/pkg.m4
-/stamp-h1
-
-# CMake temp files
-/CMakeCache.txt
-/CMakeFiles/
-/cmake_install.cmake
-/CMakeUninstall.cmake
-/install_manifest.txt
-/bin/
-/doc/rules.mk.cmake
-/external/rules.mk.cmake
-/test/rules.mk.cmake
-/CTestTestfile.cmake
-/Testing/
-/data/rules.mk.cmake
-/src/rules.mk.cmake
-
 # Doxygen files
 /Doxyerror
 /doc/doxygen/html/
@@ -75,17 +10,3 @@ Makefile.in
 /doc/doxygen/man/
 /doc/doxygen/*.tmp
 /doc/doxygen/*.db
-
-# Unit tests
-/test-suite.log
-/test/common/testfile_*
-/test/common/test_*
-
-# git versioning stamp
-/src/version/gitstamp
-
-# Unix binary
-/src/decemvirate
-
-# Windows binary
-/src/decemvirate.exe

@@ -1,6 +1,0 @@
-This is scnlib (<https://github.com/eliaskosunen/scnlib/>), based on version 1.1.2.
-
-Following changes have been applied:
-- Renamed files to .hpp/.cpp
-- Fixed a compiler warning about an uninitialized variable
-- Fixed a wrongly cases windows.h #include

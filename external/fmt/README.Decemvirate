@@ -1,5 +1,0 @@
-This is part of fmt (<http://fmtlib.net/latest/>), based on version 6.0.0.
-
-Following changes have been applied:
-- Renamed files to .hpp/.cpp
-- Fixed a compiler warning about variable shadowing
