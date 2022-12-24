@@ -1,3 +1,7 @@
+Saturday, 2022-12-24 (Version 0.4.0)
+	- Added a web service using Python Flask
+	- Rewrote the whole application in Python
+
 Wednesday, 2022-12-07 (Version 0.3.2)
 	- Updated build files to fix compilation with GNU Make 4.4
 

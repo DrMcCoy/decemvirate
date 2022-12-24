@@ -1,3 +1,14 @@
+Changes in Decemvirate version 0.4.0
+====================================
+
+This version of Decemvirate is a complete rewrite in Python.
+
+The rewrite has full feature-parity with the old C++ application and
+additionally comes with a full web services using Flask.
+
+The usage has slightly changed. See the README.md for details.
+
+
 Changes in Decemvirate version 0.3.2
 ====================================
 
