@@ -28,6 +28,26 @@ from pathfinder import Pathfinder
 from util import Util
 
 
+class _HelpAction(argparse._HelpAction):
+    """! Helper class to display help strings for all commands in one go.
+    """
+    def __call__(self, parser, namespace, values, option_string=None):
+        parser.print_help()
+        print()
+        print()
+
+        subparsers_actions = [
+            action for action in parser._actions
+            if isinstance(action, argparse._SubParsersAction)]
+
+        for subparsers_action in subparsers_actions:
+            for choice, subparser in subparsers_action.choices.items():
+                print("Command {}:".format(choice))
+                print(subparser.format_help())
+
+        parser.exit()
+
+
 class Decemvirate:  # pylint: disable=too-few-public-methods
     """! Main Decemvirate application.
     """
@@ -64,11 +84,12 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         nameversion: str = f"{info['name']} {info['version']}"
         description: str = f"{nameversion} -- {info['summary']}"
 
-        parser: argparse.ArgumentParser = argparse.ArgumentParser(description=description)
+        parser: argparse.ArgumentParser = argparse.ArgumentParser(description=description, add_help=False)
 
         # Note: we're setting required to False even on required arguments and do the checks
         # ourselves below. We're doing that because we want more dynamic --version behaviour
 
+        parser.add_argument('-h', '--help', action=_HelpAction, help='show this help message and exit')
         parser.add_argument("-v", "--version", required=False, action="store_true",
                             help="print the version and exit")
         parser.add_argument("-d", "--database", required=True,
