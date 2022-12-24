@@ -59,6 +59,7 @@ class DecemvirateFlask(Flask):
         info: dict[str, Any] = Util.get_project_info()
         ident: str = f"{info['name']} {info['version']}"
 
+        print(f"Running {ident} at http://{host}:{port}/", flush=True)
         serve(self, host=host, port=port, threads=threads, ident=ident)
 
 
