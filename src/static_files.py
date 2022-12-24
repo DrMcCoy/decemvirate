@@ -36,3 +36,14 @@ def css(filename: str) -> Response:
     @return A response containing the static file.
     """
     return send_from_directory('css', filename)
+
+
+@decemvirate_flask.route('/<path:filename>')
+def icon(filename: str) -> Response:
+    """! Serve an icon.
+
+    @param path  Path of the icon to serve relative to the icon directory.
+
+    @return A response containing the static file.
+    """
+    return send_from_directory('icon', filename)
