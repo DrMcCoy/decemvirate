@@ -167,69 +167,85 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         return "" if value is None else value
 
     @staticmethod
+    def _print_result_feats(result: list[dict[str, Any]]) -> None:
+        for feat in result:
+            print(f"German Name: {feat['GermanName']}")
+            print(f"English Name: {feat['EnglishName']}")
+            print(f"Book: {feat['Book']}, Page: {feat['Page']}")
+            print(f"Description: {feat['Description']}")
+            print(f"Type: {', '.join(feat['Type'].split(','))}")
+            if feat['GermanURL']:
+                print(f"German URL: {feat['GermanURL']}")
+            if feat['EnglishURL']:
+                print(f"English URL: {feat['EnglishURL']}")
+            print()
+
+    @staticmethod
+    def _print_result_spells(result: list[dict[str, Any]]) -> None:
+        for spell in result:
+            print(f"German Name: {spell['GermanName']}")
+            print(f"English Name: {spell['EnglishName']}")
+            print(f"Book: {spell['Book']}, Page: {spell['Page']}")
+            print(f"Class: {', '.join(spell['Classes'].split(','))}")
+            print(f"Meta: {spell['Meta']}")
+            print(f"Description: {spell['Description']}")
+            if spell['GermanURL']:
+                print(f"German URL: {spell['GermanURL']}")
+            if spell['EnglishURL']:
+                print(f"English URL: {spell['EnglishURL']}")
+            print()
+
+    @staticmethod
+    def _print_result_german_publications(result: list[dict[str, Any]]) -> None:
+        for pub in result:
+            print(f"Title: {pub['Title']}")
+            print(f"Product Code: {pub['ProductCode']}")
+            print(f"Abbreviation: {pub['Abbreviation']}")
+            print(f"StatBlock: {pub['StatBlock']}")
+            print(f"Category: {pub['Category']}")
+            print(f"Date: {Decemvirate._none_to_empty(pub['Date'])}")
+            print(f"URL: {Decemvirate._none_to_empty(pub['URL'])}")
+            print(f"ISBN: {', '.join(Decemvirate._none_to_empty(pub['ISBN']).split(','))}")
+            print()
+
+        if len(result) == 1 and "Originals" in result[0] and result[0]["Originals"]:
+            print("This publication translates the following originals:")
+            print()
+            Decemvirate._print_result_english_publications(result[0]["Originals"])
+
+    @staticmethod
+    def _print_result_english_publications(result: list[dict[str, Any]]) -> None:
+        for pub in result:
+            print(f"Title: {pub['Title']}")
+            print(f"Product Code: {pub['ProductCode']}")
+            print(f"Abbreviation: {pub['Abbreviation']}")
+            print(f"Category: {pub['Category']}")
+            print(f"Date: {Decemvirate._none_to_empty(pub['Date'])}")
+            print(f"URL: {Decemvirate._none_to_empty(pub['URL'])}")
+            print(f"ISBN: {', '.join(Decemvirate._none_to_empty(pub['ISBN']).split(','))}")
+            print()
+
+        if len(result) == 1 and "Translations" in result[0] and result[0]["Translations"]:
+            print("This publication is translated in the following publications:")
+            print()
+            Decemvirate._print_result_german_publications(result[0]["Translations"])
+
+    @staticmethod
     def _print_result(result_type: str, result: list[dict[str, Any]]):
         if result_type == "feat":
-            for feat in result:
-                print(f"German Name: {feat['GermanName']}")
-                print(f"English Name: {feat['EnglishName']}")
-                print(f"Book: {feat['Book']}, Page: {feat['Page']}")
-                print(f"Description: {feat['Description']}")
-                print(f"Type: {', '.join(feat['Type'].split(','))}")
-                if feat['GermanURL']:
-                    print(f"German URL: {feat['GermanURL']}")
-                if feat['EnglishURL']:
-                    print(f"English URL: {feat['EnglishURL']}")
-                print()
+            Decemvirate._print_result_feats(result)
             return
 
         if result_type == "spell":
-            for spell in result:
-                print(f"German Name: {spell['GermanName']}")
-                print(f"English Name: {spell['EnglishName']}")
-                print(f"Book: {spell['Book']}, Page: {spell['Page']}")
-                print(f"Class: {', '.join(spell['Classes'].split(','))}")
-                print(f"Meta: {spell['Meta']}")
-                print(f"Description: {spell['Description']}")
-                if spell['GermanURL']:
-                    print(f"German URL: {spell['GermanURL']}")
-                if spell['EnglishURL']:
-                    print(f"English URL: {spell['EnglishURL']}")
-                print()
+            Decemvirate._print_result_spells(result)
             return
 
         if result_type == "depub":
-            for pub in result:
-                print(f"Title: {pub['Title']}")
-                print(f"Product Code: {pub['ProductCode']}")
-                print(f"Abbreviation: {pub['Abbreviation']}")
-                print(f"StatBlock: {pub['StatBlock']}")
-                print(f"Category: {pub['Category']}")
-                print(f"Date: {Decemvirate._none_to_empty(pub['Date'])}")
-                print(f"URL: {Decemvirate._none_to_empty(pub['URL'])}")
-                print(f"ISBN: {', '.join(Decemvirate._none_to_empty(pub['ISBN']).split(','))}")
-                print()
-
-            if len(result) == 1 and "Originals" in result[0] and result[0]["Originals"]:
-                print("This publication translates the following originals:")
-                print()
-                Decemvirate._print_result("enpub", result[0]["Originals"])
+            Decemvirate._print_result_german_publications(result)
             return
 
         if result_type == "enpub":
-            for pub in result:
-                print(f"Title: {pub['Title']}")
-                print(f"Product Code: {pub['ProductCode']}")
-                print(f"Abbreviation: {pub['Abbreviation']}")
-                print(f"Category: {pub['Category']}")
-                print(f"Date: {Decemvirate._none_to_empty(pub['Date'])}")
-                print(f"URL: {Decemvirate._none_to_empty(pub['URL'])}")
-                print(f"ISBN: {', '.join(Decemvirate._none_to_empty(pub['ISBN']).split(','))}")
-                print()
-
-            if len(result) == 1 and "Translations" in result[0] and result[0]["Translations"]:
-                print("This publication is translated in the following publications:")
-                print()
-                Decemvirate._print_result("enpub", result[0]["Translations"])
+            Decemvirate._print_result_english_publications(result)
             return
 
     def run(self) -> None:
