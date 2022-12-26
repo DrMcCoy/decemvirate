@@ -156,6 +156,9 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
         if args.database is None:
             parser.error("the following arguments are required: -d/--database")
 
+        if not hasattr(args, "param"):
+            args.param = None
+
         return args
 
     @staticmethod
