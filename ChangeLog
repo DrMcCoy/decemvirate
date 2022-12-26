@@ -1,3 +1,7 @@
+Monday, 2022-12-26 (Version 0.6.0)
+	- Linkify German and English spell names
+	- Bumped required database version to >= 0.7.0
+
 Monday, 2022-12-26 (Version 0.5.0)
 	- Fixed a bug that made most commands fail
 	- Print web service URL to stdout

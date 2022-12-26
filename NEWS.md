@@ -1,3 +1,18 @@
+Changes in Decemvirate version 0.6.0
+====================================
+
+This version of Decemvirate adds URLs to spells.
+
+The GermanSpells table was extended with two new columns, EnglishURL and
+GermanURL, which were populated with URLs to d20pfsrd.com, aonprd.com
+and 5footstep.de. The CLI commands findenspell and finddespell now
+display those URLs and the web service linkifies the spell names with
+those URLs.
+
+Additionally, a few spelling mistakes in the GermanSpells table were
+fixed.
+
+
 Changes in Decemvirate version 0.5.0
 ====================================
 
