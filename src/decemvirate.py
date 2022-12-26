@@ -174,6 +174,10 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
                 print(f"Book: {feat['Book']}, Page: {feat['Page']}")
                 print(f"Description: {feat['Description']}")
                 print(f"Type: {', '.join(feat['Type'].split(','))}")
+                if feat['GermanURL']:
+                    print(f"German URL: {feat['GermanURL']}")
+                if feat['EnglishURL']:
+                    print(f"English URL: {feat['EnglishURL']}")
                 print()
             return
 
