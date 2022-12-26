@@ -189,6 +189,10 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
                 print(f"Class: {', '.join(spell['Classes'].split(','))}")
                 print(f"Meta: {spell['Meta']}")
                 print(f"Description: {spell['Description']}")
+                if spell['GermanURL']:
+                    print(f"German URL: {spell['GermanURL']}")
+                if spell['EnglishURL']:
+                    print(f"English URL: {spell['EnglishURL']}")
                 print()
             return
 
