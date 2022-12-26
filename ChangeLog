@@ -1,3 +1,9 @@
+Monday, 2022-12-26 (Version 0.5.0)
+	- Fixed a bug that made most commands fail
+	- Print web service URL to stdout
+	- Linkify German and English feat names
+	- Bumped required database version to >= 0.6.0
+
 Saturday, 2022-12-24 (Version 0.4.0)
 	- Added a web service using Python Flask
 	- Rewrote the whole application in Python

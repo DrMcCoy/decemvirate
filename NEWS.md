@@ -1,3 +1,18 @@
+Changes in Decemvirate version 0.5.0
+====================================
+
+This version of Decemvirate adds URLs to feats.
+
+The GermanFeats table was extended with two new columns, EnglishURL and
+GermanURL, which were populated with URLs to d20pfsrd.com, aonprd.com
+and 5footstep.de. The CLI commands findenfeat and finddefeat now
+display those URLs and the web service linkifies the feat names with
+those URLs.
+
+Additionally, a few spelling mistakes in the GermanFeats table were
+fixed.
+
+
 Changes in Decemvirate version 0.4.0
 ====================================
 
