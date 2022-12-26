@@ -49,8 +49,8 @@
 {% elif result_type == "spell" %}
 	{% for spell in result %}
 				<p>
-					<b>Deutscher Name:</b> {{ spell["GermanName"] }}<br>
-					<b>Englischer Name:</b> {{ spell["EnglishName"] }}<br>
+					<b>Deutscher Name:</b> {{ linkify(spell["GermanURL"], spell["GermanName"]) }}<br>
+					<b>Englischer Name:</b> {{ linkify(spell["EnglishURL"], spell["EnglishName"]) }}<br>
 					<b>Buch:</b> {{ linkify_op("finddepub", spell["Book"]) }} <b>Seite:</b> {{ spell["Page"] }}<br>
 					<b>Klassen:</b>{{ format_list(spell["Classes"]) }}<br>
 					<b>Schule:</b> {{ spell["School"] }}{% if spell["Race"] %} <b>Volk:</b> {{ spell["Race"] }} {% endif %}<br>
