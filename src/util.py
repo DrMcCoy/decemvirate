@@ -25,7 +25,7 @@ from importlib import metadata
 from pathlib import Path
 from typing import Any
 
-from flask import g, has_app_context
+from flask import g, has_app_context, request
 
 from pathfinder import Pathfinder
 
@@ -141,3 +141,12 @@ class Util:
             del g.pathfinder_path
         if hasattr(g, "pathfinder"):
             del g.pathfinder
+
+    @staticmethod
+    def get_remote_address():
+        """! Return the remote address accessing Decemvirate.
+        """
+        if 'X-Forwarded-For' in request.headers:
+            return request.headers.getlist("X-Forwarded-For")[0].rpartition(' ')[-1]
+
+        return request.remote_addr or 'unknown'

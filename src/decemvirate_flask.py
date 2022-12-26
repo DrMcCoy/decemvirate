@@ -135,7 +135,7 @@ def main_page() -> str:
     try:
         result_type, result = pathfinder.run_query(params["op"], params["query"])
     except ValueError as err:
-        print(err, flush=True)
+        print(f"{Util.get_remote_address()}: {err}", flush=True)
 
     return render_template('decemvirate.html', params=params, result_type=result_type, result=result)
 
