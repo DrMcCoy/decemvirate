@@ -30,7 +30,7 @@ from flask import g, has_app_context, request
 from pathfinder import Pathfinder
 
 PACKAGE_NAME = "decemvirate"
-COPYRIGHT_YEARS = "2019-2022"
+COPYRIGHT_YEARS = "2019-2023"
 
 PATHFINDER_VERSION_REQ_MAJOR = 0
 PATHFINDER_VERSION_MIN_MINOR = 7
