@@ -152,7 +152,9 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
             parser.exit()
 
         if args.command is None:
+            args, extras = parser.parse_known_args()
             args.command = "web"
+            parser_web.parse_args(extras, namespace=args)
 
         if args.database is None:
             parser.error("the following arguments are required: -d/--database")
