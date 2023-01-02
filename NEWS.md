@@ -1,3 +1,12 @@
+Changes in Decemvirate version 0.7.0
+====================================
+
+This version of Decemvirate makes the web app look a bit better, by
+applying styling via Tailwind CSS.
+
+Additionally, a few minor bugs have been fixed.
+
+
 Changes in Decemvirate version 0.6.0
 ====================================
 

@@ -1,3 +1,10 @@
+Monday, 2023-01-02 (Version 0.7.0)
+	- Styled HTML with Tailwind CSS
+	- Fixed a bug that prevented "web by default" to work
+	- Fixed linting issues
+	- Made error messages flush stdout
+	- Made error messages show the offending remote host
+
 Monday, 2022-12-26 (Version 0.6.0)
 	- Linkify German and English spell names
 	- Bumped required database version to >= 0.7.0
