@@ -93,7 +93,11 @@ def linkify(url: str, text: str | None = None) -> Markup:
     if url is None:
         return Markup("{text}").format(text=text)
 
-    return Markup("<a href=\"{url}\" rel=\"nofollow\">{text}</a>").format(url=url, text=text)
+    return Markup(
+        "<a class=\"font-medium text-blue-600 hover:underline\" "
+        "href=\"{url}\" rel=\"nofollow\">{text}</a>").format(
+            url=url,
+            text=text)
 
 
 @decemvirate_flask.template_global()
@@ -103,7 +107,10 @@ def linkify_op(operation: str, query: str) -> Markup:
     links = []
     for item in query.split(","):
         links.append(
-            Markup("<a href=\"/?op={operation}&query={item}\">{item}</a>").format(operation=operation, item=item))
+            Markup("<a class=\"font-medium text-blue-600 hover:underline\" "
+                   "href=\"/?op={operation}&query={item}\">{item}</a>").format(
+                operation=operation,
+                item=item))
 
     return Markup(", ".join(links))
 
@@ -115,7 +122,10 @@ def linkify_op_list(operation: str, items: list[dict[str, Any]], key: str) -> Ma
     links = []
     for item in items:
         links.append(
-            Markup("<a href=\"/?op={operation}&query={key}\">{key}</a>").format(operation=operation, key=item[key]))
+            Markup("<a class=\"font-medium text-blue-600 hover:underline\" "
+                   "href=\"/?op={operation}&query={key}\">{key}</a>").format(
+                operation=operation,
+                key=item[key]))
 
     return Markup(", ".join(links))
 

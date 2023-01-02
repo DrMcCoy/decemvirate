@@ -7,103 +7,115 @@
 		<title>Decemvirate</title>
 	</head>
 	<body>
+		<div class="grid place-items-center pt-2">
 		<form action="/">
-			<div class="opcontainer">
-			<p>
-				<span class="opgroup">
-					<label for="defeat">Deutsches Talent</label><input id="defeat" name="op" type="radio" value="finddefeat" {{ "checked" if params["op"] == "finddefeat" else "" }}>
-					<label for="enfeat">Englisches Talent</label><input id="enfeat" name="op" type="radio" value="findenfeat" {{ "checked" if params["op"] == "findenfeat" else "" }}>
-				</span>
-				<span class="opgroup">
-					<label for="despell">Deutscher Zauber</label><input id="despell" name="op" type="radio" value="finddespell" {{ "checked" if params["op"] == "finddespell" else "" }}>
-					<label for="enspell">Englischer Zauber</label> <input id="enspell" name="op" type="radio" value="findenspell" {{ "checked" if params["op"] == "findenspell" else "" }}>
-				</span>
-				<span class="opgroup">
-					<label for="depub">Deutsche Publikation</label><input id="depub" name="op" type="radio" value="finddepub" {{ "checked" if params["op"] == "finddepub" else "" }}>
-					<label for="enpub">Englische Publikation</label> <input id="enpub" name="op" type="radio" value="findenpub" {{ "checked" if params["op"] == "findenpub" else "" }}>
-				</span>
-			</p>
-			<p>
-				<label for="query">Suchbegriff: </label><input id="query" name="query" type="text" value="{{ params["query"] }}" autofocus>
-			</p>
-			<p>
-				<input type="submit" value="Abschicken">
-			</p>
+			<ul class="items-center w-fit text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 mb-2 flex">
+			<li class="w-auto">
+				<div class="flex items-center pl-3 pr-3 border-b border-gray-200">
+					<input id="horizontal-list-radio-license" type="radio" value="finddefeat" name="op" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required {{ "checked" if params["op"] == "finddefeat" else "" }}>
+					<label for="horizontal-list-radio-license" class="py-3 ml-2 mr-1 w-auto text-sm font-medium text-gray-900">Deutsches Talent</label>
+				</div>
+				<div class="flex items-center pl-3 pr-3">
+					<input id="horizontal-list-radio-license" type="radio" value="findenfeat" name="op" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required {{ "checked" if params["op"] == "findenfeat" else "" }}>
+					<label for="horizontal-list-radio-license" class="py-3 ml-2 mr-1 w-auto text-sm font-medium text-gray-900">Englisches Talent</label>
+				</div>
+			</li>
+			<li class="w-auto">
+				<div class="flex items-center pl-3 pr-3 border-b border-gray-200">
+					<input id="horizontal-list-radio-id" type="radio" value="finddespell" name="op" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required {{ "checked" if params["op"] == "finddespell" else "" }}>
+					<label for="horizontal-list-radio-id" class="py-3 ml-2 mr-1 w-auto text-sm font-medium text-gray-900">Deutscher Zauber</label>
+				</div>
+				<div class="flex items-center pl-3 pr-3">
+					<input id="horizontal-list-radio-id" type="radio" value="findenspell" name="op" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required {{ "checked" if params["op"] == "findenspell" else "" }}>
+					<label for="horizontal-list-radio-id" class="py-3 ml-2 mr-1 w-auto text-sm font-medium text-gray-900">Englischer Zauber</label>
+				</div>
+			</li>
+			<li class="w-auto">
+				<div class="flex items-center pl-3 pr-3 border-b border-gray-200">
+					<input id="horizontal-list-radio-millitary" type="radio" value="finddepub" name="op" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required {{ "checked" if params["op"] == "finddepub" else "" }}>
+					<label for="horizontal-list-radio-millitary" class="py-3 ml-2 mr-1 w-auto text-sm font-medium text-gray-900">Deutsche Publikation</label>
+				</div>
+				<div class="flex items-center pl-3 pr-3">
+					<input id="horizontal-list-radio-millitary" type="radio" value="findenpub" name="op" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2" required {{ "checked" if params["op"] == "findenpub" else "" }}>
+					<label for="horizontal-list-radio-millitary" class="py-3 ml-2 mr-1 w-auto text-sm font-medium text-gray-900">Englische Publikation</label>
+				</div>
+				</li>
+			</ul>
+			<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Suchen</label>
+			<div class="relative">
+				<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+					<svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+				</div>
+				<input type="search" id="default-search" name="query" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="" value="{{ params["query"] }}" required autofocus>
+				<button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Suchen</button>
 			</div>
 		</form>
-		<hr>
-		<div class="results">
-			<div class="result">
-{% if result_type == "feat" %}
-	{% for feat in result %}
-				<p>
-					<b>Deutscher Name:</b> {{ linkify(feat["GermanURL"], feat["GermanName"]) }}<br>
-					<b>Englischer Name:</b> {{ linkify(feat["EnglishURL"], feat["EnglishName"]) }}<br>
-					<b>Buch:</b> {{ linkify_op("finddepub", feat["Book"]) }} <b>Seite:</b> {{ feat["Page"] }}<br>
-					<b>Beschreibung:</b> {{ feat["Description"] }}<br>
-					{% if feat["Type"] != "" %}
-					<b>Kategorien:</b> {{ format_list(feat["Type"]) }}<br>
-					{% endif %}
-				</p>
-	{% endfor %}
-{% elif result_type == "spell" %}
-	{% for spell in result %}
-				<p>
-					<b>Deutscher Name:</b> {{ linkify(spell["GermanURL"], spell["GermanName"]) }}<br>
-					<b>Englischer Name:</b> {{ linkify(spell["EnglishURL"], spell["EnglishName"]) }}<br>
-					<b>Buch:</b> {{ linkify_op("finddepub", spell["Book"]) }} <b>Seite:</b> {{ spell["Page"] }}<br>
-					<b>Klassen:</b>{{ format_list(spell["Classes"]) }}<br>
-					<b>Schule:</b> {{ spell["School"] }}{% if spell["Race"] %} <b>Volk:</b> {{ spell["Race"] }} {% endif %}<br>
-					<b>Meta:</b> {{ spell["Meta"] }}<br>
-					<b>Beschreibung:</b> {{ spell["Description"] }}<br>
-				</p>
-	{% endfor %}
-{% elif result_type == "depub" %}
-	{% for pub in result %}
-				<p>
-					<b>Titel:</b> {{ pub["Title"] }}<br>
-					<b>Produktcode:</b> {{ pub["ProductCode"] }}<br>
-					<b>Abkürzung:</b> {{ pub["Abbreviation"] }}<br>
-					<b>Abkürzung Statblock:</b> {{ pub["StatBlock"] }}<br>
-					<b>Kategorie:</b> {{ pub["Category"] }}<br>
-					<b>Datum:</b> {{ pub["Date"] }}<br>
-					{% if pub["Commentary"] != "" %}
-						<b>Kommentar:</b> {{ pub["Commentary"] }}<br>
-					{% endif %}
-					{% if pub["URL"] %}
-						<b>URL:</b> {{ linkify(pub["URL"]) }}<br>
-					{% endif %}
-					{% if pub["ISBN"] %}
-						<b>ISBNs:</b> {{ format_list(pub["ISBN"]) }}<br>
-					{% endif %}
-					{% if pub["PaizoProductCodes"] %}
-						<b>Originale:</b> {{ linkify_op("findenpub", pub["PaizoProductCodes"]) }}<br>
-					{% endif %}
-	{% endfor %}
-{% elif result_type == "enpub" %}
-	{% for pub in result %}
-				<p>
-					<b>Titel:</b> {{ pub["Title"] }}<br>
-					<b>Produktcode:</b> {{ pub["ProductCode"] }}<br>
-					<b>Abkürzung:</b> {{ pub["Abbreviation"] }}<br>
-					<b>Kategorie:</b> {{ pub["Category"] }}<br>
-					<b>Datum:</b> {{ pub["Date"] }}<br>
-					{% if pub["URL"] %}
-						<b>URL:</b> {{ linkify(pub["URL"]) }}<br>
-					{% endif %}
-					{% if pub["ISBN"] %}
-						<b>ISBNs:</b> {{ format_list(pub["ISBN"]) }}<br>
-					{% endif %}
-					{% if pub["Translations"] %}
-						<b>Übersetzungen:</b> {{ linkify_op_list("finddepub", pub["Translations"], "Abbreviation") }} <br>
-					{% endif %}
-	{% endfor %}
-{% endif %}
+		</div>
+		<hr class="my-4 mx-auto w-48 h-0.5 bg-gray-400 rounded border-0 md:my-10">
+{%- for r in result %}
+		<div class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-2 max-w-md md:max-w-2xl ">
+			<div class="flex items-start px-4 pb-2">
+				<div class="">
+					<p class="mt-3 text-gray-700 text-sm">
+	{%- if result_type == "feat" %}
+						<b>Deutscher Name:</b> {{ linkify(r["GermanURL"], r["GermanName"]) }}<br>
+						<b>Englischer Name:</b> {{ linkify(r["EnglishURL"], r["EnglishName"]) }}<br>
+						<b>Buch:</b> {{ linkify_op("finddepub", r["Book"]) }} <b>Seite:</b> {{ r["Page"] }}<br>
+						<b>Beschreibung:</b> {{ r["Description"] }}<br>
+						{%- if r["Type"] != "" %}
+						<b>Kategorien:</b> {{ format_list(r["Type"]) }}<br>
+						{%- endif %}
+	{%- elif result_type == "spell" %}
+						<b>Deutscher Name:</b> {{ linkify(r["GermanURL"], r["GermanName"]) }}<br>
+						<b>Englischer Name:</b> {{ linkify(r["EnglishURL"], r["EnglishName"]) }}<br>
+						<b>Buch:</b> {{ linkify_op("finddepub", r["Book"]) }} <b>Seite:</b> {{ r["Page"] }}<br>
+						<b>Klassen:</b> {{ format_list(r["Classes"]) }}<br>
+						<b>Schule:</b> {{ r["School"] }}{% if r["Race"] %} <b>Volk:</b> {{ r["Race"] }} {% endif %}<br>
+						<b>Meta:</b> {{ r["Meta"] }}<br>
+						<b>Beschreibung:</b> {{ r["Description"] }}<br>
+	{%- elif result_type == "depub" %}
+						<b>Titel:</b> {{ r["Title"] }}<br>
+						<b>Produktcode:</b> {{ r["ProductCode"] }}<br>
+						<b>Abkürzung:</b> {{ r["Abbreviation"] }}<br>
+						<b>Abkürzung Statblock:</b> {{ r["StatBlock"] }}<br>
+						<b>Kategorie:</b> {{ r["Category"] }}<br>
+						<b>Datum:</b> {{ r["Date"] }}<br>
+						{%- if r["Commentary"] != "" %}
+						<b>Kommentar:</b> {{ r["Commentary"] }}<br>
+						{%- endif %}
+						{%- if r["URL"] %}
+						<b>URL:</b> {{ linkify(r["URL"]) }}<br>
+						{%- endif %}
+						{%- if r["ISBN"] %}
+						<b>ISBNs:</b> {{ format_list(r["ISBN"]) }}<br>
+						{%- endif %}
+						{%- if r["PaizoProductCodes"] %}
+						<b>Originale:</b> {{ linkify_op("findenpub", r["PaizoProductCodes"]) }}<br>
+						{%- endif %}
+	{%- elif result_type == "enpub" %}
+						<b>Titel:</b> {{ r["Title"] }}<br>
+						<b>Produktcode:</b> {{ r["ProductCode"] }}<br>
+						<b>Abkürzung:</b> {{ r["Abbreviation"] }}<br>
+						<b>Kategorie:</b> {{ r["Category"] }}<br>
+						<b>Datum:</b> {{ r["Date"] }}<br>
+						{%- if r["URL"] %}
+						<b>URL:</b> {{ linkify(r["URL"]) }}<br>
+						{%- endif %}
+						{%- if r["ISBN"] %}
+						<b>ISBNs:</b> {{ format_list(r["ISBN"]) }}<br>
+						{%- endif %}
+						{%- if r["Translations"] %}
+						<b>Übersetzungen:</b> {{ linkify_op_list("finddepub", r["Translations"], "Abbreviation") }} <br>
+						{%- endif %}
+	{% endif %}
+					</p>
+				</div>
 			</div>
 		</div>
-		<hr>
-		<div class="versionfooter">
-			<a href="{{ decemvirate["url"]["homepage"] }}">{{ decemvirate["name"] }} {{ decemvirate["version"] }}</a><br>
+{%- endfor %}
+		<hr class="my-4 mx-auto w-48 h-0.5 bg-gray-400 rounded border-0 md:my-10">
+		<div class="grid place-items-center">
+			<a class="font-medium text-blue-600 hover:underline" href="{{ decemvirate["url"]["homepage"] }}">{{ decemvirate["name"] }} {{ decemvirate["version"] }}</a><br>
 			Database version {{ decemvirate["db"] }}
 		</div>
 	</body>
