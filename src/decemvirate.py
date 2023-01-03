@@ -176,10 +176,8 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
             print(f"Book: {feat['Book']}, Page: {feat['Page']}")
             print(f"Description: {feat['Description']}")
             print(f"Type: {', '.join(feat['Type'].split(','))}")
-            if feat['GermanURL']:
-                print(f"German URL: {feat['GermanURL']}")
-            if feat['EnglishURL']:
-                print(f"English URL: {feat['EnglishURL']}")
+            for url in feat['URLs']:
+                print(f"URL: {url}")
             print()
 
     @staticmethod
@@ -191,10 +189,8 @@ class Decemvirate:  # pylint: disable=too-few-public-methods
             print(f"Class: {', '.join(spell['Classes'].split(','))}")
             print(f"Meta: {spell['Meta']}")
             print(f"Description: {spell['Description']}")
-            if spell['GermanURL']:
-                print(f"German URL: {spell['GermanURL']}")
-            if spell['EnglishURL']:
-                print(f"English URL: {spell['EnglishURL']}")
+            for url in spell['URLs']:
+                print(f"URL: {url}")
             print()
 
     @staticmethod
