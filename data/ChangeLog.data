@@ -1,3 +1,7 @@
+Monday, 2023-01-03 (Version 0.8.0)
+	- Moved URLs in GermanSpells into their own table, GermanSpellURLs
+	- Moved URLs in GermanFeats into their own table, GermanFeatURLs
+
 Monday, 2022-12-26 (Version 0.7.1)
 	- Fixed PaizoProductCodes for AP RR
 
