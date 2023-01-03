@@ -145,17 +145,33 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         if operation == "" or query == "":
             return "none", []
         if operation == "finddefeat":
-            return "feat", sorted([dict(row) for row in self.find_german_feat(query)],
-                                  key=lambda d: d['GermanName'])
+            result = sorted([dict(row) for row in self.find_german_feat(query)],
+                            key=lambda d: d['GermanName'])
+            result = [(r | {"URLs": r["URLs"].split(",")}) for r in result]
+
+            return "feat", result
+
         if operation == "findenfeat":
-            return "feat", sorted([dict(row) for row in self.find_english_feat(query)],
-                                  key=lambda d: d['EnglishName'])
+            result = sorted([dict(row) for row in self.find_english_feat(query)],
+                            key=lambda d: d['EnglishName'])
+            result = [(r | {"URLs": r["URLs"].split(",")}) for r in result]
+
+            return "feat", result
+
         if operation == "finddespell":
-            return "spell", sorted([dict(row) for row in self.find_german_spell(query)],
-                                   key=lambda d: d['GermanName'])
+            result = sorted([dict(row) for row in self.find_german_spell(query)],
+                            key=lambda d: d['GermanName'])
+            result = [(r | {"URLs": r["URLs"].split(",")}) for r in result]
+
+            return "spell", result
+
         if operation == "findenspell":
-            return "spell", sorted([dict(row) for row in self.find_english_spell(query)],
-                                   key=lambda d: d['EnglishName'])
+            result = sorted([dict(row) for row in self.find_english_spell(query)],
+                            key=lambda d: d['EnglishName'])
+            result = [(r | {"URLs": r["URLs"].split(",")}) for r in result]
+
+            return "spell", result
+
         if operation == "finddepub":
             result = sorted([dict(row) for row in self.find_german_publication(query)],
                             key=lambda d: d['Title'])
@@ -193,7 +209,10 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @param name  The German name to search for.
         @return A list of matching feats.
         """
-        return self._db.execute("SELECT * from GermanFeats WHERE GermanName LIKE :name",
+        return self._db.execute("SELECT GermanFeats.*, group_concat(GermanFeatURLs.URL) as URLs "
+                                "from GermanFeats LEFT JOIN GermanFeatURLs "
+                                "ON GermanFeatURLs.GermanFeatID = GermanFeats.rowid "
+                                "WHERE GermanName LIKE :name GROUP BY GermanFeats.rowid",
                                 {"name": f"%{name}%"}).fetchall()
 
     def find_english_feat(self, name: str) -> list[sqlite3.Row]:
@@ -202,7 +221,10 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @param name  The English name to search for.
         @return A list of matching feats.
         """
-        return self._db.execute("SELECT * from GermanFeats WHERE EnglishName LIKE :name",
+        return self._db.execute("SELECT GermanFeats.*, group_concat(GermanFeatURLs.URL) as URLs "
+                                "from GermanFeats LEFT JOIN GermanFeatURLs "
+                                "ON GermanFeatURLs.GermanFeatID = GermanFeats.rowid "
+                                "WHERE EnglishName LIKE :name GROUP BY GermanFeats.rowid",
                                 {"name": f"%{name}%"}).fetchall()
 
     def find_german_spell(self, name: str) -> list[sqlite3.Row]:
@@ -211,7 +233,10 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @param name  The German name to search for.
         @return A list of matching spells.
         """
-        return self._db.execute("SELECT * from GermanSpells WHERE GermanName LIKE :name",
+        return self._db.execute("SELECT GermanSpells.*, group_concat(GermanSpellURLs.URL) as URLs "
+                                "from GermanSpells LEFT JOIN GermanSpellURLs "
+                                "ON GermanSpellURLs.GermanSpellID = GermanSpells.rowid "
+                                "WHERE GermanName LIKE :name GROUP BY GermanSpells.rowid",
                                 {"name": f"%{name}%"}).fetchall()
 
     def find_english_spell(self, name: str) -> list[sqlite3.Row]:
@@ -220,7 +245,10 @@ class Pathfinder:  # pylint: disable=too-few-public-methods
         @param name  The English name to search for.
         @return A list of matching spells.
         """
-        return self._db.execute("SELECT * from GermanSpells WHERE EnglishName LIKE :name",
+        return self._db.execute("SELECT GermanSpells.*, group_concat(GermanSpellURLs.URL) as URLs "
+                                "from GermanSpells LEFT JOIN GermanSpellURLs "
+                                "ON GermanSpellURLs.GermanSpellID = GermanSpells.rowid "
+                                "WHERE EnglishName LIKE :name GROUP BY GermanSpells.rowid",
                                 {"name": f"%{name}%"}).fetchall()
 
     def find_spell_by_class(self, name: str, level: str | None = None) -> list[sqlite3.Row]:

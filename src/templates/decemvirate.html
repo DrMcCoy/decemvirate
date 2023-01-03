@@ -58,16 +58,16 @@
 				<div class="">
 					<p class="mt-3 text-gray-700 text-sm">
 	{%- if result_type == "feat" %}
-						<b>Deutscher Name:</b> {{ linkify(r["GermanURL"], r["GermanName"]) }}<br>
-						<b>Englischer Name:</b> {{ linkify(r["EnglishURL"], r["EnglishName"]) }}<br>
+						<b>Deutscher Name:</b> {{ r["GermanName"] }} {{ linkify_srd(r["URLs"], ["5footstep"]) }}<br>
+						<b>Englischer Name:</b> {{ r["EnglishName"] }} {{ linkify_srd(r["URLs"], ["d20pfsrd", "aonprd"]) }}<br>
 						<b>Buch:</b> {{ linkify_op("finddepub", r["Book"]) }} <b>Seite:</b> {{ r["Page"] }}<br>
 						<b>Beschreibung:</b> {{ r["Description"] }}<br>
 						{%- if r["Type"] != "" %}
 						<b>Kategorien:</b> {{ format_list(r["Type"]) }}<br>
 						{%- endif %}
 	{%- elif result_type == "spell" %}
-						<b>Deutscher Name:</b> {{ linkify(r["GermanURL"], r["GermanName"]) }}<br>
-						<b>Englischer Name:</b> {{ linkify(r["EnglishURL"], r["EnglishName"]) }}<br>
+						<b>Deutscher Name:</b> {{ r["GermanName"] }} {{ linkify_srd(r["URLs"], ["5footstep"]) }}<br>
+						<b>Englischer Name:</b> {{ r["EnglishName"] }} {{ linkify_srd(r["URLs"], ["d20pfsrd", "aonprd"]) }}<br>
 						<b>Buch:</b> {{ linkify_op("finddepub", r["Book"]) }} <b>Seite:</b> {{ r["Page"] }}<br>
 						<b>Klassen:</b> {{ format_list(r["Classes"]) }}<br>
 						<b>Schule:</b> {{ r["School"] }}{% if r["Race"] %} <b>Volk:</b> {{ r["Race"] }} {% endif %}<br>

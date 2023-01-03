@@ -101,6 +101,23 @@ def linkify(url: str, text: str | None = None) -> Markup:
 
 
 @decemvirate_flask.template_global()
+def linkify_srd(urls: list[str], srds: list[str]) -> Markup:
+    """! Format links to System Reference Documents.
+    """
+    links = []
+    for srd in srds:
+        url = [s for s in urls if srd in s]
+        if url:
+            links.append(
+                Markup("<a class=\"font-medium text-blue-600 hover:underline\" "
+                       "href=\"{url}\" rel=\"nofollow\"><sup>{srd}</sup></a>").format(
+                    url=url[0],
+                    srd=srd))
+
+    return Markup(" ".join(links))
+
+
+@decemvirate_flask.template_global()
 def linkify_op(operation: str, query: str) -> Markup:
     """! Format links to another database operation.
     """
