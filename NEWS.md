@@ -1,3 +1,21 @@
+Changes in Decemvirate version 0.8.0
+====================================
+
+This version of Decemvirate changes how links to the System Reference
+Documents are displayed on both the web interface and the command line
+interface.
+
+On the web interface, the links are now implemented as subscripts, instead
+of directly linking the name of the item. That way, multiple SRDs can be
+linked to. On the command line, the URLs are now displayed one after another
+without giving them a specific tag.
+
+To make this work, the database had to be changed a bit: instead of the
+GermanFeats and GermanSpells table including columns for URLs, there's now
+two new tables: GermanFeatURLs and GermanSpellURLs. Those can contain an
+arbitrary number of URLs per feat or spell, for a true one-to-many relation.
+
+
 Changes in Decemvirate version 0.7.0
 ====================================
 

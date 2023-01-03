@@ -1,3 +1,8 @@
+Monday, 2023-01-03 (Version 0.8.0)
+	- Changed displaying of SRD URLs on command line
+	- Changed displaying of SRD URLs in web service
+	- Bumped required database version to >= 0.8.0
+
 Monday, 2023-01-02 (Version 0.7.0)
 	- Styled HTML with Tailwind CSS
 	- Fixed a bug that prevented "web by default" to work
