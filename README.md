@@ -201,6 +201,49 @@ Command line examples
 - `decemvirate -d data/pathfinder.sqlite findspellbyclass Hexenmeister`
 - `decemvirate -d data/pathfinder.sqlite findspellbyclass Jäger 2`
 
+Web server usage
+----------------
+
+When running Decemvirate as a webserver using, for example
+
+```
+decemvirate -d data/pathfinder.sqlite web -p 31000
+```
+
+and then opening http://localhost:31000/ with a web browser, Decemvirate can be
+used to continuously query the database.
+
+This is how it'll look:
+
+![Screenshot of a web page showing Decemvirate. On the top, radio buttons can be
+set to select which operation (for example, searching for feat by German name)
+is used, and below that, a text field allows the search query to be entered. In
+the middle, the results would show, currently empty. At the bottom, the current
+Decemvirate version is displayed.](images/webserver_example_01.png)
+
+You can then, for example, click "Deutsches Talent" to search for a German feat
+and then enter "abhä", and it will list all matching feats with their metadata.
+
+![Similar screenshot like above, but now the results of the described query are
+shown: three feats are listed in shadowed boxes in the middle of the page. Each
+contain a small description, name of the book and page where it is found and
+links to several websites with more in-depth description of the
+feat.](images/webserver_example_02.png)
+
+The "5footstep", "d20pfsrd" and "aonprd" links are clickable and lead to the
+respective SRDs on the internet, directly to the pages of each feat.
+
+When clicking on one of the book links, for example "ABR V", it will lead
+to a different Decemvirate query for that book.
+
+![The website now shows the results of the query for the book "ABR V". There
+is one result shown in the middle of the page, with further information on that
+book.](images/webserver_example_03.png)
+
+As can be seen, Decemvirate can thus be used to easily search for several key
+concepts of the Pathfinder 1e system and receive information about them in both
+English and German.
+
 Web server example files
 ------------------------
 
