@@ -41,6 +41,19 @@ In the former case, single Pathfinder database queries are issued and the
 results printed to stdout. In the latter case, a whole web service runs
 continuously to allow for easy database querying over a period of time.
 
+Why?
+----
+
+Decemvirate was born out of the COVID pandemic, when all my games moved to
+online play via FoundryVTT.
+
+We're playing in German, but unfortunately, not all feats and spells in the
+Pathfinder 1e system in FoundryVT have been translated to German. Additionally,
+sometimes we wanted to look up a complete description of a spell or a feat, and
+also see how it was phrased in the original (as opposed to the German
+translation). And sometimes I was GM'ing a module that was never translated into
+German to begin with, so had to do the translation work myself.
+
 Installation
 ------------
 
