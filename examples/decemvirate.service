@@ -1,0 +1,25 @@
+[Unit]
+Description=Decemvirate
+After=network.target
+
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+
+WorkingDirectory=/var/www/decemvirate
+
+Environment="PYTHON=python3"
+
+ExecStart=make arg="-d data/pathfinder.sqlite web -l :: -p 31000"
+ExecStopPost=/usr/bin/git clean -fxdf
+
+User=foundry
+Group=foundry
+
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
