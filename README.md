@@ -46,10 +46,10 @@ Why?
 ----
 
 Decemvirate was born out of the COVID pandemic, when all my games moved to
-online play via FoundryVTT.
+online play via [FoundryVTT](https://foundryvtt.com/).
 
 We're playing in German, but unfortunately, not all feats and spells in the
-Pathfinder 1e system in FoundryVT have been translated to German. Additionally,
+Pathfinder 1e system in FoundryVTT have been translated to German. Additionally,
 sometimes we wanted to look up a complete description of a spell or a feat, and
 also see how it was phrased in the original (as opposed to the German
 translation). And sometimes I was GM'ing a module that was never translated into
@@ -75,18 +75,18 @@ source env/bin/activate
 pip install .
 ```
 
-Optionally, the included Makefile can be leveraged to install and run
-Decemvirate from a virtualenv. Please read the Makefile itself to understand
-what it can do.
+Optionally, the included [Makefile](Makefile) can be leveraged to install and
+run Decemvirate from a virtualenv. Please read the [Makefile](Makefile) itself
+to understand what it can do.
 
-One example of using the Makefile:
+One example of using the [Makefile](Makefile):
 
 ```
 PYTHON=python3 make arg="-d data/pathfinder.sqlite web -l :: -p 31000"
 ```
 
 This would install Decemvirate into a virtualenv and run it as a webserver,
-using "python3" the Python environment.
+using "python3" as the Python environment.
 
 
 Command line usage
