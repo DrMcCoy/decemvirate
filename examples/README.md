@@ -1,3 +1,6 @@
+Decemvirate example files
+=========================
+
 These are example config files for running decemvirate on a dedicated server.
 
 Please note that these are only example files and not meant to be used

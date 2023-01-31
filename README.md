@@ -1,6 +1,8 @@
 Decemvirate README
 ==================
 
+[TOC]
+
 Decemvirate is a free/libre and open source (FLOSS) helper program for the
 Pathfinder tabletop roleplaying game, licensed under the terms of the
 [GNU Affero General Public License version 3](https://www.gnu.org/licenses/agpl.html)
@@ -229,20 +231,21 @@ used to continuously query the database.
 
 This is how it'll look:
 
-![Screenshot of a web page showing Decemvirate. On the top, radio buttons can be
-set to select which operation (for example, searching for feat by German name)
-is used, and below that, a text field allows the search query to be entered. In
-the middle, the results would show, currently empty. At the bottom, the current
-Decemvirate version is displayed.](images/webserver_example_01.png)
+![Screenshot of a web page showing Decemvirate.](images/webserver_example_01.png)
+
+On the top, radio buttons can be set to select which operation (for example,
+searching for feat by German name) is used, and below that, a text field allows
+the search query to be entered. In the middle, the results would show, currently
+empty. At the bottom, the current Decemvirate version is displayed.
 
 You can then, for example, click "Deutsches Talent" to search for a German feat
 and then enter "abhä", and it will list all matching feats with their metadata.
 
-![Similar screenshot like above, but now the results of the described query are
-shown: three feats are listed in shadowed boxes in the middle of the page. Each
+![Screenshot of Decemvirate after the query has been entered.](images/webserver_example_02.png)
+
+Three feats are now listed in shadowed boxes in the middle of the page. Each
 contain a small description, name of the book and page where it is found and
-links to several websites with more in-depth description of the
-feat.](images/webserver_example_02.png)
+links to several websites with more in-depth description of the feat.
 
 The "5footstep", "d20pfsrd" and "aonprd" links are clickable and lead to the
 respective SRDs on the internet, directly to the pages of each feat.
@@ -250,9 +253,11 @@ respective SRDs on the internet, directly to the pages of each feat.
 When clicking on one of the book links, for example "ABR V", it will lead
 to a different Decemvirate query for that book.
 
-![The website now shows the results of the query for the book "ABR V". There
-is one result shown in the middle of the page, with further information on that
-book.](images/webserver_example_03.png)
+![Screenshot of Decemvirate after the second query.](images/webserver_example_03.png)
+
+The website now shows the results of the query for the book "ABR V". There is
+one result shown in the middle of the page, with further information on that
+book.
 
 As can be seen, Decemvirate can thus be used to easily search for several key
 concepts of the Pathfinder 1e system and receive information about them in both
