@@ -16,6 +16,31 @@ binary blob, remove the relevant line in .gitattributes.
 [Decemvirate itself can be found on GitHub here.](https://github.com/DrMcCoy/decemvirate)
 
 
+What does Decemvirate do?
+-------------------------
+
+Decemvirate's main use is to translate Pathfinder 1e terminology between
+English and German. Specifically, it can search and translate
+
+- feat names
+- spell names
+- publication (book) names
+
+You can search either the English or the German name of one of these and it
+will tell you the translated counterpart.
+
+Additionally, Decemvirate contains various metadata associated with each of
+these concepts. For example, for a publication, it also shows the ISBN. For a
+feat, it shows a short description. For a spell, it know which classes have that
+spell in their spell book. It also knows in which book the feat or spell can be
+found, and displays URLs to various additional resources on the internet.
+
+Decemvirate can run both as a command line program and as a web application.
+
+In the former case, single Pathfinder database queries are issued and the
+results printed to stdout. In the latter case, a whole web service runs
+continuously to allow for easy database querying over a period of time.
+
 Installation
 ------------
 
@@ -36,14 +61,22 @@ source env/bin/activate
 pip install .
 ```
 
-Usage
------
+Optionally, the included Makefile can be leveraged to install and run
+Decemvirate from a virtualenv. Please read the Makefile itself to understand
+what it can do.
 
-Decemvirate can run both as a command line program and as a web application.
+One example of using the Makefile:
 
-In the former case, single Pathfinder database queries are issued and the
-results printed to stdout. In the latter case, a whole web service runs
-continously to allow for easy database querying over a period of time.
+```
+PYTHON=python3 make arg="-d data/pathfinder.sqlite web -l :: -p 31000"
+```
+
+This would install Decemvirate into a virtualenv and run it as a webserver,
+using "python3" the Python environment.
+
+
+Command line usage
+------------------
 
 ```
 usage: decemvirate [-h] [-v] -d DATABASE
@@ -150,7 +183,8 @@ options:
 
 ```
 
-Examples:
+Command line examples
+---------------------
 
 - `decemvirate -d data/pathfinder.sqlite web`
 - `decemvirate -d data/pathfinder.sqlite finddepub EXP`
@@ -166,3 +200,10 @@ Examples:
 - `decemvirate -d data/pathfinder.sqlite finddefeat manyshot`
 - `decemvirate -d data/pathfinder.sqlite findspellbyclass Hexenmeister`
 - `decemvirate -d data/pathfinder.sqlite findspellbyclass Jäger 2`
+
+Web server example files
+------------------------
+
+The examples/ directory contains example configuration files to run Decemvirate
+continuously as a web service on a dedicated server. See the README.md in the
+examples/ directory for details.
