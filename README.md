@@ -260,6 +260,7 @@ English and German.
 Web server example files
 ------------------------
 
-The examples/ directory contains example configuration files to run Decemvirate
-continuously as a web service on a dedicated server. See the README.md in the
-examples/ directory for details.
+The [examples/ directory](examples/) contains example configuration files to run
+Decemvirate continuously as a web service on a dedicated server. See the
+[README.md](examples/README.md) in the [examples/ directory](examples/) for
+details.
