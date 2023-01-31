@@ -1,3 +1,11 @@
+Changes in Decemvirate version 0.8.1
+====================================
+
+This version of Decemvirate fleshes out the documentation a bit.
+
+Otherwise, Decemvirate is unchanged. No new features have been added.
+
+
 Changes in Decemvirate version 0.8.0
 ====================================
 
