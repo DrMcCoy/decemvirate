@@ -1,3 +1,13 @@
+Changes in Decemvirate version 0.8.2
+====================================
+
+This version of Decemvirate fixes the radio button IDs in the web interface.
+Consequently, clicking on the corresponding text now selects the correct
+radio button.
+
+Otherwise, Decemvirate is unchanged. No new features have been added.
+
+
 Changes in Decemvirate version 0.8.1
 ====================================
 
